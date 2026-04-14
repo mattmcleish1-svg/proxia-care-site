@@ -1,0 +1,1137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Proxia Care — Senior Live-In Home Monitoring · Greater Phoenix, AZ</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Lora:ital,wght@0,400;0,600;0,700;1,400;1,600&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --teal: #5BBFB5;
+  --teal-dark: #3A9E94;
+  --teal-deep: #1E7A72;
+  --teal-light: #8DDBD4;
+  --teal-pale: #EAF8F6;
+  --coral: #F07C6B;
+  --coral-dark: #D45F4D;
+  --coral-pale: #FEF0ED;
+  --cream: #FAF6F0;
+  --cream-dark: #F0EAE0;
+  --white: #FFFFFF;
+  --text: #1C2B29;
+  --text-mid: #3D5552;
+  --text-light: #7A9694;
+  --border: #D8EDEB;
+  --radius: 10px;
+  --radius-lg: 18px;
+  --radius-xl: 26px;
+}
+html { scroll-behavior: smooth; }
+body { font-family: 'Nunito', sans-serif; background: var(--cream); color: var(--text); line-height: 1.6; overflow-x: hidden; }
+h1,h2,h3 { font-family: 'Lora', serif; line-height: 1.22; }
+
+/* ── NAV ── */
+nav {
+  position: fixed; top:0; left:0; right:0; z-index:200;
+  background: var(--white);
+  border-bottom: 1px solid var(--border);
+  padding: 0 6%;
+  display: flex; align-items: center; justify-content: space-between;
+  height: 72px;
+}
+.nav-logo-svg { height: 44px; width: auto; }
+.nav-links { display:flex; align-items:center; gap:30px; list-style:none; }
+.nav-links a { color:var(--text-mid); text-decoration:none; font-size:15px; font-weight:700; transition:color .2s; }
+.nav-links a:hover { color:var(--teal-dark); }
+.nav-cta {
+  background: var(--coral) !important; color: var(--white) !important;
+  padding: 11px 26px !important; border-radius: 40px !important;
+  font-weight: 800 !important; font-size: 14px !important;
+  transition: background .2s, transform .15s !important;
+}
+.nav-cta:hover { background: var(--coral-dark) !important; transform: translateY(-1px); }
+
+/* ── HERO ── */
+.hero {
+  min-height: 100vh;
+  background: linear-gradient(140deg, #1E7A72 0%, #3A9E94 40%, #5BBFB5 80%, #7DCFC8 100%);
+  display: grid; grid-template-columns: 1fr 1fr;
+  padding-top: 72px; position: relative; overflow: hidden;
+}
+.hero-bg-circle {
+  position:absolute; border-radius:50%; pointer-events:none;
+}
+.hero-bg-circle.c1 { width:700px; height:700px; top:-200px; right:-150px; background:rgba(255,255,255,0.05); }
+.hero-bg-circle.c2 { width:400px; height:400px; bottom:-100px; left:30%; background:rgba(255,255,255,0.04); }
+.hero-wave {
+  position:absolute; bottom:-2px; left:0; right:0; z-index:1; line-height:0;
+}
+.hero-content {
+  padding: 70px 4% 120px 8%;
+  display: flex; flex-direction:column; justify-content:center;
+  position: relative; z-index:2;
+}
+.hero-eyebrow {
+  display:inline-flex; align-items:center; gap:10px;
+  background:rgba(255,255,255,0.18); border:1px solid rgba(255,255,255,0.32);
+  border-radius:40px; padding:7px 18px;
+  color:var(--white); font-size:13px; font-weight:800; letter-spacing:.3px;
+  margin-bottom:28px; width:fit-content;
+}
+.live-pulse { width:7px; height:7px; border-radius:50%; background:#ADFFF8; animation:pulse 2s infinite; }
+@keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:.5;transform:scale(.8)} }
+.hero h1 { font-size:clamp(34px,4vw,56px); color:var(--white); font-weight:700; margin-bottom:18px; letter-spacing:-.5px; }
+.hero h1 em { font-style:italic; color:#FFFAB0; }
+.hero-tagline-box {
+  background:rgba(255,255,255,0.14); border-left:3px solid #FFFAB0;
+  border-radius:0 var(--radius) var(--radius) 0;
+  padding:14px 20px; margin-bottom:24px; max-width:460px;
+}
+.hero-tagline-box p { font-family:'Lora',serif; font-size:17px; color:#FFFAB0; font-style:italic; line-height:1.5; }
+.hero-sub { color:rgba(255,255,255,.85); font-size:17px; font-weight:600; max-width:450px; margin-bottom:38px; line-height:1.75; }
+.hero-actions { display:flex; align-items:center; gap:16px; flex-wrap:wrap; }
+.btn-primary {
+  background:var(--coral); color:var(--white);
+  padding:15px 32px; border-radius:40px;
+  font-family:'Nunito',sans-serif; font-weight:800; font-size:16px;
+  border:none; cursor:pointer; text-decoration:none; display:inline-block;
+  transition:background .2s,transform .15s,box-shadow .2s;
+  box-shadow:0 4px 20px rgba(240,124,107,.45);
+}
+.btn-primary:hover { background:var(--coral-dark); transform:translateY(-2px); box-shadow:0 8px 28px rgba(240,124,107,.5); }
+.btn-outline-white {
+  background:rgba(255,255,255,.16); color:var(--white);
+  padding:14px 26px; border-radius:40px;
+  font-family:'Nunito',sans-serif; font-weight:700; font-size:15px;
+  border:1.5px solid rgba(255,255,255,.4);
+  cursor:pointer; text-decoration:none; display:inline-block;
+  transition:background .2s;
+}
+.btn-outline-white:hover { background:rgba(255,255,255,.26); }
+.hero-trust {
+  display:flex; align-items:center; gap:24px; flex-wrap:wrap;
+  margin-top:44px; padding-top:30px; border-top:1px solid rgba(255,255,255,.18);
+}
+.trust-item { text-align:center; }
+.trust-num { font-family:'Lora',serif; font-size:26px; font-weight:700; color:#FFFAB0; display:block; line-height:1; margin-bottom:4px; }
+.trust-label { font-size:11px; color:rgba(255,255,255,.6); display:block; font-weight:700; }
+.trust-div { width:1px; height:34px; background:rgba(255,255,255,.18); }
+
+/* Hero illustration panel */
+.hero-visual { display:flex; align-items:center; justify-content:center; padding:60px 6% 120px 2%; position:relative; z-index:2; }
+.hero-scene { position:relative; width:100%; max-width:380px; }
+
+/* ── LIFESTYLE SCENES (SVG illustrations) ── */
+.scene-card {
+  background:rgba(255,255,255,.12); border:1px solid rgba(255,255,255,.24);
+  border-radius:var(--radius-xl); padding:0; overflow:hidden;
+  backdrop-filter:blur(12px);
+}
+.scene-caption {
+  padding:16px 20px;
+  display:flex; align-items:center; gap:10px;
+}
+.scene-caption-text { font-size:13px; font-weight:700; color:var(--white); }
+.scene-caption-sub { font-size:11px; color:rgba(255,255,255,.6); font-weight:600; margin-top:1px; }
+
+.float-notif {
+  position:absolute; background:var(--white);
+  border-radius:14px; padding:13px 17px;
+  box-shadow:0 10px 36px rgba(0,0,0,.2);
+}
+.float-notif.n1 { top:-16px; right:-20px; min-width:170px; animation:floatA 4s ease-in-out infinite; }
+.float-notif.n2 { bottom:-10px; left:-20px; min-width:175px; animation:floatB 5s ease-in-out infinite; }
+@keyframes floatA { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-7px)} }
+@keyframes floatB { 0%,100%{transform:translateY(0)} 50%{transform:translateY(5px)} }
+.fn-label { font-size:11px; color:var(--text-light); font-weight:700; margin-bottom:3px; }
+.fn-val { font-family:'Lora',serif; font-size:16px; color:var(--teal-deep); font-weight:700; }
+.fn-badge {
+  display:inline-block; margin-top:5px;
+  font-size:11px; font-weight:800; padding:3px 11px; border-radius:20px;
+  background:var(--teal-pale); color:var(--teal-deep);
+}
+.fn-badge.warn { background:var(--coral-pale); color:var(--coral-dark); }
+
+/* ── STATS STRIP ── */
+.stats-strip {
+  background:var(--teal-deep);
+  display:grid; grid-template-columns:repeat(3,1fr);
+}
+.stat-item {
+  padding:40px 36px; text-align:center;
+  border-right:1px solid rgba(255,255,255,.1);
+}
+.stat-item:last-child { border-right:none; }
+.stat-num { font-family:'Lora',serif; font-size:50px; font-weight:700; color:#FFFAB0; line-height:1; display:block; margin-bottom:10px; }
+.stat-text { color:rgba(255,255,255,.65); font-size:14px; font-weight:700; line-height:1.55; }
+
+/* ── GENERIC SECTION ── */
+section { padding:90px 8%; }
+.section-eyebrow {
+  font-size:12px; font-weight:800; letter-spacing:2.5px; text-transform:uppercase;
+  color:var(--teal-dark); margin-bottom:14px;
+  display:flex; align-items:center; gap:10px;
+}
+.section-eyebrow::before { content:''; display:block; width:22px; height:3px; background:var(--teal); border-radius:2px; }
+.section-title { font-size:clamp(28px,3vw,42px); color:var(--text); font-weight:700; max-width:580px; margin-bottom:14px; }
+.section-title em { font-style:italic; color:var(--teal-dark); }
+.section-subtitle { font-size:16px; color:var(--text-mid); max-width:540px; font-weight:600; line-height:1.75; margin-bottom:52px; }
+
+/* ── LIFESTYLE STRIP (how it feels) ── */
+.lifestyle-strip { background:var(--white); padding:80px 8%; }
+.lifestyle-grid {
+  display:grid; grid-template-columns:repeat(3,1fr); gap:24px; margin-top:52px;
+}
+.lifestyle-card {
+  border-radius:var(--radius-lg); overflow:hidden;
+  border:1.5px solid var(--border);
+  transition:transform .2s, border-color .2s;
+}
+.lifestyle-card:hover { transform:translateY(-5px); border-color:var(--teal-light); }
+.lifestyle-card .lc-scene { width:100%; display:block; background:var(--cream); }
+.lifestyle-card .lc-body { padding:22px 24px; }
+.lifestyle-card .lc-title { font-size:16px; font-weight:800; color:var(--text); margin-bottom:6px; }
+.lifestyle-card .lc-desc { font-size:14px; color:var(--text-mid); line-height:1.6; font-weight:600; }
+
+/* ── HOW IT WORKS ── */
+.how-section { background:var(--cream); }
+.steps-row { display:grid; grid-template-columns:repeat(3,1fr); gap:22px; position:relative; }
+.steps-row::before {
+  content:''; position:absolute;
+  top:48px; left:calc(16.6% + 24px); right:calc(16.6% + 24px); height:2px;
+  background:repeating-linear-gradient(to right,var(--teal-light) 0,var(--teal-light) 8px,transparent 8px,transparent 18px);
+}
+.step {
+  background:var(--white); border:1.5px solid var(--border);
+  border-radius:var(--radius-lg); padding:38px 28px; text-align:center;
+  transition:border-color .2s,transform .2s;
+}
+.step:hover { border-color:var(--teal-light); transform:translateY(-4px); }
+.step-num {
+  width:56px; height:56px; border-radius:50%; background:var(--teal);
+  display:flex; align-items:center; justify-content:center;
+  margin:0 auto 20px; font-size:20px; font-weight:900; color:var(--white);
+  font-family:'Lora',serif; position:relative; z-index:1;
+}
+.step h3 { font-size:18px; color:var(--text); margin-bottom:10px; font-family:'Nunito',sans-serif; font-weight:800; }
+.step p { font-size:14px; color:var(--text-mid); line-height:1.65; font-weight:600; }
+
+/* ── ALERTS ── */
+.alerts-section { background:var(--white); }
+.alerts-layout { display:grid; grid-template-columns:1fr 1fr; gap:60px; align-items:center; }
+.alert-cards { display:flex; flex-direction:column; gap:14px; }
+.afc {
+  background:var(--cream); border:1.5px solid var(--border);
+  border-radius:var(--radius-lg); padding:22px 26px;
+  display:flex; align-items:flex-start; gap:16px;
+  transition:border-color .2s,transform .2s;
+}
+.afc:hover { border-color:var(--teal-light); transform:translateX(4px); }
+.afc.urgent { background:var(--coral-pale); border-color:rgba(240,124,107,.35); }
+.afc.urgent:hover { border-color:var(--coral); }
+.afc-icon {
+  width:46px; height:46px; flex-shrink:0; border-radius:12px;
+  display:flex; align-items:center; justify-content:center; font-size:20px;
+  background:var(--teal-pale);
+}
+.afc-icon.r { background:var(--coral-pale); }
+.afc-icon.y { background:#FFF8DC; }
+.afc-title { font-size:15px; font-weight:800; color:var(--text); margin-bottom:4px; }
+.afc-desc { font-size:13px; color:var(--text-mid); line-height:1.55; font-weight:600; }
+.afc-badge {
+  display:inline-block; margin-top:7px;
+  font-size:11px; font-weight:800; padding:3px 12px; border-radius:20px;
+  background:var(--teal-pale); color:var(--teal-deep); letter-spacing:.3px;
+}
+.afc-badge.r { background:var(--coral-pale); color:var(--coral-dark); }
+.afc-badge.y { background:#FFF8DC; color:#7A5E00; }
+
+/* ── REPORTS ── */
+.report-section { background:var(--cream); }
+.report-layout { display:grid; grid-template-columns:1fr 1fr; gap:60px; align-items:center; }
+.report-card { background:var(--white); border:1.5px solid var(--border); border-radius:var(--radius-xl); overflow:hidden; }
+.report-head { background:var(--teal); padding:22px 28px; display:flex; align-items:center; justify-content:space-between; }
+.rh-title { font-family:'Lora',serif; font-size:18px; color:var(--white); font-weight:700; }
+.rh-sub { font-size:12px; color:rgba(255,255,255,.7); margin-top:3px; font-weight:700; }
+.rh-icon { font-size:26px; }
+.report-body { padding:22px 28px; display:flex; flex-direction:column; gap:14px; }
+.rm { display:flex; align-items:center; gap:14px; }
+.rm-icon { font-size:20px; flex-shrink:0; }
+.rm-label { font-size:12px; font-weight:800; color:var(--text-mid); }
+.rm-val { font-size:15px; font-weight:800; color:var(--text); margin-top:1px; }
+.rm-bar-bg { flex:1; height:7px; background:var(--border); border-radius:4px; overflow:hidden; }
+.rm-bar { height:100%; border-radius:4px; background:var(--teal); }
+.rm-bar.g { background:#22c55e; }
+.rm-bar.w { background:var(--coral); }
+.report-foot { background:var(--teal-pale); border-top:1px solid var(--border); padding:14px 28px; font-size:13px; color:var(--teal-deep); font-weight:800; }
+.rb-list { display:flex; flex-direction:column; gap:14px; }
+.rb {
+  display:flex; align-items:flex-start; gap:13px;
+  padding:16px 20px; background:var(--teal-pale);
+  border-radius:var(--radius-lg); border-left:4px solid var(--teal);
+}
+.rb-icon { font-size:20px; flex-shrink:0; margin-top:2px; }
+.rb-title { font-size:15px; font-weight:800; color:var(--text); margin-bottom:3px; }
+.rb-desc { font-size:13px; color:var(--text-mid); line-height:1.55; font-weight:600; }
+
+/* ── TAGLINE BANNER ── */
+.tagline-banner {
+  background:var(--teal); padding:80px 8%; text-align:center; position:relative; overflow:hidden;
+}
+.tagline-banner::before {
+  content:''; position:absolute; top:-100px; left:50%; transform:translateX(-50%);
+  width:600px; height:600px; border-radius:50%; background:rgba(255,255,255,.05); pointer-events:none;
+}
+.tq { font-family:'Lora',serif; font-size:clamp(24px,3.2vw,42px); color:var(--white); font-style:italic; font-weight:600; max-width:800px; margin:0 auto 12px; line-height:1.35; }
+.tq em { font-style:normal; color:#FFFAB0; }
+.tq-sub { font-size:17px; color:rgba(255,255,255,.75); margin-bottom:38px; font-weight:700; }
+.btn-white-solid {
+  background:var(--white); color:var(--teal-deep);
+  padding:16px 38px; border-radius:40px;
+  font-family:'Nunito',sans-serif; font-weight:800; font-size:16px;
+  border:none; cursor:pointer; text-decoration:none; display:inline-block;
+  transition:transform .15s,box-shadow .2s;
+  box-shadow:0 4px 18px rgba(0,0,0,.12);
+}
+.btn-white-solid:hover { transform:translateY(-2px); box-shadow:0 8px 28px rgba(0,0,0,.18); }
+
+/* ── BENEFITS ── */
+.benefits-section { background:var(--white); }
+.benefits-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:20px; }
+.bc {
+  background:var(--cream); border:1.5px solid var(--border);
+  border-radius:var(--radius-lg); padding:32px 26px;
+  transition:border-color .25s,transform .2s;
+}
+.bc:hover { border-color:var(--teal-light); transform:translateY(-4px); }
+.bc-icon { width:52px; height:52px; border-radius:14px; background:var(--teal-pale); display:flex; align-items:center; justify-content:center; font-size:22px; margin-bottom:18px; }
+.bc-icon.o { background:var(--coral-pale); }
+.bc h3 { font-size:17px; color:var(--text); margin-bottom:9px; font-family:'Nunito',sans-serif; font-weight:800; }
+.bc p { font-size:14px; color:var(--text-mid); line-height:1.65; font-weight:600; }
+
+/* ── MID CTA ── */
+.mid-cta { background:var(--coral); padding:60px 8%; display:grid; grid-template-columns:1fr auto; align-items:center; gap:40px; }
+.mid-cta h2 { font-size:clamp(22px,2.8vw,36px); color:var(--white); margin-bottom:10px; }
+.mid-cta p { color:rgba(255,255,255,.82); font-size:16px; max-width:500px; font-weight:700; }
+
+/* ── TESTIMONIALS ── */
+.testimonials-section { background:var(--cream); }
+.testi-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:22px; }
+.testi {
+  background:var(--white); border:1.5px solid var(--border);
+  border-radius:var(--radius-lg); padding:30px;
+  transition:border-color .2s;
+}
+.testi:hover { border-color:var(--teal-light); }
+.testi-scene { width:100%; border-radius:10px; margin-bottom:20px; background:var(--cream-dark); display:block; }
+.quote-mark { font-family:'Lora',serif; font-size:64px; color:var(--cream-dark); line-height:.8; display:block; margin-bottom:8px; }
+.stars { display:flex; gap:3px; margin-bottom:12px; }
+.star { color:#FFBC00; font-size:14px; }
+.testi-text { font-size:15px; color:var(--text-mid); line-height:1.7; margin-bottom:22px; font-weight:600; }
+.testi-author { display:flex; align-items:center; gap:12px; border-top:1px solid var(--border); padding-top:16px; }
+.author-av { width:42px; height:42px; border-radius:50%; background:var(--teal); display:flex; align-items:center; justify-content:center; font-weight:800; font-size:13px; color:var(--white); flex-shrink:0; }
+.author-name { font-weight:800; font-size:14px; color:var(--text); }
+.author-role { font-size:12px; color:var(--text-light); margin-top:1px; font-weight:700; }
+
+/* ── FORM SECTION ── */
+.form-section { background:var(--white); padding:90px 8%; display:grid; grid-template-columns:1fr 1fr; gap:80px; align-items:start; }
+.form-left { position:sticky; top:90px; }
+.checklist { list-style:none; margin-top:30px; display:flex; flex-direction:column; gap:13px; }
+.checklist li { display:flex; align-items:flex-start; gap:12px; font-size:15px; color:var(--text-mid); font-weight:700; }
+.chk { width:23px; height:23px; border-radius:50%; background:var(--teal); display:flex; align-items:center; justify-content:center; font-size:11px; color:var(--white); font-weight:800; flex-shrink:0; margin-top:1px; }
+.form-box { background:var(--cream); border:1.5px solid var(--border); border-radius:var(--radius-xl); padding:42px; }
+.form-title { font-family:'Lora',serif; font-size:25px; color:var(--text); margin-bottom:6px; font-weight:700; }
+.form-subtitle { font-size:14px; color:var(--text-light); margin-bottom:28px; font-weight:700; }
+.form-group { margin-bottom:16px; }
+.form-label { display:block; font-size:13px; font-weight:800; color:var(--text); margin-bottom:6px; }
+.form-input,.form-select,.form-textarea {
+  width:100%; padding:12px 15px; border:1.5px solid var(--border); border-radius:var(--radius);
+  font-family:'Nunito',sans-serif; font-size:15px; font-weight:600; color:var(--text);
+  background:var(--white); transition:border-color .2s; outline:none; appearance:none;
+}
+.form-input:focus,.form-select:focus,.form-textarea:focus { border-color:var(--teal); }
+.form-textarea { min-height:90px; resize:vertical; }
+.form-row { display:grid; grid-template-columns:1fr 1fr; gap:13px; }
+.form-submit {
+  width:100%; background:var(--coral); color:var(--white);
+  padding:16px; border:none; border-radius:40px;
+  font-family:'Nunito',sans-serif; font-size:17px; font-weight:800;
+  cursor:pointer; margin-top:6px;
+  transition:background .2s,transform .15s;
+  box-shadow:0 4px 20px rgba(240,124,107,.35);
+}
+.form-submit:hover { background:var(--coral-dark); transform:translateY(-1px); }
+.form-privacy { text-align:center; font-size:12px; color:var(--text-light); margin-top:13px; font-weight:700; }
+.success-msg { display:none; text-align:center; padding:40px 20px; }
+.success-check { width:66px; height:66px; border-radius:50%; background:var(--teal-pale); border:2px solid var(--teal-light); margin:0 auto 18px; display:flex; align-items:center; justify-content:center; font-size:26px; color:var(--teal); }
+.success-msg h3 { font-size:23px; color:var(--text); margin-bottom:10px; }
+.success-msg p { font-size:15px; color:var(--text-mid); font-weight:700; }
+
+/* ── FOOTER ── */
+footer { background:var(--text); padding:60px 8% 36px; }
+.footer-top { display:grid; grid-template-columns:2fr 1fr 1fr; gap:60px; margin-bottom:44px; padding-bottom:44px; border-bottom:1px solid rgba(255,255,255,.1); }
+.footer-tagline-text { font-family:'Lora',serif; font-size:13px; font-style:italic; color:#FFFAB0; margin-bottom:10px; }
+.footer-desc { font-size:14px; color:rgba(255,255,255,.4); line-height:1.7; max-width:280px; font-weight:700; }
+.footer-col h4 { font-size:11px; letter-spacing:2px; text-transform:uppercase; color:rgba(255,255,255,.3); font-weight:800; margin-bottom:18px; }
+.footer-col ul { list-style:none; display:flex; flex-direction:column; gap:10px; }
+.footer-col a { font-size:14px; color:rgba(255,255,255,.5); text-decoration:none; font-weight:700; transition:color .2s; }
+.footer-col a:hover { color:var(--white); }
+.footer-bottom { display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:12px; }
+.footer-copy,.footer-phx { font-size:13px; color:rgba(255,255,255,.22); font-weight:700; }
+
+/* ── ANIM ── */
+.reveal { opacity:0; transform:translateY(20px); transition:opacity .6s ease,transform .6s ease; }
+.reveal.visible { opacity:1; transform:translateY(0); }
+
+/* ── RESPONSIVE ── */
+@media(max-width:960px){
+  .hero,.steps-row,.benefits-grid,.testi-grid,.form-section,.alerts-layout,.report-layout,.lifestyle-grid { grid-template-columns:1fr; }
+  .hero-visual { display:none; }
+  .hero-content { padding:60px 6%; }
+  .mid-cta { grid-template-columns:1fr; }
+  .stats-strip { grid-template-columns:1fr; }
+  .footer-top { grid-template-columns:1fr; gap:28px; }
+  .steps-row::before { display:none; }
+  nav .nav-links li:not(:last-child) { display:none; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV with SVG Logo -->
+<nav>
+  <svg class="nav-logo-svg" viewBox="0 0 260 60" xmlns="http://www.w3.org/2000/svg">
+    <!-- Icon: coral ring + teal circle + white house with heart windows -->
+    <circle cx="30" cy="30" r="28" fill="#F07C6B"/>
+    <circle cx="30" cy="30" r="22" fill="#5BBFB5"/>
+    <!-- House shape -->
+    <polygon points="30,10 48,24 47,24 47,46 13,46 13,24 12,24" fill="white"/>
+    <!-- Door -->
+    <rect x="25" y="36" width="10" height="10" rx="1" fill="#5BBFB5"/>
+    <!-- Left window with heart -->
+    <rect x="14" y="28" width="10" height="8" rx="1.5" fill="#5BBFB5"/>
+    <text x="19" y="35.5" text-anchor="middle" font-size="7" fill="#F07C6B">♥</text>
+    <!-- Right window with heart -->
+    <rect x="26" y="28" width="10" height="8" rx="1.5" fill="#5BBFB5"/>
+    <text x="31" y="35.5" text-anchor="middle" font-size="7" fill="#F07C6B">♥</text>
+    <!-- Wordmark -->
+    <text x="68" y="25" font-family="'Nunito',sans-serif" font-size="22" font-weight="900" fill="#3A9E94">proxia</text>
+    <text x="68" y="50" font-family="'Nunito',sans-serif" font-size="22" font-weight="900" fill="#F07C6B">care</text>
+  </svg>
+  <ul class="nav-links">
+    <li><a href="#lifestyle">Our Service</a></li>
+    <li><a href="#alerts">Alerts</a></li>
+    <li><a href="#reports">Reports</a></li>
+    <li><a href="#testimonials">Families</a></li>
+    <li><a href="#consultation" class="nav-cta">Free Consultation</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg-circle c1"></div>
+  <div class="hero-bg-circle c2"></div>
+
+  <div class="hero-content">
+    <div class="hero-eyebrow"><div class="live-pulse"></div>Live Senior Home Monitoring · Greater Phoenix, AZ</div>
+    <h1>Always Home.<br><em>Always Safe.</em><br>Always Informed.</h1>
+    <div class="hero-tagline-box">
+      <p>"Mom always says she's OK —<br>now you can <span style="color:#FFFAB0;font-style:normal;">know.</span>"</p>
+    </div>
+    <p class="hero-sub">Proxia Care delivers professional 24/7 in-home monitoring so Phoenix-area seniors keep their independence — and your family gets real answers, every single day.</p>
+    <div class="hero-actions">
+      <a href="#consultation" class="btn-primary">Book a Free Consultation</a>
+      <a href="#lifestyle" class="btn-outline-white">See How It Works →</a>
+    </div>
+    <div class="hero-trust">
+      <div class="trust-item"><span class="trust-num">1,800+</span><span class="trust-label">Phoenix Families</span></div>
+      <div class="trust-div"></div>
+      <div class="trust-item"><span class="trust-num">24/7</span><span class="trust-label">Live Monitoring</span></div>
+      <div class="trust-div"></div>
+      <div class="trust-item"><span class="trust-num">&lt;60s</span><span class="trust-label">Alert Response</span></div>
+      <div class="trust-div"></div>
+      <div class="trust-item"><span class="trust-num">4.9★</span><span class="trust-label">Family Rated</span></div>
+    </div>
+  </div>
+
+  <div class="hero-visual">
+    <div class="hero-scene">
+      <!-- Floating notification top-right -->
+      <div class="float-notif n1">
+        <div class="fn-label">Fall Detected</div>
+        <div class="fn-val">Alert Dispatched</div>
+        <div class="fn-badge warn">Response in 38 sec</div>
+      </div>
+
+      <!-- Hero dashboard card -->
+      <div class="scene-card">
+        <!-- Senior at home illustration -->
+        <svg viewBox="0 0 340 200" xmlns="http://www.w3.org/2000/svg" style="width:100%;display:block;">
+          <!-- Room background -->
+          <rect width="340" height="200" fill="#EAF8F6"/>
+          <!-- Wall -->
+          <rect width="340" height="130" fill="#D4F2EE"/>
+          <!-- Floor -->
+          <rect y="130" width="340" height="70" fill="#C8E8E4"/>
+          <!-- Window -->
+          <rect x="230" y="20" width="80" height="60" rx="4" fill="white" opacity=".9"/>
+          <line x1="270" y1="20" x2="270" y2="80" stroke="#B0D8D4" stroke-width="1.5"/>
+          <line x1="230" y1="50" x2="310" y2="50" stroke="#B0D8D4" stroke-width="1.5"/>
+          <!-- Arizona sun outside window -->
+          <circle cx="280" cy="38" r="12" fill="#FFDF5E" opacity=".85"/>
+          <line x1="280" y1="20" x2="280" y2="16" stroke="#FFDF5E" stroke-width="2" opacity=".7"/>
+          <line x1="294" y1="24" x2="297" y2="21" stroke="#FFDF5E" stroke-width="2" opacity=".7"/>
+          <line x1="298" y1="38" x2="302" y2="38" stroke="#FFDF5E" stroke-width="2" opacity=".7"/>
+          <!-- Couch -->
+          <rect x="30" y="105" width="160" height="55" rx="10" fill="#F07C6B" opacity=".8"/>
+          <rect x="38" y="96" width="45" height="30" rx="6" fill="#D45F4D" opacity=".8"/>
+          <rect x="136" y="96" width="45" height="30" rx="6" fill="#D45F4D" opacity=".8"/>
+          <!-- Senior woman sitting - body -->
+          <ellipse cx="100" cy="104" rx="18" ry="22" fill="#FDBCAA"/>
+          <!-- Head -->
+          <circle cx="100" cy="78" r="16" fill="#FDBCAA"/>
+          <!-- Gray hair -->
+          <ellipse cx="100" cy="70" rx="16" ry="10" fill="#B0C4C2"/>
+          <ellipse cx="86" cy="76" rx="8" ry="12" fill="#B0C4C2"/>
+          <ellipse cx="114" cy="76" rx="8" ry="12" fill="#B0C4C2"/>
+          <!-- Face -->
+          <ellipse cx="94" cy="80" rx="2" ry="2.5" fill="#5BBFB5" opacity=".6"/>
+          <ellipse cx="106" cy="80" rx="2" ry="2.5" fill="#5BBFB5" opacity=".6"/>
+          <path d="M94 88 Q100 93 106 88" stroke="#D45F4D" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+          <!-- Blouse -->
+          <ellipse cx="100" cy="110" rx="18" ry="20" fill="#5BBFB5"/>
+          <!-- Legs/skirt -->
+          <ellipse cx="100" cy="130" rx="16" ry="10" fill="#4A8E8A"/>
+          <!-- Arms - one holding tablet -->
+          <ellipse cx="78" cy="108" rx="6" ry="14" fill="#FDBCAA" transform="rotate(-20 78 108)"/>
+          <!-- Tablet in hand -->
+          <rect x="55" y="100" width="28" height="20" rx="3" fill="#1E7A72"/>
+          <rect x="57" y="102" width="24" height="16" rx="2" fill="#EAF8F6"/>
+          <!-- Screen content on tablet -->
+          <circle cx="69" cy="108" r="4" fill="#5BBFB5" opacity=".6"/>
+          <rect x="61" y="113" width="16" height="2" rx="1" fill="#5BBFB5" opacity=".5"/>
+          <!-- Wearable on wrist -->
+          <rect x="72" y="118" width="14" height="8" rx="3" fill="#1E7A72"/>
+          <rect x="74" y="120" width="10" height="4" rx="1" fill="#ADFFF8"/>
+          <!-- Small heart icon on wearable -->
+          <text x="79" y="124" text-anchor="middle" font-size="5" fill="#F07C6B">♥</text>
+          <!-- Plant in corner -->
+          <rect x="290" y="120" width="14" height="30" rx="2" fill="#F07C6B" opacity=".7"/>
+          <ellipse cx="297" cy="115" rx="16" ry="20" fill="#3A9E94" opacity=".8"/>
+          <ellipse cx="285" cy="120" rx="10" ry="14" fill="#5BBFB5" opacity=".7"/>
+          <ellipse cx="309" cy="120" rx="10" ry="14" fill="#5BBFB5" opacity=".7"/>
+        </svg>
+        <div class="scene-caption">
+          <div>
+            <div class="scene-caption-text">Dorothy, 78 · Scottsdale, AZ</div>
+            <div class="scene-caption-sub">Active &amp; comfortable at home this morning</div>
+          </div>
+          <div style="margin-left:auto">
+            <div style="display:flex;align-items:center;gap:6px;background:rgba(125,255,245,.15);border:1px solid rgba(125,255,245,.35);border-radius:20px;padding:4px 12px">
+              <div class="live-pulse"></div>
+              <span style="font-size:11px;color:#ADFFF8;font-weight:800">Live</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Floating notification bottom-left -->
+      <div class="float-notif n2">
+        <div class="fn-label">Weekly Report Ready</div>
+        <div class="fn-val">Sent to Family</div>
+        <div class="fn-badge">Sleep · Gait · Activity</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="hero-wave">
+    <svg viewBox="0 0 1440 60" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0,40 C360,70 1080,10 1440,40 L1440,60 L0,60 Z" fill="#FAF6F0"/>
+    </svg>
+  </div>
+</section>
+
+<!-- STATS STRIP -->
+<div class="stats-strip">
+  <div class="stat-item reveal"><span class="stat-num">1 in 3</span><p class="stat-text">seniors experience a fall each year — often undiscovered for hours in Arizona's desert heat.</p></div>
+  <div class="stat-item reveal"><span class="stat-num">72%</span><p class="stat-text">of Phoenix-area adult children live more than 30 minutes from an aging parent.</p></div>
+  <div class="stat-item reveal"><span class="stat-num">$7,400</span><p class="stat-text">average monthly assisted living cost in Arizona. Proxia Care delivers peace of mind for far less.</p></div>
+</div>
+
+<!-- LIFESTYLE SECTION -->
+<section class="lifestyle-strip" id="lifestyle">
+  <div class="section-eyebrow">Real Life, Real Care</div>
+  <h2 class="section-title">What Proxia Care looks like <em>in your loved one's home</em></h2>
+  <p class="section-subtitle">Discreet, dignified, and always on. Our monitoring fits seamlessly into daily life — your loved one barely notices it's there. Your family feels everything.</p>
+
+  <div class="lifestyle-grid">
+    <!-- Scene 1: Morning routine -->
+    <div class="lifestyle-card reveal">
+      <svg class="lc-scene" viewBox="0 0 320 200" xmlns="http://www.w3.org/2000/svg">
+        <rect width="320" height="200" fill="#EAF8F6"/>
+        <rect width="320" height="120" fill="#D4F2EE"/>
+        <rect y="120" width="320" height="80" fill="#C8E8E4"/>
+        <!-- Kitchen counter -->
+        <rect x="0" y="110" width="320" height="20" rx="0" fill="#A8D4D0"/>
+        <rect x="20" y="85" width="60" height="28" rx="4" fill="#5BBFB5" opacity=".6"/>
+        <!-- Coffee mug -->
+        <rect x="200" y="95" width="22" height="18" rx="3" fill="#F07C6B" opacity=".8"/>
+        <path d="M222 101 Q230 101 230 108 Q230 115 222 115" stroke="#F07C6B" stroke-width="2" fill="none"/>
+        <!-- Steam lines -->
+        <path d="M206 92 Q208 87 206 82" stroke="#B0D8D4" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+        <path d="M213 91 Q215 86 213 81" stroke="#B0D8D4" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+        <!-- Medication bottles -->
+        <rect x="240" y="90" width="14" height="22" rx="3" fill="#5BBFB5"/>
+        <rect x="240" y="86" width="14" height="7" rx="2" fill="#3A9E94"/>
+        <rect x="258" y="92" width="14" height="20" rx="3" fill="#F07C6B" opacity=".7"/>
+        <rect x="258" y="88" width="14" height="7" rx="2" fill="#D45F4D" opacity=".7"/>
+        <!-- Senior man at counter -->
+        <ellipse cx="140" cy="100" rx="20" ry="24" fill="#F5C5A3"/>
+        <circle cx="140" cy="72" r="17" fill="#F5C5A3"/>
+        <!-- White/gray hair -->
+        <ellipse cx="140" cy="64" rx="17" ry="9" fill="#D0D0D0"/>
+        <!-- Shirt -->
+        <ellipse cx="140" cy="110" rx="20" ry="20" fill="#5BBFB5"/>
+        <!-- Face details -->
+        <ellipse cx="133" cy="74" rx="2" ry="2.5" fill="#3A7A70" opacity=".6"/>
+        <ellipse cx="147" cy="74" rx="2" ry="2.5" fill="#3A7A70" opacity=".6"/>
+        <path d="M133 82 Q140 86 147 82" stroke="#D45F4D" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+        <!-- Arm reaching for medication -->
+        <ellipse cx="118" cy="105" rx="7" ry="15" fill="#F5C5A3" transform="rotate(30 118 105)"/>
+        <!-- Wearable device on wrist -->
+        <rect x="108" y="112" width="14" height="8" rx="3" fill="#1E7A72"/>
+        <rect x="110" y="114" width="10" height="4" rx="1" fill="#ADFFF8"/>
+        <!-- Check mark indicator -->
+        <circle cx="270" cy="70" r="14" fill="#22c55e" opacity=".9"/>
+        <polyline points="264,70 268,74 276,64" stroke="white" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+        <text x="270" y="90" text-anchor="middle" font-family="sans-serif" font-size="9" font-weight="bold" fill="#1E7A72">Meds taken</text>
+      </svg>
+      <div class="lc-body">
+        <div class="lc-title">Morning Medication Confirmed</div>
+        <div class="lc-desc">Smart sensors confirm when medications are taken. Families receive a quiet confirmation — and an alert if something is missed.</div>
+      </div>
+    </div>
+
+    <!-- Scene 2: Family checking app -->
+    <div class="lifestyle-card reveal">
+      <svg class="lc-scene" viewBox="0 0 320 200" xmlns="http://www.w3.org/2000/svg">
+        <rect width="320" height="200" fill="#FEF0ED"/>
+        <rect width="320" height="115" fill="#FDE0DA"/>
+        <rect y="115" width="320" height="85" fill="#F5C5B8"/>
+        <!-- Office/home desk environment -->
+        <rect x="0" y="108" width="320" height="15" rx="0" fill="#E8A898"/>
+        <!-- Laptop -->
+        <rect x="180" y="75" width="100" height="65" rx="4" fill="#3A9E94"/>
+        <rect x="183" y="78" width="94" height="58" rx="2" fill="#EAF8F6"/>
+        <!-- Screen content on laptop -->
+        <rect x="188" y="82" width="84" height="10" rx="2" fill="#5BBFB5" opacity=".5"/>
+        <rect x="188" y="96" width="40" height="6" rx="1" fill="#D4F2EE"/>
+        <rect x="188" y="106" width="55" height="6" rx="1" fill="#D4F2EE"/>
+        <rect x="188" y="116" width="35" height="6" rx="1" fill="#D4F2EE"/>
+        <!-- Heart/pulse line on screen -->
+        <polyline points="220,93 224,93 226,88 228,98 230,88 232,98 234,93 240,93" stroke="#F07C6B" stroke-width="1.5" fill="none"/>
+        <!-- Adult daughter - mid 40s -->
+        <ellipse cx="120" cy="100" rx="22" ry="26" fill="#FDBCAA"/>
+        <circle cx="120" cy="70" r="19" fill="#FDBCAA"/>
+        <!-- Dark brown hair -->
+        <ellipse cx="120" cy="60" rx="19" ry="12" fill="#5C3A1E"/>
+        <ellipse cx="101" cy="68" rx="10" ry="15" fill="#5C3A1E"/>
+        <ellipse cx="139" cy="68" rx="10" ry="15" fill="#5C3A1E"/>
+        <!-- Blouse -->
+        <ellipse cx="120" cy="112" rx="22" ry="22" fill="#F07C6B"/>
+        <!-- Face - relieved expression -->
+        <ellipse cx="113" cy="72" rx="2.5" ry="3" fill="#3A5550" opacity=".6"/>
+        <ellipse cx="127" cy="72" rx="2.5" ry="3" fill="#3A5550" opacity=".6"/>
+        <!-- Smile -->
+        <path d="M112 81 Q120 87 128 81" stroke="#D45F4D" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+        <!-- Phone in hand -->
+        <rect x="92" y="100" width="20" height="34" rx="4" fill="#1E7A72"/>
+        <rect x="94" y="103" width="16" height="26" rx="2" fill="#EAF8F6"/>
+        <!-- App screen on phone -->
+        <circle cx="102" cy="111" r="5" fill="#5BBFB5" opacity=".7"/>
+        <rect x="95" y="119" width="14" height="2.5" rx="1" fill="#5BBFB5" opacity=".5"/>
+        <rect x="95" y="124" width="10" height="2.5" rx="1" fill="#5BBFB5" opacity=".4"/>
+        <!-- Check status bubble -->
+        <rect x="60" y="48" width="80" height="22" rx="11" fill="white"/>
+        <circle cx="72" cy="59" r="6" fill="#22c55e"/>
+        <polyline points="69,59 71,61 76,56" stroke="white" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+        <text x="82" y="63" font-family="sans-serif" font-size="9" font-weight="bold" fill="#1E7A72">Mom's OK ✓</text>
+      </svg>
+      <div class="lc-body">
+        <div class="lc-title">Family Stays Informed, Anywhere</div>
+        <div class="lc-desc">The Proxia Care app gives every family member their own real-time view — whether they're across town or across the country.</div>
+      </div>
+    </div>
+
+    <!-- Scene 3: Specialist visit -->
+    <div class="lifestyle-card reveal">
+      <svg class="lc-scene" viewBox="0 0 320 200" xmlns="http://www.w3.org/2000/svg">
+        <rect width="320" height="200" fill="#EAF8F6"/>
+        <rect width="320" height="118" fill="#D4F2EE"/>
+        <rect y="118" width="320" height="82" fill="#C8E8E4"/>
+        <!-- Living room wall -->
+        <rect x="220" y="15" width="70" height="55" rx="3" fill="white" opacity=".7"/>
+        <line x1="255" y1="15" x2="255" y2="70" stroke="#B0D8D4" stroke-width="1.2"/>
+        <line x1="220" y1="42" x2="290" y2="42" stroke="#B0D8D4" stroke-width="1.2"/>
+        <!-- Sofa -->
+        <rect x="10" y="105" width="180" height="55" rx="10" fill="#5BBFB5" opacity=".8"/>
+        <rect x="18" y="95" width="50" height="32" rx="6" fill="#3A9E94" opacity=".8"/>
+        <rect x="132" y="95" width="50" height="32" rx="6" fill="#3A9E94" opacity=".8"/>
+        <!-- Senior woman seated -->
+        <ellipse cx="85" cy="103" rx="18" ry="21" fill="#F5D0C0"/>
+        <circle cx="85" cy="77" r="16" fill="#F5D0C0"/>
+        <!-- White curly hair -->
+        <ellipse cx="85" cy="68" rx="16" ry="10" fill="#E0E0E0"/>
+        <ellipse cx="70" cy="74" rx="9" ry="12" fill="#E0E0E0"/>
+        <ellipse cx="100" cy="74" rx="9" ry="12" fill="#E0E0E0"/>
+        <!-- Cardigan -->
+        <ellipse cx="85" cy="115" rx="18" ry="19" fill="#F07C6B" opacity=".8"/>
+        <!-- Face - warm smile -->
+        <ellipse cx="79" cy="79" rx="2" ry="2.5" fill="#3A7A70" opacity=".6"/>
+        <ellipse cx="91" cy="79" rx="2" ry="2.5" fill="#3A7A70" opacity=".6"/>
+        <path d="M78 87 Q85 92 92 87" stroke="#D45F4D" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+        <!-- Care specialist standing -->
+        <ellipse cx="185" cy="98" rx="19" ry="26" fill="#F5C5A3"/>
+        <circle cx="185" cy="68" r="18" fill="#F5C5A3"/>
+        <!-- Dark hair - specialist -->
+        <ellipse cx="185" cy="58" rx="18" ry="11" fill="#2C1810"/>
+        <ellipse cx="167" cy="65" rx="9" ry="13" fill="#2C1810"/>
+        <!-- Teal uniform/polo -->
+        <ellipse cx="185" cy="110" rx="19" ry="22" fill="#1E7A72"/>
+        <!-- Proxia Care badge -->
+        <rect x="175" y="107" width="22" height="14" rx="2" fill="white"/>
+        <text x="186" y="116" text-anchor="middle" font-family="sans-serif" font-size="5.5" font-weight="bold" fill="#1E7A72">PROXIA</text>
+        <text x="186" y="121" text-anchor="middle" font-family="sans-serif" font-size="4.5" fill="#5BBFB5">CARE</text>
+        <!-- Face - professional smile -->
+        <ellipse cx="179" cy="70" rx="2" ry="2.5" fill="#2C4A46" opacity=".6"/>
+        <ellipse cx="191" cy="70" rx="2" ry="2.5" fill="#2C4A46" opacity=".6"/>
+        <path d="M178 78 Q185 83 192 78" stroke="#D45F4D" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+        <!-- Specialist holding tablet -->
+        <rect x="200" y="95" width="22" height="30" rx="3" fill="#0D4A44"/>
+        <rect x="202" y="97" width="18" height="24" rx="2" fill="#EAF8F6"/>
+        <!-- Tablet screen -->
+        <rect x="203" y="99" width="16" height="4" rx="1" fill="#5BBFB5" opacity=".6"/>
+        <rect x="203" y="105" width="12" height="2.5" rx="1" fill="#D4F2EE"/>
+        <rect x="203" y="110" width="14" height="2.5" rx="1" fill="#D4F2EE"/>
+        <!-- Small sensor device on table -->
+        <rect x="230" y="108" width="40" height="14" rx="4" fill="#1E7A72"/>
+        <circle cx="250" cy="115" r="4" fill="#ADFFF8" opacity=".8"/>
+        <!-- Speech bubble -->
+        <rect x="30" y="40" width="110" height="26" rx="13" fill="white" opacity=".9"/>
+        <polygon points="65,66 72,74 80,66" fill="white" opacity=".9"/>
+        <text x="85" y="57" text-anchor="middle" font-family="sans-serif" font-size="9" font-weight="bold" fill="#1E7A72">Free home assessment</text>
+        <text x="85" y="68" text-anchor="middle" font-family="sans-serif" font-size="8" fill="#5BBFB5">No obligation</text>
+      </svg>
+      <div class="lc-body">
+        <div class="lc-title">Friendly Specialist Visit</div>
+        <div class="lc-desc">Your free consultation starts with a home visit. Our specialist meets your loved one, learns their routine, and designs a plan that fits their life.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="how-section" id="how">
+  <div class="section-eyebrow">Simple Process</div>
+  <h2 class="section-title">Up and running in <em>3 easy steps</em></h2>
+  <p class="section-subtitle">We handle everything. Your loved one's routine stays exactly the same — only now the whole family truly knows they're safe.</p>
+  <div class="steps-row">
+    <div class="step reveal">
+      <div class="step-num">1</div>
+      <h3>Free Home Assessment</h3>
+      <p>A Proxia Care specialist visits your Phoenix-area home, learns your loved one's daily routine, and designs a personalized monitoring plan — completely free, zero obligation.</p>
+    </div>
+    <div class="step reveal">
+      <div class="step-num">2</div>
+      <h3>Discreet Installation</h3>
+      <p>We install unobtrusive sensors and a comfortable wearable in under 2 hours. No drilling, no complicated setup — just seamless, dignified protection that blends in.</p>
+    </div>
+    <div class="step reveal">
+      <div class="step-num">3</div>
+      <h3>Your Family Stays Connected</h3>
+      <p>24/7 monitoring starts immediately. Every family member gets the app, real-time alerts kick in, and your first weekly wellness report arrives within 7 days.</p>
+    </div>
+  </div>
+</section>
+
+<!-- INSTANT ALERTS -->
+<section class="alerts-section" id="alerts">
+  <div class="alerts-layout">
+    <div>
+      <div class="section-eyebrow">Instant Alerts</div>
+      <h2 class="section-title">Know the moment <em>it matters most</em></h2>
+      <p class="section-subtitle">When something happens, you hear about it in seconds — not hours. Our system catches the emergencies you can't always be there to see, with Phoenix's unique risks in mind.</p>
+      <a href="#consultation" class="btn-primary">Get Protected Today</a>
+    </div>
+    <div class="alert-cards">
+      <div class="afc urgent reveal">
+        <div class="afc-icon r">🆘</div>
+        <div>
+          <div class="afc-title">Fall Detection</div>
+          <div class="afc-desc">AI sensors detect falls and sudden impact within seconds. Emergency responders and your family are notified simultaneously — no delay, no guessing.</div>
+          <span class="afc-badge r">Instant Alert · Auto Emergency Dispatch</span>
+        </div>
+      </div>
+      <div class="afc urgent reveal">
+        <div class="afc-icon y">🌡️</div>
+        <div>
+          <div class="afc-title">Extreme Temperature Alert</div>
+          <div class="afc-desc">Critical in Phoenix's desert climate. If the home gets dangerously hot due to AC failure, an open door, or power outage — your family is alerted before heat stroke becomes a risk.</div>
+          <span class="afc-badge y">Phoenix Heat Protection · Immediate Notification</span>
+        </div>
+      </div>
+      <div class="afc reveal">
+        <div class="afc-icon">🚪</div>
+        <div>
+          <div class="afc-title">Unusual Inactivity or Wandering</div>
+          <div class="afc-desc">If your loved one hasn't moved in an unexpected window — or leaves the home at an unusual hour — the system flags it and alerts your family immediately.</div>
+          <span class="afc-badge">Smart Motion Intelligence · Baseline Learning</span>
+        </div>
+      </div>
+      <div class="afc reveal">
+        <div class="afc-icon">💊</div>
+        <div>
+          <div class="afc-title">Missed Medication Alert</div>
+          <div class="afc-desc">Smart reminders keep medications on schedule. If a dose window is missed, family members are notified so they can follow up directly.</div>
+          <span class="afc-badge">Medication Tracking · Family Notification</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WEEKLY REPORTS -->
+<section class="report-section" id="reports">
+  <div class="report-layout">
+    <div class="report-card reveal">
+      <div class="report-head">
+        <div>
+          <div class="rh-title">Dorothy's Weekly Report</div>
+          <div class="rh-sub">Week of June 9–15 · Scottsdale, AZ</div>
+        </div>
+        <div class="rh-icon">📋</div>
+      </div>
+      <div class="report-body">
+        <div class="rm"><div class="rm-icon">😴</div><div style="flex:1"><div class="rm-label">Sleep Quality</div><div class="rm-val">7h 22m avg · Restful</div></div><div class="rm-bar-bg"><div class="rm-bar g" style="width:84%"></div></div></div>
+        <div class="rm"><div class="rm-icon">🚶</div><div style="flex:1"><div class="rm-label">Gait Pattern</div><div class="rm-val">Steady — no irregularities</div></div><div class="rm-bar-bg"><div class="rm-bar g" style="width:91%"></div></div></div>
+        <div class="rm"><div class="rm-icon">⚡</div><div style="flex:1"><div class="rm-label">Daily Activity Level</div><div class="rm-val">Moderate · consistent routine</div></div><div class="rm-bar-bg"><div class="rm-bar" style="width:68%"></div></div></div>
+        <div class="rm"><div class="rm-icon">💊</div><div style="flex:1"><div class="rm-label">Medication Adherence</div><div class="rm-val">6 of 7 days confirmed</div></div><div class="rm-bar-bg"><div class="rm-bar w" style="width:86%"></div></div></div>
+        <div class="rm"><div class="rm-icon">🌡️</div><div style="flex:1"><div class="rm-label">Home Temp Range</div><div class="rm-val">68°F – 74°F · Safe all week</div></div><div class="rm-bar-bg"><div class="rm-bar g" style="width:100%"></div></div></div>
+      </div>
+      <div class="report-foot">✅ No alerts triggered this week · Report sent Sunday 8am</div>
+    </div>
+    <div>
+      <div class="section-eyebrow">Weekly Wellness Reports</div>
+      <h2 class="section-title">Every Sunday, the <em>full picture</em> arrives</h2>
+      <p class="section-subtitle">No more guessing. No more "she says she's fine." Every week, Proxia Care delivers a clear, easy report so every family member stays genuinely informed.</p>
+      <div class="rb-list">
+        <div class="rb reveal"><div class="rb-icon">😴</div><div><div class="rb-title">Sleep Patterns</div><div class="rb-desc">Duration, quality, and disruptions — so you can spot changes early before they signal a bigger issue.</div></div></div>
+        <div class="rb reveal"><div class="rb-icon">🚶</div><div><div class="rb-title">Gait & Movement Analysis</div><div class="rb-desc">Subtle walking changes are early warning signs for balance issues. We track every step, every day.</div></div></div>
+        <div class="rb reveal"><div class="rb-icon">⚡</div><div><div class="rb-title">Activity & Daily Routine</div><div class="rb-desc">Meals, movement, and social patterns — any break from their normal baseline gets flagged for your family.</div></div></div>
+        <div class="rb reveal"><div class="rb-icon">🌡️</div><div><div class="rb-title">Home Environment Summary</div><div class="rb-desc">Temperature safety throughout the week — especially vital during Phoenix summers — plus comfort insights.</div></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TAGLINE BANNER -->
+<div class="tagline-banner">
+  <p class="tq">"Mom always says she's OK —<br><em>now you can know.</em>"</p>
+  <p class="tq-sub">Stop guessing. Start knowing. Proxia Care gives your family real answers, every day.</p>
+  <a href="#consultation" class="btn-white-solid">Book My Free Consultation</a>
+</div>
+
+<!-- BENEFITS -->
+<section class="benefits-section" id="benefits">
+  <div class="section-eyebrow">Why Proxia Care</div>
+  <h2 class="section-title">Everything your family needs. Nothing they don't.</h2>
+  <p class="section-subtitle">Designed to give Phoenix-area seniors independence and dignity, while giving families the real-time clarity they deserve.</p>
+  <div class="benefits-grid">
+    <div class="bc reveal"><div class="bc-icon">🏠</div><h3>Stay Home. Stay Independent.</h3><p>Your loved one keeps their routine, their home, and their dignity. Proxia Care comes to them — not the other way around.</p></div>
+    <div class="bc reveal"><div class="bc-icon o">☀️</div><h3>Phoenix Heat Protection</h3><p>Arizona summers are life-threatening for seniors. Our temperature monitoring sends instant alerts the moment a home becomes unsafe — before it becomes a medical emergency.</p></div>
+    <div class="bc reveal"><div class="bc-icon">📱</div><h3>Whole Family App Access</h3><p>Every family member gets their own login. Near or far, check in anytime, receive every alert, and see real-time status all in one beautiful app.</p></div>
+    <div class="bc reveal"><div class="bc-icon">🧠</div><h3>Early Pattern Recognition</h3><p>Our AI learns their baseline. Subtle shifts in sleep, gait, or routine are flagged weeks before they become serious — giving your family the gift of early action.</p></div>
+    <div class="bc reveal"><div class="bc-icon o">💰</div><h3>A Fraction of Care Home Costs</h3><p>Assisted living in Phoenix averages $7,400/month. Proxia Care delivers professional monitoring at a price that keeps your loved one home — and your family financially whole.</p></div>
+    <div class="bc reveal"><div class="bc-icon">🛡️</div><h3>30-Day Satisfaction Guarantee</h3><p>Try Proxia Care completely risk-free for 30 days. If your family isn't fully satisfied, we'll make it right — no questions, no hassle.</p></div>
+  </div>
+</section>
+
+<!-- MID CTA -->
+<div class="mid-cta">
+  <div>
+    <h2>Ready to stop wondering and start knowing?</h2>
+    <p>Join 1,800+ Phoenix-area families who trust Proxia Care to keep their seniors safe, healthy, and home.</p>
+  </div>
+  <a href="#consultation" class="btn-white-solid">Book Free Consultation</a>
+</div>
+
+<!-- TESTIMONIALS -->
+<section class="testimonials-section" id="testimonials">
+  <div class="section-eyebrow">Real Phoenix Families</div>
+  <h2 class="section-title">The peace of mind you've been looking for</h2>
+  <p class="section-subtitle">Hear from families across the Valley who made the call.</p>
+  <div class="testi-grid">
+
+    <div class="testi reveal">
+      <!-- Illustrated testimonial scene: son on phone, relieved -->
+      <svg class="testi-scene" viewBox="0 0 280 140" xmlns="http://www.w3.org/2000/svg">
+        <rect width="280" height="140" fill="#EAF8F6"/>
+        <rect width="280" height="85" fill="#D4F2EE"/>
+        <rect y="85" width="280" height="55" fill="#C8E8E4"/>
+        <!-- Adult son, 40s, holding phone looking relieved -->
+        <ellipse cx="90" cy="78" rx="20" ry="24" fill="#F5C5A3"/>
+        <circle cx="90" cy="50" r="19" fill="#F5C5A3"/>
+        <ellipse cx="90" cy="40" rx="18" ry="11" fill="#4A3020"/>
+        <ellipse cx="72" cy="46" rx="9" ry="13" fill="#4A3020"/>
+        <ellipse cx="90" cy="78" rx="20" ry="22" fill="#5BBFB5"/>
+        <ellipse cx="84" cy="53" rx="2.5" ry="3" fill="#2C4A46" opacity=".6"/>
+        <ellipse cx="96" cy="53" rx="2.5" ry="3" fill="#2C4A46" opacity=".6"/>
+        <!-- Big relieved smile -->
+        <path d="M82 62 Q90 70 98 62" stroke="#D45F4D" stroke-width="2" fill="none" stroke-linecap="round"/>
+        <!-- Phone -->
+        <rect x="105" y="55" width="18" height="30" rx="4" fill="#1E7A72"/>
+        <rect x="107" y="58" width="14" height="22" rx="2" fill="#EAF8F6"/>
+        <!-- Mom is OK bubble -->
+        <rect x="135" y="30" width="100" height="32" rx="10" fill="white"/>
+        <polygon points="145,62 152,70 160,62" fill="white"/>
+        <text x="185" y="48" text-anchor="middle" font-family="sans-serif" font-size="10" font-weight="bold" fill="#1E7A72">Mom alert:</text>
+        <text x="185" y="60" text-anchor="middle" font-family="sans-serif" font-size="9" fill="#22c55e" font-weight="bold">All clear ✓</text>
+        <!-- Arizona landscape bg -->
+        <ellipse cx="240" cy="88" rx="25" ry="18" fill="#F07C6B" opacity=".2"/>
+        <polygon points="218,86 228,60 238,86" fill="#D45F4D" opacity=".2"/>
+        <polygon points="235,86 248,55 261,86" fill="#D45F4D" opacity=".15"/>
+      </svg>
+      <span class="quote-mark">"</span>
+      <div class="stars"><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span></div>
+      <p class="testi-text">My mom tells me she's fine every time I call. Last July her AC failed and the house hit 88°. Proxia Care alerted me in minutes — she had no idea. Could have been catastrophic.</p>
+      <div class="testi-author">
+        <div class="author-av">DL</div>
+        <div><div class="author-name">David L.</div><div class="author-role">Son · Tempe, AZ</div></div>
+      </div>
+    </div>
+
+    <div class="testi reveal">
+      <!-- Illustrated scene: senior man happy at home -->
+      <svg class="testi-scene" viewBox="0 0 280 140" xmlns="http://www.w3.org/2000/svg">
+        <rect width="280" height="140" fill="#FEF0ED"/>
+        <rect width="280" height="85" fill="#FDE0DA"/>
+        <rect y="85" width="280" height="55" fill="#F5C5B8"/>
+        <!-- Armchair -->
+        <rect x="30" y="72" width="140" height="60" rx="10" fill="#F07C6B" opacity=".7"/>
+        <rect x="38" y="62" width="40" height="28" rx="6" fill="#D45F4D" opacity=".7"/>
+        <rect x="122" y="62" width="40" height="28" rx="6" fill="#D45F4D" opacity=".7"/>
+        <!-- Senior man seated, reading tablet -->
+        <ellipse cx="100" cy="72" rx="19" ry="22" fill="#FDBCAA"/>
+        <circle cx="100" cy="46" r="17" fill="#FDBCAA"/>
+        <ellipse cx="100" cy="38" rx="17" ry="10" fill="#C8C8C8"/>
+        <ellipse cx="84" cy="44" rx="8" ry="12" fill="#C8C8C8"/>
+        <ellipse cx="116" cy="44" rx="8" ry="12" fill="#C8C8C8"/>
+        <ellipse cx="100" cy="68" rx="19" ry="20" fill="#5BBFB5"/>
+        <ellipse cx="94" cy="49" rx="2" ry="2.5" fill="#3A5550" opacity=".6"/>
+        <ellipse cx="106" cy="49" rx="2" ry="2.5" fill="#3A5550" opacity=".6"/>
+        <path d="M93 57 Q100 62 107 57" stroke="#D45F4D" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+        <!-- Tablet -->
+        <rect x="115" y="68" width="26" height="36" rx="4" fill="#1E7A72"/>
+        <rect x="117" y="70" width="22" height="30" rx="2" fill="#EAF8F6"/>
+        <!-- Proxia app on tablet -->
+        <circle cx="128" cy="79" r="6" fill="#5BBFB5" opacity=".6"/>
+        <rect x="118" y="88" width="20" height="3" rx="1" fill="#D4F2EE"/>
+        <rect x="118" y="93" width="14" height="3" rx="1" fill="#D4F2EE"/>
+        <!-- Small wearable watch -->
+        <rect x="83" y="82" width="14" height="9" rx="3" fill="#1E7A72"/>
+        <rect x="85" y="84" width="10" height="5" rx="1" fill="#ADFFF8"/>
+        <!-- Window with cactus outside -->
+        <rect x="195" y="15" width="65" height="55" rx="3" fill="white" opacity=".8"/>
+        <rect x="210" y="40" width="8" height="25" rx="3" fill="#5BBFB5" opacity=".5"/>
+        <ellipse cx="214" cy="35" rx="10" ry="8" fill="#5BBFB5" opacity=".4"/>
+        <circle cx="230" cy="28" r="10" fill="#FFE066" opacity=".6"/>
+        <!-- Independence label -->
+        <rect x="170" y="80" width="90" height="22" rx="11" fill="white" opacity=".9"/>
+        <text x="215" y="95" text-anchor="middle" font-family="sans-serif" font-size="9" font-weight="bold" fill="#1E7A72">Living independently ✓</text>
+      </svg>
+      <span class="quote-mark">"</span>
+      <div class="stars"><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span></div>
+      <p class="testi-text">My dad is fiercely independent and refused any kind of help. But Proxia Care is invisible to him — he barely knows it's there. The weekly family reports have been a total game changer.</p>
+      <div class="testi-author">
+        <div class="author-av">SC</div>
+        <div><div class="author-name">Sandra C.</div><div class="author-role">Daughter · Scottsdale, AZ</div></div>
+      </div>
+    </div>
+
+    <div class="testi reveal">
+      <!-- Illustrated scene: doctor visit, caught early -->
+      <svg class="testi-scene" viewBox="0 0 280 140" xmlns="http://www.w3.org/2000/svg">
+        <rect width="280" height="140" fill="#EAF8F6"/>
+        <rect width="280" height="85" fill="#D4F2EE"/>
+        <rect y="85" width="280" height="55" fill="#C8E8E4"/>
+        <!-- Doctor's office table -->
+        <rect x="60" y="95" width="180" height="15" rx="4" fill="#A8D4D0"/>
+        <!-- Senior woman at appointment -->
+        <ellipse cx="110" cy="80" rx="18" ry="22" fill="#F5D0C0"/>
+        <circle cx="110" cy="54" r="16" fill="#F5D0C0"/>
+        <ellipse cx="110" cy="46" rx="15" ry="9" fill="#D8D8D8"/>
+        <ellipse cx="96" cy="52" rx="8" ry="11" fill="#D8D8D8"/>
+        <ellipse cx="124" cy="52" rx="8" ry="11" fill="#D8D8D8"/>
+        <ellipse cx="110" cy="90" rx="18" ry="19" fill="#F07C6B" opacity=".7"/>
+        <ellipse cx="104" cy="57" rx="2" ry="2.5" fill="#3A5550" opacity=".6"/>
+        <ellipse cx="116" cy="57" rx="2" ry="2.5" fill="#3A5550" opacity=".6"/>
+        <path d="M104 65 Q110 69 116 65" stroke="#D45F4D" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+        <!-- Doctor -->
+        <ellipse cx="185" cy="80" rx="18" ry="22" fill="#FDBCAA"/>
+        <circle cx="185" cy="54" r="17" fill="#FDBCAA"/>
+        <ellipse cx="185" cy="45" rx="16" ry="9" fill="#6B3A2A"/>
+        <ellipse cx="185" cy="90" rx="18" ry="21" fill="white"/>
+        <!-- Stethoscope -->
+        <path d="M177 90 Q170 100 172 110 Q174 118 180 118" stroke="#5BBFB5" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+        <circle cx="180" cy="119" r="4" fill="#5BBFB5"/>
+        <!-- Clipboard -->
+        <rect x="193" y="82" width="24" height="30" rx="3" fill="#E8E8E8"/>
+        <rect x="195" y="86" width="20" height="3" rx="1" fill="#B0B0B0"/>
+        <rect x="195" y="91" width="16" height="2.5" rx="1" fill="#B0B0B0"/>
+        <rect x="195" y="96" width="18" height="2.5" rx="1" fill="#B0B0B0"/>
+        <!-- Caught early badge -->
+        <rect x="30" y="20" width="110" height="36" rx="10" fill="white"/>
+        <circle cx="48" cy="38" r="10" fill="#22c55e"/>
+        <polyline points="44,38 47,41 54,33" stroke="white" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+        <text x="82" y="33" text-anchor="middle" font-family="sans-serif" font-size="9" font-weight="bold" fill="#1E7A72">Caught early</text>
+        <text x="82" y="47" text-anchor="middle" font-family="sans-serif" font-size="8" fill="#5BBFB5">Simple prescription</text>
+      </svg>
+      <span class="quote-mark">"</span>
+      <div class="stars"><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span></div>
+      <p class="testi-text">The weekly report showed my mom's sleep had changed for 3 weeks straight. We took her in and caught a UTI early — just a prescription, not a hospital stay. Proxia Care literally changed the outcome.</p>
+      <div class="testi-author">
+        <div class="author-av">MR</div>
+        <div><div class="author-name">Michael R.</div><div class="author-role">Son · Gilbert, AZ</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONSULTATION FORM -->
+<section class="form-section" id="consultation">
+  <div class="form-left">
+    <div class="section-eyebrow">Free Consultation</div>
+    <h2 class="section-title">Let's build a plan for your family</h2>
+    <p class="section-subtitle">No commitment, no pressure — just an honest conversation about keeping your loved one safely at home in Phoenix.</p>
+    <ul class="checklist">
+      <li><div class="chk">✓</div><span>30-minute call with a Proxia Care specialist</span></li>
+      <li><div class="chk">✓</div><span>Custom monitoring plan for your loved one's home and routine</span></li>
+      <li><div class="chk">✓</div><span>Transparent pricing — no hidden fees, ever</span></li>
+      <li><div class="chk">✓</div><span>Learn about our 30-day satisfaction guarantee</span></li>
+      <li><div class="chk">✓</div><span>Available 7 days a week, including evenings</span></li>
+      <li><div class="chk">✓</div><span>Serving Phoenix, Scottsdale, Mesa, Gilbert, Chandler, Tempe &amp; more</span></li>
+    </ul>
+  </div>
+  <div>
+    <div class="form-box">
+      <div class="form-title">Book Your Free Consultation</div>
+      <div class="form-subtitle">A Proxia Care specialist will reach out within 1 business hour.</div>
+      <div id="form-content">
+        <div class="form-row">
+          <div class="form-group"><label class="form-label">First Name</label><input type="text" class="form-input" placeholder="Jane" id="fname"></div>
+          <div class="form-group"><label class="form-label">Last Name</label><input type="text" class="form-input" placeholder="Smith" id="lname"></div>
+        </div>
+        <div class="form-group"><label class="form-label">Your Email</label><input type="email" class="form-input" placeholder="jane@email.com" id="email"></div>
+        <div class="form-group"><label class="form-label">Your Phone Number</label><input type="tel" class="form-input" placeholder="(602) 555-0100" id="phone"></div>
+        <div class="form-group"><label class="form-label">Who needs monitoring?</label>
+          <select class="form-select" id="relation">
+            <option value="">Select relationship</option>
+            <option>My mother</option><option>My father</option><option>My grandparent</option>
+            <option>My spouse / partner</option><option>Another family member</option><option>Myself</option>
+          </select>
+        </div>
+        <div class="form-group"><label class="form-label">City / Area in Greater Phoenix</label>
+          <select class="form-select" id="city">
+            <option value="">Select area</option>
+            <option>Phoenix</option><option>Scottsdale</option><option>Mesa</option>
+            <option>Gilbert</option><option>Chandler</option><option>Tempe</option>
+            <option>Glendale</option><option>Peoria</option>
+            <option>Sun City / Sun City West</option><option>Other Greater Phoenix area</option>
+          </select>
+        </div>
+        <div class="form-group"><label class="form-label">Anything you'd like us to know? (optional)</label>
+          <textarea class="form-textarea" placeholder="E.g. mobility concerns, previous falls, memory issues, current medications…" id="notes"></textarea>
+        </div>
+        <button class="form-submit" onclick="submitForm()">Book My Free Consultation →</button>
+        <p class="form-privacy">🔒 Your information is 100% private and never shared or sold.</p>
+      </div>
+      <div class="success-msg" id="success-msg">
+        <div class="success-check">✓</div>
+        <h3>You're all set!</h3>
+        <p>A Proxia Care specialist will call you within 1 business hour to confirm your consultation. Check your email for a summary.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER with SVG Logo -->
+<footer>
+  <div class="footer-top">
+    <div>
+      <svg viewBox="0 0 220 52" xmlns="http://www.w3.org/2000/svg" style="height:44px;width:auto;margin-bottom:12px;display:block;">
+        <circle cx="26" cy="26" r="24" fill="#F07C6B" opacity=".85"/>
+        <circle cx="26" cy="26" r="18.5" fill="#5BBFB5" opacity=".85"/>
+        <polygon points="26,9 41,21 40,21 40,40 12,40 12,21 11,21" fill="white"/>
+        <rect x="21" y="31" width="10" height="9" rx="1" fill="#5BBFB5" opacity=".7"/>
+        <rect x="12" y="24" width="9" height="7" rx="1.5" fill="#5BBFB5" opacity=".7"/>
+        <text x="16.5" y="30.5" text-anchor="middle" font-size="6" fill="#F07C6B">♥</text>
+        <rect x="23" y="24" width="9" height="7" rx="1.5" fill="#5BBFB5" opacity=".7"/>
+        <text x="27.5" y="30.5" text-anchor="middle" font-size="6" fill="#F07C6B">♥</text>
+        <text x="60" y="24" font-family="'Nunito',sans-serif" font-size="20" font-weight="900" fill="#5BBFB5">proxia</text>
+        <text x="60" y="46" font-family="'Nunito',sans-serif" font-size="20" font-weight="900" fill="#F07C6B">care</text>
+      </svg>
+      <div class="footer-tagline-text">"Mom always says she's OK — now you can know."</div>
+      <p class="footer-desc">Professional live-in senior monitoring for Greater Phoenix, AZ. Keeping your loved ones safely at home and your family truly informed, every day.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Company</h4>
+      <ul>
+        <li><a href="#">About Us</a></li>
+        <li><a href="#">Our Technology</a></li>
+        <li><a href="#">Service Areas</a></li>
+        <li><a href="#">Careers</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Support</h4>
+      <ul>
+        <li><a href="#">FAQ</a></li>
+        <li><a href="#">Privacy Policy</a></li>
+        <li><a href="#">Terms of Service</a></li>
+        <li><a href="#consultation">Contact Us</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p class="footer-copy">© 2025 Proxia Care LLC. All rights reserved.</p>
+    <p class="footer-phx">Proudly serving Greater Phoenix, AZ · Independence Protected</p>
+  </div>
+</footer>
+
+<script>
+const reveals = document.querySelectorAll('.reveal');
+const obs = new IntersectionObserver((entries) => {
+  entries.forEach((e, i) => {
+    if (e.isIntersecting) {
+      setTimeout(() => e.target.classList.add('visible'), i * 70);
+      obs.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.08 });
+reveals.forEach(el => obs.observe(el));
+
+function submitForm() {
+  const fname = document.getElementById('fname').value.trim();
+  const email = document.getElementById('email').value.trim();
+  const phone = document.getElementById('phone').value.trim();
+  const relation = document.getElementById('relation').value;
+  const city = document.getElementById('city').value;
+  if (!fname || !email || !phone || !relation || !city) { alert('Please fill in all required fields.'); return; }
+  document.getElementById('form-content').style.display = 'none';
+  document.getElementById('success-msg').style.display = 'block';
+}
+</script>
+</body>
+</html>
