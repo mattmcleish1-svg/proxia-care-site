@@ -381,13 +381,68 @@ footer { background:var(--text); padding:60px 8% 36px; }
 .footer-bottom { display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:12px; }
 .footer-copy,.footer-phx { font-size:13px; color:rgba(255,255,255,.22); font-weight:700; }
 
+/* ── EQUIPMENT GRID ── */
+.equipment-section { background:var(--white); }
+.equip-grid {
+  display:grid; grid-template-columns:repeat(3,1fr); gap:18px; margin-bottom:40px;
+}
+.eq-item {
+  background:var(--cream); border:1.5px solid var(--border);
+  border-radius:var(--radius-lg); padding:24px 22px;
+  display:flex; align-items:flex-start; gap:14px;
+  transition:border-color .2s,transform .2s;
+}
+.eq-item:hover { border-color:var(--teal-light); transform:translateY(-3px); }
+.eq-icon { font-size:24px; flex-shrink:0; margin-top:2px; }
+.eq-name { font-size:15px; font-weight:800; color:var(--text); margin-bottom:4px; }
+.eq-desc { font-size:13px; color:var(--text-mid); line-height:1.55; font-weight:600; }
+.eq-tag { display:inline-block; margin-top:6px; font-size:11px; font-weight:700; color:var(--teal-dark); background:var(--teal-pale); padding:2px 10px; border-radius:12px; }
+.eq-callout {
+  background:var(--teal); border-radius:var(--radius-lg); padding:28px 36px;
+  text-align:center; color:var(--white); font-size:17px; font-weight:800;
+}
+
+/* ── PRICING ── */
+.pricing-section { background:var(--cream); }
+.pricing-hero-line {
+  font-family:'Lora',serif; font-size:clamp(26px,3vw,38px); font-weight:700;
+  color:var(--text); margin-bottom:8px;
+}
+.pricing-hero-line span { color:var(--teal-dark); }
+.pricing-cards { display:grid; grid-template-columns:repeat(3,1fr); gap:22px; margin-bottom:36px; }
+.pc {
+  background:var(--white); border:1.5px solid var(--border);
+  border-radius:var(--radius-lg); padding:32px 26px;
+  transition:border-color .2s,transform .2s;
+}
+.pc:hover { border-color:var(--teal-light); transform:translateY(-4px); }
+.pc-icon { width:52px; height:52px; border-radius:14px; background:var(--teal-pale); display:flex; align-items:center; justify-content:center; font-size:22px; margin-bottom:18px; }
+.pc-icon.o { background:var(--coral-pale); }
+.pc h3 { font-size:17px; color:var(--text); margin-bottom:9px; font-family:'Nunito',sans-serif; font-weight:800; }
+.pc p { font-size:14px; color:var(--text-mid); line-height:1.65; font-weight:600; }
+.pricing-cta { text-align:center; }
+.pricing-cta .bold-line { font-size:16px; font-weight:800; color:var(--text); margin-bottom:20px; }
+.pricing-note { font-size:13px; color:var(--text-light); font-style:italic; margin-top:18px; font-weight:600; max-width:560px; margin-left:auto; margin-right:auto; }
+
+/* ── FAQ ── */
+.faq-section { background:var(--white); }
+.faq-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:22px; }
+.faq-item {
+  background:var(--cream); border:1.5px solid var(--border);
+  border-radius:var(--radius-lg); padding:24px 26px;
+  transition:border-color .2s;
+}
+.faq-item:hover { border-color:var(--teal-light); }
+.faq-q { font-size:15px; font-weight:800; color:var(--text); margin-bottom:8px; }
+.faq-a { font-size:14px; color:var(--text-mid); line-height:1.65; font-weight:600; }
+
 /* ── ANIM ── */
 .reveal { opacity:0; transform:translateY(20px); transition:opacity .6s ease,transform .6s ease; }
 .reveal.visible { opacity:1; transform:translateY(0); }
 
 /* ── RESPONSIVE ── */
 @media(max-width:960px){
-  .hero,.steps-row,.benefits-grid,.testi-grid,.form-section,.alerts-layout,.report-layout,.lifestyle-grid { grid-template-columns:1fr; }
+  .hero,.steps-row,.benefits-grid,.testi-grid,.form-section,.alerts-layout,.report-layout,.lifestyle-grid,.equip-grid,.pricing-cards,.faq-grid { grid-template-columns:1fr; }
   .hero-visual { display:none; }
   .hero-content { padding:60px 6%; }
   .mid-cta { grid-template-columns:1fr; }
@@ -421,10 +476,10 @@ footer { background:var(--text); padding:60px 8% 36px; }
     <text x="68" y="50" font-family="'Nunito',sans-serif" font-size="22" font-weight="900" fill="#F07C6B">care</text>
   </svg>
   <ul class="nav-links">
-    <li><a href="#lifestyle">Our Service</a></li>
+    <li><a href="#how">How It Works</a></li>
     <li><a href="#alerts">Alerts</a></li>
-    <li><a href="#reports">Reports</a></li>
-    <li><a href="#testimonials">Families</a></li>
+    <li><a href="#equipment">What's Included</a></li>
+    <li><a href="#pricing">Pricing</a></li>
     <li><a href="#consultation" class="nav-cta">Free Consultation</a></li>
   </ul>
 </nav>
@@ -440,19 +495,19 @@ footer { background:var(--text); padding:60px 8% 36px; }
     <div class="hero-tagline-box">
       <p>"Mom always says she's OK —<br>now you can <span style="color:#FFFAB0;font-style:normal;">know.</span>"</p>
     </div>
-    <p class="hero-sub">Proxia Care delivers professional 24/7 in-home monitoring so Phoenix-area seniors keep their independence — and your family gets real answers, every single day.</p>
+    <p class="hero-sub">Proxia Care delivers always-on in-home monitoring so Phoenix-area seniors keep their independence — and your family gets real answers, every single day. No cameras. No wearables. Just peace of mind.</p>
     <div class="hero-actions">
       <a href="#consultation" class="btn-primary">Book a Free Consultation</a>
       <a href="#lifestyle" class="btn-outline-white">See How It Works →</a>
     </div>
     <div class="hero-trust">
-      <div class="trust-item"><span class="trust-num">📍</span><span class="trust-label">Built for Phoenix</span></div>
-      <div class="trust-div"></div>
       <div class="trust-item"><span class="trust-num">24/7</span><span class="trust-label">Monitoring</span></div>
       <div class="trust-div"></div>
-      <div class="trust-item"><span class="trust-num">🚫📷</span><span class="trust-label">No Cameras. No Wearables.</span></div>
+      <div class="trust-item"><span class="trust-num">Local</span><span class="trust-label">Phoenix Team</span></div>
       <div class="trust-div"></div>
-      <div class="trust-item"><span class="trust-num">🏠</span><span class="trust-label">Locally Owned &amp; Operated</span></div>
+      <div class="trust-item"><span class="trust-num">Zero</span><span class="trust-label">Cameras or Wearables</span></div>
+      <div class="trust-div"></div>
+      <div class="trust-item"><span class="trust-num">$149</span><span class="trust-label">Monthly from</span></div>
     </div>
   </div>
 
@@ -745,8 +800,8 @@ footer { background:var(--text); padding:60px 8% 36px; }
     </div>
     <div class="step reveal">
       <div class="step-num">2</div>
-      <h3>Discreet Installation</h3>
-      <p>We install unobtrusive sensors and a comfortable wearable in under 2 hours. No drilling, no complicated setup — just seamless, dignified protection that blends in.</p>
+      <h3>Same-Day Installation</h3>
+      <p>We install your complete sensor system in under 2 hours. No drilling, no wall damage, no construction. Discreet sensors placed exactly where they're needed, configured for your loved one's specific routine. We test every alert with your family before we leave.</p>
     </div>
     <div class="step reveal">
       <div class="step-num">3</div>
@@ -770,31 +825,31 @@ footer { background:var(--text); padding:60px 8% 36px; }
         <div class="afc-icon r">🆘</div>
         <div>
           <div class="afc-title">Fall Detection</div>
-          <div class="afc-desc">Motion and vibration sensors detect a fall and trigger an immediate alert to your family. No wearable required — coverage works throughout the home, around the clock.</div>
-          <span class="afc-badge r">Instant Alert · Whole-Home Coverage</span>
+          <div class="afc-desc">Ceiling-mounted radar sensors detect falls within seconds in your loved one's highest-risk rooms — typically the bathroom, bedroom, and main living area. No camera, no wearable required. The moment a fall is detected, designated family members are alerted instantly.</div>
+          <span class="afc-badge r">Instant Alert · Radar-Based Detection</span>
         </div>
       </div>
       <div class="afc urgent reveal">
         <div class="afc-icon y">🌡️</div>
         <div>
-          <div class="afc-title">Extreme Temperature Alert</div>
-          <div class="afc-desc">Critical in Phoenix's desert climate. If the home gets dangerously hot due to AC failure, an open door, or power outage — your family is alerted before heat stroke becomes a risk.</div>
-          <span class="afc-badge y">Phoenix Heat Protection · Immediate Notification</span>
+          <div class="afc-title">Phoenix Heat Protection</div>
+          <div class="afc-desc">The protection no national service offers. Multiple temperature sensors throughout the home plus a power monitor on the AC unit. If indoor temperatures rise above safe thresholds, if the AC fails, or if exterior doors are left open during peak heat — your family knows in minutes, not hours.</div>
+          <span class="afc-badge y">Phoenix-Specific · Built for Arizona</span>
         </div>
       </div>
       <div class="afc reveal">
         <div class="afc-icon">🚪</div>
         <div>
-          <div class="afc-title">Unusual Inactivity or Door Activity</div>
-          <div class="afc-desc">If your loved one hasn't moved in an unexpected window — or the front door opens at an unusual hour — the system flags it and alerts your family immediately.</div>
-          <span class="afc-badge">Smart Motion Intelligence · Baseline Learning</span>
+          <div class="afc-title">Wandering &amp; Nighttime Activity</div>
+          <div class="afc-desc">Door sensors and motion detectors learn your loved one's normal patterns — when they wake, when they leave the house, when they're up at night. Any meaningful deviation from their baseline triggers an alert. If the front door opens at 3 AM, you'll know.</div>
+          <span class="afc-badge">Smart Baseline Learning · Nighttime Protection</span>
         </div>
       </div>
       <div class="afc reveal">
         <div class="afc-icon">📊</div>
         <div>
-          <div class="afc-title">Behavioral Pattern Changes</div>
-          <div class="afc-desc">Our system learns your loved one's normal week and flags meaningful changes for your family. Not a medical diagnosis — an early signal worth a check-in or a conversation with their doctor.</div>
+          <div class="afc-title">Routine Anomaly Alerts</div>
+          <div class="afc-desc">Subtle changes — fewer trips to the kitchen, longer time in bed, less movement during the day — can be early signals worth investigating. Our system learns your loved one's normal week and flags meaningful changes for your family.</div>
           <span class="afc-badge">Pattern Recognition · Early Signals</span>
         </div>
       </div>
@@ -823,10 +878,10 @@ footer { background:var(--text); padding:60px 8% 36px; }
       </div>
       <div class="report-body">
         <div class="rm"><div class="rm-icon">😴</div><div style="flex:1"><div class="rm-label">Sleep Quality</div><div class="rm-val">7h 22m avg · Restful</div></div><div class="rm-bar-bg"><div class="rm-bar g" style="width:84%"></div></div></div>
-        <div class="rm"><div class="rm-icon">🚶</div><div style="flex:1"><div class="rm-label">Gait Pattern</div><div class="rm-val">Steady — no irregularities</div></div><div class="rm-bar-bg"><div class="rm-bar g" style="width:91%"></div></div></div>
-        <div class="rm"><div class="rm-icon">⚡</div><div style="flex:1"><div class="rm-label">Daily Activity Level</div><div class="rm-val">Moderate · consistent routine</div></div><div class="rm-bar-bg"><div class="rm-bar" style="width:68%"></div></div></div>
-        <div class="rm"><div class="rm-icon">💊</div><div style="flex:1"><div class="rm-label">Medication Adherence</div><div class="rm-val">6 of 7 days confirmed</div></div><div class="rm-bar-bg"><div class="rm-bar w" style="width:86%"></div></div></div>
+        <div class="rm"><div class="rm-icon">🏠</div><div style="flex:1"><div class="rm-label">Daily Activity</div><div class="rm-val">Active in 5 rooms · consistent routine</div></div><div class="rm-bar-bg"><div class="rm-bar g" style="width:88%"></div></div></div>
+        <div class="rm"><div class="rm-icon">📊</div><div style="flex:1"><div class="rm-label">Routine Consistency</div><div class="rm-val">This week matches baseline</div></div><div class="rm-bar-bg"><div class="rm-bar g" style="width:91%"></div></div></div>
         <div class="rm"><div class="rm-icon">🌡️</div><div style="flex:1"><div class="rm-label">Home Temp Range</div><div class="rm-val">68°F – 74°F · Safe all week</div></div><div class="rm-bar-bg"><div class="rm-bar g" style="width:100%"></div></div></div>
+        <div class="rm"><div class="rm-icon">🔔</div><div style="flex:1"><div class="rm-label">Alerts This Week</div><div class="rm-val">0 alerts triggered</div></div><div class="rm-bar-bg"><div class="rm-bar g" style="width:100%"></div></div></div>
       </div>
       <div class="report-foot">✅ No alerts triggered this week · Report sent Sunday 8am</div>
     </div>
@@ -835,10 +890,10 @@ footer { background:var(--text); padding:60px 8% 36px; }
       <h2 class="section-title">Every Sunday, the <em>full picture</em> arrives</h2>
       <p class="section-subtitle">No more guessing. No more "she says she's fine." Every week, Proxia Care delivers a clear, easy report so every family member stays genuinely informed.</p>
       <div class="rb-list">
-        <div class="rb reveal"><div class="rb-icon">😴</div><div><div class="rb-title">Sleep Patterns</div><div class="rb-desc">Duration, quality, and disruptions — so you can spot changes early before they signal a bigger issue.</div></div></div>
-        <div class="rb reveal"><div class="rb-icon">🚶</div><div><div class="rb-title">Gait & Movement Analysis</div><div class="rb-desc">Subtle walking changes are early warning signs for balance issues. We track every step, every day.</div></div></div>
-        <div class="rb reveal"><div class="rb-icon">⚡</div><div><div class="rb-title">Activity & Daily Routine</div><div class="rb-desc">Meals, movement, and social patterns — any break from their normal baseline gets flagged for your family.</div></div></div>
-        <div class="rb reveal"><div class="rb-icon">🌡️</div><div><div class="rb-title">Home Environment Summary</div><div class="rb-desc">Temperature safety throughout the week — especially vital during Phoenix summers — plus comfort insights.</div></div></div>
+        <div class="rb reveal"><div class="rb-icon">😴</div><div><div class="rb-title">Sleep Patterns</div><div class="rb-desc">Duration, quality, and breathing patterns — so you can spot changes early before they signal a bigger issue. Powered by FDA-cleared sleep tracking.</div></div></div>
+        <div class="rb reveal"><div class="rb-icon">🏠</div><div><div class="rb-title">Activity &amp; Daily Routine</div><div class="rb-desc">Room-by-room movement patterns, meal-time activity, and overall engagement with daily life. Any break from their normal baseline gets flagged.</div></div></div>
+        <div class="rb reveal"><div class="rb-icon">📊</div><div><div class="rb-title">Routine Consistency</div><div class="rb-desc">Week-over-week comparison of your loved one's patterns. Gradual changes that are hard to notice day-by-day become clear in the weekly trend.</div></div></div>
+        <div class="rb reveal"><div class="rb-icon">🌡️</div><div><div class="rb-title">Home Environment Summary</div><div class="rb-desc">Temperature safety throughout the week — especially vital during Phoenix summers — plus AC status and any environmental events.</div></div></div>
       </div>
     </div>
   </div>
@@ -854,15 +909,130 @@ footer { background:var(--text); padding:60px 8% 36px; }
 <!-- BENEFITS -->
 <section class="benefits-section" id="benefits">
   <div class="section-eyebrow">Why Proxia Care</div>
-  <h2 class="section-title">Everything your family needs. Nothing they don't.</h2>
-  <p class="section-subtitle">Designed to give Phoenix-area seniors independence and dignity, while giving families the real-time clarity they deserve.</p>
-  <div class="benefits-grid">
-    <div class="bc reveal"><div class="bc-icon">🏠</div><h3>Stay Home. Stay Independent.</h3><p>Your loved one keeps their routine, their home, and their dignity. Proxia Care comes to them — not the other way around.</p></div>
-    <div class="bc reveal"><div class="bc-icon o">☀️</div><h3>Phoenix Heat Protection</h3><p>Arizona summers are life-threatening for seniors. Our temperature monitoring sends instant alerts the moment a home becomes unsafe — before it becomes a medical emergency.</p></div>
-    <div class="bc reveal"><div class="bc-icon">📱</div><h3>Whole Family App Access</h3><p>Every family member gets their own login. Near or far, check in anytime, receive every alert, and see real-time status all in one beautiful app.</p></div>
-    <div class="bc reveal"><div class="bc-icon">🧠</div><h3>Early Pattern Recognition</h3><p>Our AI learns their baseline. Subtle shifts in sleep, gait, or routine are flagged weeks before they become serious — giving your family the gift of early action.</p></div>
-    <div class="bc reveal"><div class="bc-icon o">💰</div><h3>A Fraction of Care Home Costs</h3><p>Assisted living in Phoenix averages $7,400/month. Proxia Care delivers professional monitoring at a price that keeps your loved one home — and your family financially whole.</p></div>
-    <div class="bc reveal"><div class="bc-icon">🛡️</div><h3>30-Day Satisfaction Guarantee</h3><p>Try Proxia Care completely risk-free for 30 days. If your family isn't fully satisfied, we'll make it right — no questions, no hassle.</p></div>
+  <h2 class="section-title">Why Phoenix families choose <em>Proxia Care</em></h2>
+  <p class="section-subtitle">Designed for Arizona's realities and built around your loved one's actual life — not a one-size-fits-all solution from a national provider.</p>
+  <div class="benefits-grid" style="grid-template-columns:repeat(2,1fr);">
+    <div class="bc reveal"><div class="bc-icon o">☀️</div><h3>Built for Arizona</h3><p>We're the only senior monitoring service designed around Phoenix's real risks. AC failures, extreme heat events, and the specific challenges of desert living are built into how we monitor. National providers don't think about your loved one's July afternoons. We do.</p></div>
+    <div class="bc reveal"><div class="bc-icon">🔒</div><h3>No Wearables. No Cameras. Real Privacy.</h3><p>Your loved one doesn't have to wear anything, charge anything, or remember anything. There are no cameras in any room of the home. Just discreet sensors that learn their routine and protect them quietly.</p></div>
+    <div class="bc reveal"><div class="bc-icon">📱</div><h3>A Local Phoenix Team</h3><p>When something happens, you're talking to a local Phoenix specialist who knows your family — not a 1-800 call center across the country. We do the consultation in person. We do the install ourselves. We answer when you call.</p></div>
+    <div class="bc reveal"><div class="bc-icon o">💰</div><h3>Transparent Pricing. Month-to-Month.</h3><p>No long-term contracts. No hidden fees. No surprise renewals. If Proxia Care isn't right for your family, you can cancel with 30 days' notice. We earn your trust every month.</p></div>
+  </div>
+</section>
+
+<!-- WHAT'S INSTALLED -->
+<section class="equipment-section" id="equipment">
+  <div class="section-eyebrow">Real Equipment</div>
+  <h2 class="section-title">What's actually installed <em>in the home</em></h2>
+  <p class="section-subtitle">Discreet, professional-grade smart home sensors, configured by a Proxia Care specialist for your loved one's specific home and daily routine.</p>
+  <div class="equip-grid">
+    <div class="eq-item reveal">
+      <div class="eq-icon">🏠</div>
+      <div><div class="eq-name">Smart Home Hub</div><div class="eq-desc">The brain of the system, centrally located, connecting every sensor and managing alerts. Keeps working through internet outages.</div></div>
+    </div>
+    <div class="eq-item reveal">
+      <div class="eq-icon">📡</div>
+      <div><div class="eq-name">Radar Presence Sensors</div><div class="eq-desc">Ceiling-mounted in the bathroom and other high-risk rooms for fall detection. No camera, no recording — just radar.</div></div>
+    </div>
+    <div class="eq-item reveal">
+      <div class="eq-icon">👣</div>
+      <div><div class="eq-name">Motion Sensors</div><div class="eq-desc">Discreet sensors placed throughout the home, learning your loved one's daily movement patterns room by room.</div></div>
+    </div>
+    <div class="eq-item reveal">
+      <div class="eq-icon">🚪</div>
+      <div><div class="eq-name">Door &amp; Window Sensors</div><div class="eq-desc">Tracking entries, exits, and unusual nighttime activity. Know when doors open that shouldn't.</div></div>
+    </div>
+    <div class="eq-item reveal">
+      <div class="eq-icon">🌡️</div>
+      <div><div class="eq-name">Temperature Sensors</div><div class="eq-desc">Multiple units monitoring the home environment — critical for Arizona summers when indoor heat becomes dangerous.</div></div>
+    </div>
+    <div class="eq-item reveal">
+      <div class="eq-icon">⚡</div>
+      <div><div class="eq-name">AC Power Monitor</div><div class="eq-desc">Detects AC failures the moment they happen, before the home becomes unsafe. Your family is alerted immediately.</div></div>
+    </div>
+    <div class="eq-item reveal">
+      <div class="eq-icon">💧</div>
+      <div><div class="eq-name">Water Leak Sensors</div><div class="eq-desc">Under-sink and near appliances, catching leaks instantly — before a small drip becomes a $20,000 problem.</div></div>
+    </div>
+    <div class="eq-item reveal">
+      <div class="eq-icon">😴</div>
+      <div><div class="eq-name">Sleep Sensor</div><div class="eq-desc">FDA-cleared under-mattress sleep tracking with apnea detection. Nothing to wear, nothing to remember.</div><span class="eq-tag">Optional add-on</span></div>
+    </div>
+    <div class="eq-item reveal">
+      <div class="eq-icon">📶</div>
+      <div><div class="eq-name">Cellular Backup</div><div class="eq-desc">Monitoring continues even if home internet goes down. Your loved one stays protected through outages.</div><span class="eq-tag">Optional add-on</span></div>
+    </div>
+  </div>
+  <div class="eq-callout reveal">Total install time: under 2 hours. No drilling. No wall damage. No construction. No disruption to your loved one's home.</div>
+</section>
+
+<!-- PRICING -->
+<section class="pricing-section" id="pricing">
+  <div class="section-eyebrow">Transparent Pricing</div>
+  <h2 class="section-title">Simple, Custom-Built <em>Pricing</em></h2>
+  <p class="pricing-hero-line">Monitoring from <span>$149/month</span>. Professional installation from <span>$199</span>.</p>
+  <p class="section-subtitle">Every Proxia Care system is custom-designed for your loved one's home and routine during your free in-home consultation. We build the right coverage — never more than you need, never less than you deserve.</p>
+  <div class="pricing-cards">
+    <div class="pc reveal">
+      <div class="pc-icon">🏡</div>
+      <h3>Custom-Built for Your Home</h3>
+      <p>No one-size-fits-all packages. Your free consultation determines the exact sensors, coverage, and monitoring level your loved one's home needs. Pay for the protection you want — nothing more.</p>
+    </div>
+    <div class="pc reveal">
+      <div class="pc-icon">🛡️</div>
+      <h3>24/7 Professional Monitoring</h3>
+      <p>Our monitoring team and your family receive instant alerts the moment something happens. Nighttime, weekends, holidays — someone is always watching.</p>
+    </div>
+    <div class="pc reveal">
+      <div class="pc-icon o">☀️</div>
+      <h3>Phoenix-Specific Protection</h3>
+      <p>Optional add-ons for AC failure detection, extreme heat monitoring, and outdoor heat protection — built specifically for Arizona's climate. Protection no national service offers.</p>
+    </div>
+  </div>
+  <div class="pricing-cta">
+    <p class="bold-line">All plans are month-to-month. No long-term contracts. Cancel anytime with 30 days' notice.</p>
+    <a href="#consultation" class="btn-primary">Schedule Free Consultation</a>
+    <p class="pricing-note">Pricing varies based on home size, coverage level, and selected add-ons. Your specialist will provide a complete quote during your consultation — no obligation, no pressure.</p>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq-section" id="faq">
+  <div class="section-eyebrow">Common Questions</div>
+  <h2 class="section-title">What Phoenix families <em>ask</em></h2>
+  <p class="section-subtitle">Everything you need to know before scheduling your free consultation.</p>
+  <div class="faq-grid">
+    <div class="faq-item reveal">
+      <div class="faq-q">Will my loved one have to wear anything?</div>
+      <div class="faq-a">No. Proxia Care uses discreet in-home sensors. No wearables, no pendants, no buttons to press. Your loved one's daily life doesn't change.</div>
+    </div>
+    <div class="faq-item reveal">
+      <div class="faq-q">Are there cameras in the home?</div>
+      <div class="faq-a">No cameras anywhere in the home. Our system uses millimeter-wave radar — the same technology used in modern automotive safety systems — to detect presence and falls without recording video or audio.</div>
+    </div>
+    <div class="faq-item reveal">
+      <div class="faq-q">What happens when an alert fires?</div>
+      <div class="faq-a">Our 24/7 monitoring team is notified immediately. Within seconds, designated family members receive a push notification, SMS, and call as needed. For confirmed emergencies, our team can dispatch local emergency services directly.</div>
+    </div>
+    <div class="faq-item reveal">
+      <div class="faq-q">What if the internet goes out?</div>
+      <div class="faq-a">Our system continues monitoring locally even when internet drops. Critical alerts are sent via cellular backup (available as an add-on), so your loved one stays protected through outages.</div>
+    </div>
+    <div class="faq-item reveal">
+      <div class="faq-q">How long does installation take?</div>
+      <div class="faq-a">Under 2 hours, typically. No drilling, no construction, no disruption to your loved one's home or routine.</div>
+    </div>
+    <div class="faq-item reveal">
+      <div class="faq-q">What's the contract length?</div>
+      <div class="faq-a">All plans are month-to-month. Cancel anytime with 30 days' notice. No long-term commitments, ever.</div>
+    </div>
+    <div class="faq-item reveal">
+      <div class="faq-q">Do you serve all of Greater Phoenix?</div>
+      <div class="faq-a">Yes. Phoenix, Scottsdale, Paradise Valley, Mesa, Gilbert, Chandler, Tempe, Glendale, Peoria, Sun City, Sun City West, and surrounding communities throughout Maricopa County.</div>
+    </div>
+    <div class="faq-item reveal">
+      <div class="faq-q">What if my loved one isn't comfortable with technology?</div>
+      <div class="faq-a">That's the point. Proxia Care is designed to be invisible to them. They don't need to use an app, press a button, or remember anything. The technology works around their life, not the other way around.</div>
+    </div>
   </div>
 </section>
 
@@ -870,148 +1040,42 @@ footer { background:var(--text); padding:60px 8% 36px; }
 <div class="mid-cta">
   <div>
     <h2>Ready to stop wondering and start knowing?</h2>
-    <p>Proxia Care helps Phoenix-area families keep their seniors safe, healthy, and home.</p>
+    <p>Phoenix families trust Proxia Care to keep their seniors safe, healthy, and home. Schedule your free consultation today.</p>
   </div>
   <a href="#consultation" class="btn-white-solid">Book Free Consultation</a>
 </div>
 
-<!-- TESTIMONIALS -->
-<section class="testimonials-section" id="testimonials">
-  <div class="section-eyebrow">Real Phoenix Families</div>
-  <h2 class="section-title">The peace of mind you've been looking for</h2>
-  <p class="section-subtitle">Hear from families across the Valley who made the call.</p>
+<!-- OUR MISSION -->
+<section class="testimonials-section" id="mission">
+  <div class="section-eyebrow">Our Mission</div>
+  <h2 class="section-title">Why we built <em>Proxia Care</em></h2>
+  <p class="section-subtitle">From our founder — the reason this company exists.</p>
   <div class="testi-grid">
 
     <div class="testi reveal">
-      <!-- Illustrated testimonial scene: son on phone, relieved -->
-      <svg class="testi-scene" viewBox="0 0 280 140" xmlns="http://www.w3.org/2000/svg">
-        <rect width="280" height="140" fill="#EAF8F6"/>
-        <rect width="280" height="85" fill="#D4F2EE"/>
-        <rect y="85" width="280" height="55" fill="#C8E8E4"/>
-        <!-- Adult son, 40s, holding phone looking relieved -->
-        <ellipse cx="90" cy="78" rx="20" ry="24" fill="#F5C5A3"/>
-        <circle cx="90" cy="50" r="19" fill="#F5C5A3"/>
-        <ellipse cx="90" cy="40" rx="18" ry="11" fill="#4A3020"/>
-        <ellipse cx="72" cy="46" rx="9" ry="13" fill="#4A3020"/>
-        <ellipse cx="90" cy="78" rx="20" ry="22" fill="#5BBFB5"/>
-        <ellipse cx="84" cy="53" rx="2.5" ry="3" fill="#2C4A46" opacity=".6"/>
-        <ellipse cx="96" cy="53" rx="2.5" ry="3" fill="#2C4A46" opacity=".6"/>
-        <!-- Big relieved smile -->
-        <path d="M82 62 Q90 70 98 62" stroke="#D45F4D" stroke-width="2" fill="none" stroke-linecap="round"/>
-        <!-- Phone -->
-        <rect x="105" y="55" width="18" height="30" rx="4" fill="#1E7A72"/>
-        <rect x="107" y="58" width="14" height="22" rx="2" fill="#EAF8F6"/>
-        <!-- Mom is OK bubble -->
-        <rect x="135" y="30" width="100" height="32" rx="10" fill="white"/>
-        <polygon points="145,62 152,70 160,62" fill="white"/>
-        <text x="185" y="48" text-anchor="middle" font-family="sans-serif" font-size="10" font-weight="bold" fill="#1E7A72">Mom alert:</text>
-        <text x="185" y="60" text-anchor="middle" font-family="sans-serif" font-size="9" fill="#22c55e" font-weight="bold">All clear ✓</text>
-        <!-- Arizona landscape bg -->
-        <ellipse cx="240" cy="88" rx="25" ry="18" fill="#F07C6B" opacity=".2"/>
-        <polygon points="218,86 228,60 238,86" fill="#D45F4D" opacity=".2"/>
-        <polygon points="235,86 248,55 261,86" fill="#D45F4D" opacity=".15"/>
-      </svg>
       <span class="quote-mark">"</span>
-      <div class="stars"><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span></div>
-      <p class="testi-text">My mom tells me she's fine every time I call. Last July her AC failed and the house hit 88°. Proxia Care alerted me in minutes — she had no idea. Could have been catastrophic.</p>
+      <p class="testi-text">I started Proxia Care because I watched my own family struggle with the gap between 'mom's still independent' and 'mom needs full-time care.' That gap is years long, and it's terrifying. We exist to fill it — with real technology, real monitoring, and real local people who answer the phone.</p>
       <div class="testi-author">
-        <div class="author-av">DL</div>
-        <div><div class="author-name">David L.</div><div class="author-role">Son · Tempe, AZ</div></div>
+        <div class="author-av">PC</div>
+        <div><div class="author-name">Proxia Care</div><div class="author-role">Founded 2026 · Phoenix, AZ</div></div>
       </div>
     </div>
 
     <div class="testi reveal">
-      <!-- Illustrated scene: senior man happy at home -->
-      <svg class="testi-scene" viewBox="0 0 280 140" xmlns="http://www.w3.org/2000/svg">
-        <rect width="280" height="140" fill="#FEF0ED"/>
-        <rect width="280" height="85" fill="#FDE0DA"/>
-        <rect y="85" width="280" height="55" fill="#F5C5B8"/>
-        <!-- Armchair -->
-        <rect x="30" y="72" width="140" height="60" rx="10" fill="#F07C6B" opacity=".7"/>
-        <rect x="38" y="62" width="40" height="28" rx="6" fill="#D45F4D" opacity=".7"/>
-        <rect x="122" y="62" width="40" height="28" rx="6" fill="#D45F4D" opacity=".7"/>
-        <!-- Senior man seated, reading tablet -->
-        <ellipse cx="100" cy="72" rx="19" ry="22" fill="#FDBCAA"/>
-        <circle cx="100" cy="46" r="17" fill="#FDBCAA"/>
-        <ellipse cx="100" cy="38" rx="17" ry="10" fill="#C8C8C8"/>
-        <ellipse cx="84" cy="44" rx="8" ry="12" fill="#C8C8C8"/>
-        <ellipse cx="116" cy="44" rx="8" ry="12" fill="#C8C8C8"/>
-        <ellipse cx="100" cy="68" rx="19" ry="20" fill="#5BBFB5"/>
-        <ellipse cx="94" cy="49" rx="2" ry="2.5" fill="#3A5550" opacity=".6"/>
-        <ellipse cx="106" cy="49" rx="2" ry="2.5" fill="#3A5550" opacity=".6"/>
-        <path d="M93 57 Q100 62 107 57" stroke="#D45F4D" stroke-width="1.5" fill="none" stroke-linecap="round"/>
-        <!-- Tablet -->
-        <rect x="115" y="68" width="26" height="36" rx="4" fill="#1E7A72"/>
-        <rect x="117" y="70" width="22" height="30" rx="2" fill="#EAF8F6"/>
-        <!-- Proxia app on tablet -->
-        <circle cx="128" cy="79" r="6" fill="#5BBFB5" opacity=".6"/>
-        <rect x="118" y="88" width="20" height="3" rx="1" fill="#D4F2EE"/>
-        <rect x="118" y="93" width="14" height="3" rx="1" fill="#D4F2EE"/>
-        <!-- Small wearable watch -->
-        <rect x="83" y="82" width="14" height="9" rx="3" fill="#1E7A72"/>
-        <rect x="85" y="84" width="10" height="5" rx="1" fill="#ADFFF8"/>
-        <!-- Window with cactus outside -->
-        <rect x="195" y="15" width="65" height="55" rx="3" fill="white" opacity=".8"/>
-        <rect x="210" y="40" width="8" height="25" rx="3" fill="#5BBFB5" opacity=".5"/>
-        <ellipse cx="214" cy="35" rx="10" ry="8" fill="#5BBFB5" opacity=".4"/>
-        <circle cx="230" cy="28" r="10" fill="#FFE066" opacity=".6"/>
-        <!-- Independence label -->
-        <rect x="170" y="80" width="90" height="22" rx="11" fill="white" opacity=".9"/>
-        <text x="215" y="95" text-anchor="middle" font-family="sans-serif" font-size="9" font-weight="bold" fill="#1E7A72">Living independently ✓</text>
-      </svg>
       <span class="quote-mark">"</span>
-      <div class="stars"><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span></div>
-      <p class="testi-text">My dad is fiercely independent and refused any kind of help. But Proxia Care is invisible to him — he barely knows it's there. The weekly family reports have been a total game changer.</p>
+      <p class="testi-text">Phoenix is unique. Our heat is unique. Our retirement community is unique. The monitoring services families actually need here can't be the same generic product sold in Minneapolis or Miami. Every sensor, every alert, every feature of Proxia Care is designed around Arizona's real risks.</p>
       <div class="testi-author">
-        <div class="author-av">SC</div>
-        <div><div class="author-name">Sandra C.</div><div class="author-role">Daughter · Scottsdale, AZ</div></div>
+        <div class="author-av">PC</div>
+        <div><div class="author-name">Proxia Care</div><div class="author-role">Built for Arizona</div></div>
       </div>
     </div>
 
     <div class="testi reveal">
-      <!-- Illustrated scene: doctor visit, caught early -->
-      <svg class="testi-scene" viewBox="0 0 280 140" xmlns="http://www.w3.org/2000/svg">
-        <rect width="280" height="140" fill="#EAF8F6"/>
-        <rect width="280" height="85" fill="#D4F2EE"/>
-        <rect y="85" width="280" height="55" fill="#C8E8E4"/>
-        <!-- Doctor's office table -->
-        <rect x="60" y="95" width="180" height="15" rx="4" fill="#A8D4D0"/>
-        <!-- Senior woman at appointment -->
-        <ellipse cx="110" cy="80" rx="18" ry="22" fill="#F5D0C0"/>
-        <circle cx="110" cy="54" r="16" fill="#F5D0C0"/>
-        <ellipse cx="110" cy="46" rx="15" ry="9" fill="#D8D8D8"/>
-        <ellipse cx="96" cy="52" rx="8" ry="11" fill="#D8D8D8"/>
-        <ellipse cx="124" cy="52" rx="8" ry="11" fill="#D8D8D8"/>
-        <ellipse cx="110" cy="90" rx="18" ry="19" fill="#F07C6B" opacity=".7"/>
-        <ellipse cx="104" cy="57" rx="2" ry="2.5" fill="#3A5550" opacity=".6"/>
-        <ellipse cx="116" cy="57" rx="2" ry="2.5" fill="#3A5550" opacity=".6"/>
-        <path d="M104 65 Q110 69 116 65" stroke="#D45F4D" stroke-width="1.5" fill="none" stroke-linecap="round"/>
-        <!-- Doctor -->
-        <ellipse cx="185" cy="80" rx="18" ry="22" fill="#FDBCAA"/>
-        <circle cx="185" cy="54" r="17" fill="#FDBCAA"/>
-        <ellipse cx="185" cy="45" rx="16" ry="9" fill="#6B3A2A"/>
-        <ellipse cx="185" cy="90" rx="18" ry="21" fill="white"/>
-        <!-- Stethoscope -->
-        <path d="M177 90 Q170 100 172 110 Q174 118 180 118" stroke="#5BBFB5" stroke-width="2.5" fill="none" stroke-linecap="round"/>
-        <circle cx="180" cy="119" r="4" fill="#5BBFB5"/>
-        <!-- Clipboard -->
-        <rect x="193" y="82" width="24" height="30" rx="3" fill="#E8E8E8"/>
-        <rect x="195" y="86" width="20" height="3" rx="1" fill="#B0B0B0"/>
-        <rect x="195" y="91" width="16" height="2.5" rx="1" fill="#B0B0B0"/>
-        <rect x="195" y="96" width="18" height="2.5" rx="1" fill="#B0B0B0"/>
-        <!-- Caught early badge -->
-        <rect x="30" y="20" width="110" height="36" rx="10" fill="white"/>
-        <circle cx="48" cy="38" r="10" fill="#22c55e"/>
-        <polyline points="44,38 47,41 54,33" stroke="white" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-        <text x="82" y="33" text-anchor="middle" font-family="sans-serif" font-size="9" font-weight="bold" fill="#1E7A72">Caught early</text>
-        <text x="82" y="47" text-anchor="middle" font-family="sans-serif" font-size="8" fill="#5BBFB5">Simple prescription</text>
-      </svg>
       <span class="quote-mark">"</span>
-      <div class="stars"><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span></div>
-      <p class="testi-text">The weekly report showed my mom's sleep had changed for 3 weeks straight. We took her in and caught a UTI early — just a prescription, not a hospital stay. Proxia Care literally changed the outcome.</p>
+      <p class="testi-text">Every family deserves to know that someone local is watching. Not a call center. Not an algorithm alone. A real person, in Phoenix, who answers the phone and knows your family's name. That's the service we're building — one home at a time.</p>
       <div class="testi-author">
-        <div class="author-av">MR</div>
-        <div><div class="author-name">Michael R.</div><div class="author-role">Son · Gilbert, AZ</div></div>
+        <div class="author-av">PC</div>
+        <div><div class="author-name">Proxia Care</div><div class="author-role">Locally Owned &amp; Operated</div></div>
       </div>
     </div>
   </div>
@@ -1024,11 +1088,11 @@ footer { background:var(--text); padding:60px 8% 36px; }
     <h2 class="section-title">Let's build a plan for your family</h2>
     <p class="section-subtitle">No commitment, no pressure — just an honest conversation about keeping your loved one safely at home in Phoenix.</p>
     <ul class="checklist">
-      <li><div class="chk">✓</div><span>30-minute call with a Proxia Care specialist</span></li>
-      <li><div class="chk">✓</div><span>Custom monitoring plan for your loved one's home and routine</span></li>
+      <li><div class="chk">✓</div><span>Free, no-obligation in-home consultation</span></li>
+      <li><div class="chk">✓</div><span>Personalized plan for your loved one's home and routine</span></li>
       <li><div class="chk">✓</div><span>Transparent pricing — no hidden fees, ever</span></li>
-      <li><div class="chk">✓</div><span>Learn about our 30-day satisfaction guarantee</span></li>
-      <li><div class="chk">✓</div><span>Available 7 days a week, including evenings</span></li>
+      <li><div class="chk">✓</div><span>Same-week installation typically available</span></li>
+      <li><div class="chk">✓</div><span>Month-to-month — no long-term contracts</span></li>
       <li><div class="chk">✓</div><span>Serving Phoenix, Scottsdale, Mesa, Gilbert, Chandler, Tempe &amp; more</span></li>
     </ul>
   </div>
@@ -1096,25 +1160,25 @@ footer { background:var(--text); padding:60px 8% 36px; }
     <div class="footer-col">
       <h4>Company</h4>
       <ul>
-        <li><a href="#">About Us</a></li>
-        <li><a href="#">Our Technology</a></li>
-        <li><a href="#">Service Areas</a></li>
-        <li><a href="#">Careers</a></li>
+        <li><a href="#how">How It Works</a></li>
+        <li><a href="#equipment">What's Included</a></li>
+        <li><a href="#pricing">Pricing</a></li>
+        <li><a href="#faq">FAQ</a></li>
       </ul>
     </div>
     <div class="footer-col">
-      <h4>Support</h4>
+      <h4>Service Areas</h4>
       <ul>
-        <li><a href="#">FAQ</a></li>
-        <li><a href="#">Privacy Policy</a></li>
-        <li><a href="#">Terms of Service</a></li>
-        <li><a href="#consultation">Contact Us</a></li>
+        <li><a href="#consultation">Phoenix · Scottsdale</a></li>
+        <li><a href="#consultation">Mesa · Gilbert · Chandler</a></li>
+        <li><a href="#consultation">Tempe · Glendale · Peoria</a></li>
+        <li><a href="#consultation">Sun City · Paradise Valley</a></li>
       </ul>
     </div>
   </div>
   <div class="footer-bottom">
-    <p class="footer-copy">© 2025 Proxia Care LLC. All rights reserved.</p>
-    <p class="footer-phx">Proudly serving Greater Phoenix, AZ · Independence Protected</p>
+    <p class="footer-copy">© 2026 Proxia Care, LLC. All rights reserved.</p>
+    <p class="footer-phx">Proudly serving Greater Phoenix, AZ · Proxia Care is not a medical device or emergency response service. For life-threatening emergencies, always dial 911.</p>
   </div>
 </footer>
 
