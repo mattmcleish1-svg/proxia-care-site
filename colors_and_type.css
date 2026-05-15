@@ -1,0 +1,166 @@
+/* =========================================================
+   Proxia Care — Colors & Type tokens
+   Warm, trustworthy, premium-but-not-clinical.
+   Used by all preview cards, slides, and UI kits.
+   ========================================================= */
+
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Nunito:wght@300;400;500;600;700;800&display=swap');
+
+:root {
+  /* -----------------------------------------------------
+     BRAND COLORS
+     ----------------------------------------------------- */
+  /* Teal — primary. Trust, calm, tech-with-heart. */
+  --teal-900: #0F4A45;       /* deepest — display text on cream */
+  --teal-700: #1E7A72;       /* dark — body text, headlines */
+  --teal-500: #3A9E94;       /* core brand teal — buttons, marks */
+  --teal-400: #5BBFB5;       /* light teal — accents, the wifi waves */
+  --teal-100: #D7EEEB;       /* tint — backgrounds, hover surfaces */
+  --teal-50:  #EDF7F5;       /* faintest tint — section bands */
+
+  /* Coral — accent. Warmth, alerts, the "heart". Use sparingly. */
+  --coral-700: #C25445;
+  --coral-500: #F07C6B;       /* core accent */
+  --coral-300: #F7AFA3;
+  --coral-100: #FCE4DF;
+
+  /* Cream + neutrals — warm, not cold. Backgrounds and text. */
+  --cream:     #FAF6F0;       /* primary background */
+  --cream-warm:#F4EDE2;       /* secondary background, cards on cream */
+  --bone:      #FFFBF4;       /* warm white */
+  --paper:     #FFFFFF;
+
+  --ink-900:   #1A2624;       /* near-black with green undertone */
+  --ink-700:   #2F3D3A;
+  --ink-500:   #56635F;       /* secondary text */
+  --ink-300:   #8B9591;       /* tertiary text, captions */
+  --ink-200:   #C2C9C5;       /* hairlines, dividers */
+  --ink-100:   #E4E7E3;
+
+  /* Semantic */
+  --ok:        #4FA972;
+  --warn:      #E8A33A;
+  --alert:     #D94F3F;       /* a slightly more saturated coral for true alerts */
+  --info:      var(--teal-500);
+
+  /* Aliases — use these in components */
+  --bg:           var(--cream);
+  --bg-elev:      var(--paper);
+  --bg-band:      var(--teal-50);
+  --fg:           var(--ink-900);
+  --fg-muted:     var(--ink-500);
+  --fg-soft:      var(--ink-300);
+  --border:       var(--ink-200);
+  --border-soft:  var(--ink-100);
+  --primary:      var(--teal-500);
+  --primary-dark: var(--teal-700);
+  --primary-deep: var(--teal-900);
+  --accent:       var(--coral-500);
+  --accent-dark:  var(--coral-700);
+
+  /* -----------------------------------------------------
+     TYPOGRAPHY
+     ----------------------------------------------------- */
+  --font-display: 'Lora', 'Source Serif Pro', Georgia, serif;
+  --font-sans: 'Nunito', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-mono: 'IBM Plex Mono', ui-monospace, Menlo, monospace;
+
+  /* Type scale — generous, conversational */
+  --t-display:   72px;   /* slide headlines, hero */
+  --t-h1:        48px;
+  --t-h2:        36px;
+  --t-h3:        28px;
+  --t-h4:        22px;
+  --t-lead:      20px;   /* slide subhead, intro paragraph */
+  --t-body:      17px;
+  --t-small:     15px;
+  --t-caption:   13px;
+  --t-eyebrow:   12px;   /* uppercase label */
+
+  --lh-tight:   1.15;
+  --lh-snug:    1.25;
+  --lh-normal:  1.45;
+  --lh-relaxed: 1.6;
+
+  --tr-tight:   -0.02em;
+  --tr-normal:   0;
+  --tr-wide:    0.08em;
+  --tr-eyebrow: 0.14em;
+
+  /* -----------------------------------------------------
+     SPACING / RADII / SHADOW / MOTION
+     ----------------------------------------------------- */
+  --s-1:  4px;
+  --s-2:  8px;
+  --s-3:  12px;
+  --s-4:  16px;
+  --s-5:  24px;
+  --s-6:  32px;
+  --s-7:  48px;
+  --s-8:  64px;
+  --s-9:  96px;
+
+  --r-sm: 8px;
+  --r-md: 14px;
+  --r-lg: 20px;
+  --r-xl: 28px;
+  --r-pill: 999px;
+
+  /* Soft, warm shadows — never sharp/black */
+  --shadow-1: 0 1px 2px rgba(30, 58, 54, 0.06), 0 1px 1px rgba(30, 58, 54, 0.04);
+  --shadow-2: 0 4px 14px rgba(30, 58, 54, 0.08), 0 2px 4px rgba(30, 58, 54, 0.04);
+  --shadow-3: 0 14px 40px rgba(30, 58, 54, 0.10), 0 4px 12px rgba(30, 58, 54, 0.05);
+  --shadow-glow: 0 0 0 6px rgba(58, 158, 148, 0.12);
+
+  /* Motion — slow & gentle */
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --dur-1: 120ms;
+  --dur-2: 240ms;
+  --dur-3: 420ms;
+}
+
+/* =========================================================
+   SEMANTIC ELEMENT STYLES
+   Apply by adding a class — don't auto-style raw tags so
+   we can scope this stylesheet into UI kits cleanly.
+   ========================================================= */
+
+.proxia {
+  font-family: var(--font-sans);
+  color: var(--fg);
+  background: var(--bg);
+  font-size: var(--t-body);
+  line-height: var(--lh-normal);
+  font-weight: 400;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.display, .h-display {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: var(--t-display);
+  line-height: var(--lh-tight);
+  letter-spacing: var(--tr-tight);
+  color: var(--primary-deep);
+}
+.h1 { font-family: var(--font-display); font-weight: 500; font-size: var(--t-h1); line-height: var(--lh-tight); letter-spacing: var(--tr-tight); color: var(--primary-deep); }
+.h2 { font-family: var(--font-display); font-weight: 500; font-size: var(--t-h2); line-height: var(--lh-snug); color: var(--primary-deep); }
+.h3 { font-family: var(--font-sans);    font-weight: 700; font-size: var(--t-h3); line-height: var(--lh-snug); color: var(--fg); }
+.h4 { font-family: var(--font-sans);    font-weight: 700; font-size: var(--t-h4); line-height: var(--lh-snug); color: var(--fg); }
+
+.lead     { font-size: var(--t-lead);  line-height: var(--lh-relaxed); color: var(--fg-muted); font-weight: 400; }
+.body     { font-size: var(--t-body);  line-height: var(--lh-normal);  color: var(--fg); }
+.small    { font-size: var(--t-small); line-height: var(--lh-normal);  color: var(--fg-muted); }
+.caption  { font-size: var(--t-caption);line-height: var(--lh-normal); color: var(--fg-soft); }
+.eyebrow  {
+  font-family: var(--font-sans);
+  font-size: var(--t-eyebrow);
+  font-weight: 700;
+  letter-spacing: var(--tr-eyebrow);
+  text-transform: uppercase;
+  color: var(--primary);
+}
+
+.serif-italic { font-family: var(--font-display); font-style: italic; font-weight: 400; }
