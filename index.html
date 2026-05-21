@@ -1,609 +1,1108 @@
 <!doctype html>
-<html><head>
+<html lang="en">
+<head>
 <meta charset="utf-8">
-<title>Proxia Care · Keep your loved one safe at home</title>
-<link rel="stylesheet" href="../../colors_and_type.css">
-<script src="https://unpkg.com/lucide@latest"></script>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Proxia Care · Keeping Phoenix Seniors Safe at Home</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600;700&family=Nunito:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
-  * { box-sizing: border-box; }
-  html, body { margin: 0; padding: 0; background: var(--cream); font-family: var(--font-sans); color: var(--ink-900); }
-  img { max-width: 100%; }
-  .wrap { max-width: 1200px; margin: 0 auto; padding: 0 40px; }
+/* =========================================================
+   Proxia Care — Homepage
+   Single self-contained file. All CSS inline.
+   ========================================================= */
+:root{
+  --teal-900:#0F4A45;
+  --teal-800:#155F58;
+  --teal-700:#1E7A72;
+  --teal-500:#3A9E94;
+  --teal-400:#5BBFB5;
+  --teal-300:#8DDBD4;
+  --teal-100:#EAF8F6;
+  --coral:#F07C6B;
+  --coral-dark:#D45F4D;
+  --cream:#FAF6F0;
+  --ink-900:#1C2B29;
+  --ink-700:#3D5552;
+  --ink-500:#5C7572;
+  --ink-300:#7A9694;
+  --border:#D8EDEB;
+  --border-soft:#E8F2F1;
+  --paper:#FFFFFF;
 
-  /* Nav */
-  .nav { padding: 24px 0; display: flex; justify-content: space-between; align-items: center; }
-  .brand { display: flex; align-items: center; gap: 14px; text-decoration: none; }
-  .brand img { width: 64px; height: 64px; }
-  .brand .name { font-weight: 800; font-size: 24px; letter-spacing: 0.04em; color: var(--primary-deep); }
-  .brand .name .care { color: var(--coral-500); }
-  .nav-links { display: flex; gap: 28px; align-items: center; }
-  .nav-links a { color: var(--ink-700); text-decoration: none; font-weight: 600; font-size: 15px; }
-  .nav-links a:hover { color: var(--primary-deep); }
-  .btn { display: inline-flex; align-items: center; gap: 8px; padding: 11px 20px; border-radius: var(--r-pill); font-weight: 700; font-size: 15px; cursor: pointer; border: 1px solid transparent; text-decoration: none; }
-  .btn-primary { background: var(--coral-500); color: var(--paper); }
-  .btn-primary:hover { background: var(--coral-700); }
-  .btn-secondary { background: transparent; color: var(--teal-700); border-color: var(--teal-700); }
-  .btn-secondary:hover { background: var(--teal-50); }
-  .btn-ghost { background: var(--paper); color: var(--teal-700); border-color: var(--border); }
-  .btn-ghost:hover { background: var(--teal-50); border-color: var(--teal-500); }
+  --shadow-sm: 0 1px 2px rgba(15,74,69,0.04), 0 1px 1px rgba(15,74,69,0.03);
+  --shadow-md: 0 4px 14px rgba(15,74,69,0.06), 0 2px 4px rgba(15,74,69,0.04);
+  --shadow-lg: 0 14px 40px rgba(15,74,69,0.10), 0 4px 10px rgba(15,74,69,0.05);
 
-  /* Hero */
-  .hero { padding: 64px 0 88px; position: relative; overflow: hidden; }
-  .hero-grid { display: grid; grid-template-columns: 1.15fr 1fr; gap: 64px; align-items: center; position: relative; }
-  .hero-blob { position: absolute; right: -300px; top: -200px; width: 800px; height: 800px; border-radius: 999px; background: radial-gradient(circle, var(--teal-100) 0%, transparent 60%); pointer-events: none; }
-  .eyebrow { display: inline-flex; align-items: center; gap: 8px; font-size: 12px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--primary); }
-  .eyebrow .dot { width: 8px; height: 8px; border-radius: 999px; background: var(--coral-500); }
-  .h1 { font-family: var(--font-display); font-size: 64px; line-height: 1.05; letter-spacing: -0.02em; color: var(--primary-deep); font-weight: 500; margin: 16px 0 20px 0; }
-  .h1 em { font-style: italic; color: var(--coral-700); font-weight: 400; }
-  .lead { font-size: 20px; line-height: 1.55; color: var(--ink-700); max-width: 540px; margin-bottom: 28px; }
-  .ctas { display: flex; gap: 12px; align-items: center; flex-wrap: wrap; }
-  .ctas .small { font-size: 13px; color: var(--ink-500); }
+  --radius-sm: 10px;
+  --radius:    14px;
+  --radius-lg: 20px;
 
-  /* Hero report card */
-  .scene { position: relative; width: 100%; max-width: 460px; margin: 0 auto; }
-  .scene .card { background: var(--paper); border-radius: var(--r-xl); box-shadow: var(--shadow-3); padding: 28px 30px; display: flex; flex-direction: column; gap: 18px; }
-  .scene .head { display: flex; justify-content: space-between; align-items: center; }
-  .scene .head .who { display: flex; align-items: center; gap: 10px; }
-  .scene .head .av { width: 36px; height: 36px; border-radius: 999px; background: var(--coral-300); color: var(--paper); display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 14px; }
-  .scene .head .nm { font-weight: 700; font-size: 15px; color: var(--ink-900); }
-  .scene .head .sub { font-size: 12px; color: var(--ink-300); }
-  .scene .pill { font-size: 11px; font-weight: 700; padding: 4px 10px; border-radius: 999px; background: rgba(79,169,114,0.14); color: #2D7548; letter-spacing: 0.04em; text-transform: uppercase; display: inline-flex; align-items: center; gap: 6px; }
-  .scene .pill .d { width: 7px; height: 7px; border-radius: 999px; background: var(--ok); }
-  .scene .ttl { font-family: var(--font-display); font-size: 22px; font-weight: 600; color: var(--primary-deep); line-height: 1.25; }
-  .scene .row-st { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
-  .scene .stat { background: var(--cream); border-radius: var(--r-md); padding: 12px 14px; }
-  .scene .stat .l { font-size: 11px; color: var(--ink-300); text-transform: uppercase; letter-spacing: 0.1em; font-weight: 700; }
-  .scene .stat .v { font-family: var(--font-display); font-size: 22px; color: var(--primary-deep); font-weight: 600; line-height: 1.1; margin-top: 2px; }
-  .scene .stat .d { font-size: 11px; color: var(--ink-500); margin-top: 2px; }
-  .scene .note { background: var(--teal-50); border-radius: var(--r-md); padding: 12px 14px; font-size: 13px; color: var(--ink-700); line-height: 1.4; display: flex; gap: 10px; }
-  .scene .note svg { width: 16px; height: 16px; color: var(--primary-dark); flex-shrink: 0; margin-top: 1px; }
+  --font-display: 'Lora', Georgia, 'Source Serif Pro', serif;
+  --font-sans: 'Nunito', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
 
-  /* Sections */
-  .band { background: var(--paper); padding: 96px 0; }
-  .band.tint { background: var(--teal-50); }
-  .band.cream { background: var(--cream); }
-  .section-h { font-family: var(--font-display); font-weight: 500; font-size: 44px; line-height: 1.15; letter-spacing: -0.02em; color: var(--primary-deep); text-align: center; max-width: 820px; margin: 0 auto 18px auto; }
-  .section-sub { text-align: center; font-size: 18px; color: var(--ink-500); max-width: 640px; margin: 0 auto 56px auto; line-height: 1.5; }
-  .center-eyebrow { display: block; text-align: center; font-size: 12px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--primary); margin-bottom: 14px; }
+*,*::before,*::after{ box-sizing:border-box; }
+html{ scroll-behavior:smooth; }
+body{
+  margin:0;
+  font-family:var(--font-sans);
+  font-size:17px;
+  line-height:1.55;
+  color:var(--ink-900);
+  background:var(--paper);
+  -webkit-font-smoothing:antialiased;
+  text-rendering:optimizeLegibility;
+}
+img{ max-width:100%; display:block; }
+a{ color:var(--teal-700); }
+button{ font-family:inherit; }
+p{ margin:0 0 1em; }
+h1,h2,h3,h4,h5{ font-family:var(--font-display); color:var(--teal-900); margin:0 0 .5em; font-weight:700; letter-spacing:-0.01em; }
+h1{ font-size:clamp(40px, 6vw, 76px); line-height:1.05; letter-spacing:-0.02em; }
+h2{ font-size:clamp(30px, 4vw, 46px); line-height:1.12; }
+h3{ font-size:clamp(22px, 2.4vw, 28px); line-height:1.2; }
+h4{ font-size:20px; line-height:1.25; }
 
-  /* Trust strip */
-  .trust { padding: 32px 0; border-top: 1px solid var(--border-soft); border-bottom: 1px solid var(--border-soft); background: var(--paper); }
-  .trust-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; align-items: center; text-align: center; }
-  .trust-item { display: flex; flex-direction: column; align-items: center; gap: 8px; }
-  .trust-item .ic { width: 36px; height: 36px; color: var(--primary-dark); }
-  .trust-item .ic svg { width: 28px; height: 28px; stroke-width: 1.5; }
-  .trust-item .t { font-weight: 700; font-size: 14px; color: var(--ink-700); }
-  .trust-item .s { font-size: 12px; color: var(--ink-500); }
+/* layout */
+.wrap{ max-width:1180px; margin:0 auto; padding:0 28px; }
+section{ padding:96px 0; position:relative; }
+section.tight{ padding:72px 0; }
+@media (max-width:720px){
+  section{ padding:64px 0; }
+  section.tight{ padding:48px 0; }
+  .wrap{ padding:0 20px; }
+}
 
-  /* Worry/value-prop cards */
-  .worry { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
-  .worry-card { background: var(--paper); border-radius: var(--r-lg); padding: 32px; box-shadow: var(--shadow-1); display: flex; flex-direction: column; gap: 14px; transition: box-shadow var(--dur-2) var(--ease-out), transform var(--dur-2) var(--ease-out); }
-  .worry-card:hover { box-shadow: var(--shadow-3); transform: translateY(-2px); }
-  .worry-card .ic-tile { width: 56px; height: 56px; border-radius: var(--r-md); background: var(--teal-100); color: var(--teal-700); display: flex; align-items: center; justify-content: center; }
-  .worry-card.coral .ic-tile { background: var(--coral-100); color: var(--coral-700); }
-  .worry-card .ic-tile svg { width: 30px; height: 30px; stroke-width: 1.5; }
-  .worry-card h3 { font-family: var(--font-display); font-size: 24px; font-weight: 600; color: var(--primary-deep); margin: 0; line-height: 1.2; }
-  .worry-card p { font-size: 15px; line-height: 1.55; color: var(--ink-700); margin: 0; }
-  .worry-card .tag { font-size: 11px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-300); }
+.eyebrow{
+  display:inline-block;
+  font-size:12px;
+  font-weight:800;
+  letter-spacing:0.16em;
+  text-transform:uppercase;
+  color:var(--teal-500);
+  margin-bottom:14px;
+}
+.section-h{ margin:0 0 14px; }
+.section-sub{
+  font-size:19px;
+  color:var(--ink-700);
+  max-width:680px;
+  margin:0 0 36px;
+  line-height:1.55;
+}
+.section-sub.center{ margin-left:auto; margin-right:auto; }
 
-  /* Sunday report 4-card */
-  .sunday-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; max-width: 1000px; margin: 0 auto; }
-  .sunday { background: var(--paper); border-radius: var(--r-lg); padding: 28px; display: flex; gap: 18px; align-items: flex-start; box-shadow: var(--shadow-1); }
-  .sunday .ic-tile { width: 48px; height: 48px; border-radius: var(--r-md); background: var(--teal-100); color: var(--teal-700); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
-  .sunday .ic-tile svg { width: 24px; height: 24px; stroke-width: 1.5; }
-  .sunday h4 { font-family: var(--font-display); font-size: 20px; font-weight: 600; color: var(--primary-deep); margin: 0 0 6px 0; }
-  .sunday p { font-size: 14px; color: var(--ink-700); margin: 0; line-height: 1.5; }
-  .sunday .tag { display: inline-block; font-size: 10px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--coral-700); margin-top: 8px; }
+/* utility */
+.center{ text-align:center; }
+.flex{ display:flex; }
+.grid{ display:grid; }
 
-  /* Pendant section */
-  .pendant-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; }
-  .pendant-mock { display: flex; justify-content: center; }
-  .pendant-mock .device { width: 220px; aspect-ratio: 1; background: var(--paper); border-radius: 64px 64px 56px 56px; box-shadow: var(--shadow-3); position: relative; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 12px; padding: 24px; }
-  .pendant-mock .device::before { content: ''; position: absolute; top: -10px; left: 50%; transform: translateX(-50%); width: 38px; height: 14px; background: var(--ink-200); border-radius: 999px 999px 4px 4px; }
-  .pendant-mock .device .ring { width: 88px; height: 88px; border-radius: 999px; border: 3px solid var(--coral-500); display: flex; align-items: center; justify-content: center; }
-  .pendant-mock .device .ring svg { width: 36px; height: 36px; color: var(--coral-500); }
-  .pendant-mock .device .label { font-family: var(--font-display); font-size: 14px; font-weight: 700; color: var(--primary-deep); letter-spacing: 0.08em; }
-  .pendant-features { display: flex; flex-direction: column; gap: 16px; margin-top: 24px; }
-  .pendant-features .row { display: flex; gap: 14px; align-items: flex-start; }
-  .pendant-features .ic { width: 36px; height: 36px; border-radius: var(--r-md); background: var(--coral-100); color: var(--coral-700); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
-  .pendant-features .ic svg { width: 18px; height: 18px; }
-  .pendant-features h5 { margin: 0 0 2px 0; font-size: 15px; font-weight: 700; color: var(--ink-900); }
-  .pendant-features .d { font-size: 14px; color: var(--ink-500); line-height: 1.4; }
+/* buttons + links */
+.btn{
+  display:inline-flex; align-items:center; gap:10px;
+  font-family:var(--font-sans); font-weight:700; font-size:16px;
+  padding:16px 26px; border-radius:999px; border:0; cursor:pointer;
+  text-decoration:none; transition:transform .15s ease, box-shadow .2s ease, background .15s ease;
+  letter-spacing:0.01em;
+}
+.btn-primary{
+  background:var(--coral); color:#fff;
+  box-shadow:0 8px 18px rgba(240,124,107,0.30);
+}
+.btn-primary:hover{ background:var(--coral-dark); transform:translateY(-1px); box-shadow:0 10px 22px rgba(240,124,107,0.36); }
+.btn-ghost{
+  background:transparent; color:var(--teal-700);
+  text-decoration:underline; text-underline-offset:4px;
+  padding:14px 4px; font-weight:700;
+}
+.btn-ghost:hover{ color:var(--coral-dark); }
 
-  /* Pricing */
-  .tiers { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; align-items: stretch; }
-  .tier { background: var(--paper); border-radius: var(--r-lg); padding: 32px 28px; box-shadow: var(--shadow-1); display: flex; flex-direction: column; gap: 18px; border: 2px solid transparent; position: relative; }
-  .tier.featured { border-color: var(--coral-500); box-shadow: var(--shadow-3); transform: translateY(-6px); }
-  .tier .ribbon { position: absolute; top: -14px; left: 50%; transform: translateX(-50%); background: var(--coral-500); color: var(--paper); font-size: 11px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; padding: 4px 14px; border-radius: 999px; }
-  .tier .nm { font-family: var(--font-display); font-size: 24px; font-weight: 600; color: var(--primary-deep); margin: 0; }
-  .tier .price { display: flex; align-items: baseline; gap: 6px; }
-  .tier .price .v { font-family: var(--font-display); font-size: 54px; font-weight: 600; color: var(--primary-deep); line-height: 1; letter-spacing: -0.02em; }
-  .tier .price .u { font-size: 16px; color: var(--ink-500); }
-  .tier .blurb { font-size: 14px; color: var(--ink-500); line-height: 1.5; min-height: 42px; }
-  .tier ul { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 10px; flex: 1; }
-  .tier li { display: flex; gap: 10px; font-size: 14px; color: var(--ink-700); line-height: 1.4; }
-  .tier li svg { width: 16px; height: 16px; color: var(--ok); flex-shrink: 0; margin-top: 3px; }
-  .tier li b { color: var(--ink-900); font-weight: 700; }
-  .tier .install { font-size: 12px; color: var(--ink-500); border-top: 1px solid var(--border-soft); padding-top: 14px; line-height: 1.5; }
-  .tier .install b { color: var(--ink-700); }
-  .install-note { max-width: 760px; margin: 32px auto 0 auto; text-align: center; font-size: 14px; color: var(--ink-500); line-height: 1.6; }
-  .install-note b { color: var(--ink-700); }
-  .pricing-footer { text-align: center; font-size: 13px; color: var(--ink-300); margin-top: 18px; }
+/* ============== NAV ============== */
+.nav{
+  position:sticky; top:0; z-index:50;
+  background:rgba(255,255,255,0.88);
+  backdrop-filter:saturate(160%) blur(10px);
+  -webkit-backdrop-filter:saturate(160%) blur(10px);
+  border-bottom:1px solid var(--border-soft);
+}
+.nav-inner{
+  display:flex; align-items:center; justify-content:space-between;
+  padding:18px 0;
+}
+.brand{ display:flex; align-items:center; gap:12px; text-decoration:none; color:inherit; }
+.brand-mark{ width:42px; height:42px; flex:0 0 auto; }
+.brand-name{
+  font-family:var(--font-display);
+  font-weight:700;
+  font-size:24px;
+  letter-spacing:0.04em;
+  color:var(--teal-900);
+  line-height:1;
+  display:inline-flex; align-items:baseline;
+}
+.brand-name .care{ color:var(--coral); margin-left:6px; }
+/* The 'I' in PROXIA — keep the stem, float a coral beacon dot above */
+.brand-name .beacon{ position:relative; display:inline-block; }
+.brand-name .beacon::before{
+  content:""; position:absolute; left:50%; top:-0.28em;
+  transform:translateX(-50%);
+  width:0.30em; height:0.30em; border-radius:50%;
+  background:var(--coral);
+  box-shadow:0 0 0 0.08em rgba(240,124,107,0.22);
+}
+.nav-links{ display:flex; gap:30px; align-items:center; }
+.nav-links a{ color:var(--ink-700); text-decoration:none; font-weight:700; font-size:15px; }
+.nav-links a:hover{ color:var(--teal-700); }
+.nav-cta{ margin-left:8px; padding:10px 18px; font-size:14px; }
+@media (max-width:760px){
+  .nav-links a:not(.nav-cta){ display:none; }
+}
 
-  /* What's installed */
-  .equip { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; max-width: 1100px; margin: 0 auto; }
-  .equip-card { background: var(--paper); border-radius: var(--r-md); padding: 22px; display: flex; gap: 16px; align-items: flex-start; box-shadow: var(--shadow-1); }
-  .equip-card.featured { grid-column: span 3; background: var(--teal-50); border: 1px solid var(--teal-100); }
-  .equip-card .ic { width: 44px; height: 44px; border-radius: var(--r-sm); background: var(--cream-warm); color: var(--primary-dark); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
-  .equip-card.featured .ic { background: var(--paper); color: var(--teal-700); }
-  .equip-card .ic svg { width: 22px; height: 22px; stroke-width: 1.5; }
-  .equip-card h5 { margin: 0 0 4px 0; font-size: 15px; font-weight: 700; color: var(--ink-900); }
-  .equip-card p { margin: 0; font-size: 13px; color: var(--ink-500); line-height: 1.45; }
-  .equip-card .tag { display: inline-block; font-size: 10px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--coral-700); margin-top: 6px; }
+/* ============== HERO ============== */
+.hero{
+  padding:88px 0 64px;
+  background:
+    radial-gradient(1100px 600px at 80% -10%, rgba(91,191,181,0.10), transparent 60%),
+    radial-gradient(900px 500px at -10% 30%, rgba(240,124,107,0.06), transparent 60%),
+    #ffffff;
+}
+.hero-inner{ max-width:920px; }
+.hero h1{
+  color:var(--teal-900);
+  margin-bottom:24px;
+}
+.hero .lede{
+  font-size:clamp(18px, 1.55vw, 21px);
+  line-height:1.55;
+  color:var(--teal-700);
+  max-width:760px;
+  margin:0 0 36px;
+  font-weight:500;
+}
+.hero-cta{
+  display:flex; flex-wrap:wrap; gap:18px; align-items:center;
+}
+.trust-strip{
+  margin-top:64px;
+  display:grid; grid-template-columns:repeat(4, 1fr);
+  border-top:1px solid var(--border);
+  border-bottom:1px solid var(--border);
+}
+.trust-item{
+  padding:22px 18px;
+  display:flex; align-items:center; gap:14px;
+  font-weight:700; color:var(--ink-700);
+  font-size:15px;
+}
+.trust-item + .trust-item{ border-left:1px solid var(--border); }
+.trust-dot{
+  width:8px; height:8px; border-radius:50%;
+  background:var(--coral);
+  box-shadow:0 0 0 6px rgba(240,124,107,0.16);
+  flex:0 0 8px;
+}
+@media (max-width:760px){
+  .trust-strip{ grid-template-columns:1fr 1fr; }
+  .trust-item:nth-child(3){ border-left:0; border-top:1px solid var(--border); }
+  .trust-item:nth-child(4){ border-top:1px solid var(--border); }
+}
 
-  /* FAQ */
-  .faq { max-width: 820px; margin: 0 auto; display: flex; flex-direction: column; gap: 14px; }
-  .faq details { background: var(--paper); border-radius: var(--r-md); padding: 22px 26px; box-shadow: var(--shadow-1); cursor: pointer; }
-  .faq details[open] { box-shadow: var(--shadow-2); }
-  .faq summary { font-family: var(--font-display); font-size: 19px; font-weight: 600; color: var(--primary-deep); list-style: none; display: flex; justify-content: space-between; align-items: center; }
-  .faq summary::-webkit-details-marker { display: none; }
-  .faq summary::after { content: '+'; font-family: var(--font-sans); font-size: 24px; color: var(--coral-500); font-weight: 400; transition: transform var(--dur-2) var(--ease-out); }
-  .faq details[open] summary::after { transform: rotate(45deg); }
-  .faq .answer { font-size: 15px; color: var(--ink-700); line-height: 1.6; margin-top: 14px; padding-top: 14px; border-top: 1px solid var(--border-soft); }
+/* ============== SECTION 2 — Pendant ============== */
+.pendant-section{ background:var(--teal-100); }
+.pendant-grid{
+  display:grid; grid-template-columns:1fr 1fr;
+  gap:64px; align-items:center;
+}
+.pendant-features{
+  display:grid; grid-template-columns:1fr 1fr;
+  gap:22px 28px; margin-top:30px;
+}
+.pf{ display:flex; gap:14px; align-items:flex-start; }
+.pf-ico{
+  flex:0 0 36px; width:36px; height:36px; border-radius:10px;
+  background:#fff; color:var(--teal-700);
+  display:flex; align-items:center; justify-content:center;
+}
+.pf-ico svg{ width:20px; height:20px; }
+.pf-txt strong{ display:block; font-weight:800; color:var(--ink-900); margin-bottom:2px; font-size:15px; }
+.pf-txt span{ font-size:14.5px; color:var(--ink-700); line-height:1.5; }
+.fine{ margin-top:28px; font-size:14px; color:var(--ink-500); }
 
-  /* Founder CTA */
-  .founder { background: var(--teal-700); color: var(--paper); padding: 64px; border-radius: var(--r-xl); display: grid; grid-template-columns: 2fr 1fr; gap: 48px; align-items: center; position: relative; overflow: hidden; }
-  .founder::before { content: ''; position: absolute; right: -200px; top: -200px; width: 500px; height: 500px; background: radial-gradient(circle, rgba(240,124,107,0.18), transparent 60%); border-radius: 999px; }
-  .founder h2 { font-family: var(--font-display); font-size: 44px; font-weight: 500; line-height: 1.1; margin: 0 0 14px 0; letter-spacing: -0.02em; color: var(--paper); }
-  .founder p { color: var(--teal-100); font-size: 18px; line-height: 1.5; margin: 0 0 22px 0; }
-  .seats-mini { background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.12); border-radius: var(--r-lg); padding: 24px; text-align: center; position: relative; }
-  .seats-mini .num { font-family: var(--font-display); font-size: 80px; line-height: 1; font-weight: 600; color: var(--paper); letter-spacing: -0.04em; }
-  .seats-mini .of { color: var(--teal-100); font-size: 14px; margin-top: 4px; }
-  .seats-mini .lbl { color: var(--coral-300); font-weight: 700; font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase; margin-top: 14px; }
+/* Pendant illustration */
+.pendant-illo{
+  position:relative; aspect-ratio:1/1; width:100%; max-width:460px; margin:0 auto;
+  display:flex; align-items:center; justify-content:center;
+}
+.pendant-illo svg{ width:100%; height:auto; }
+@media (max-width:820px){
+  .pendant-grid{ grid-template-columns:1fr; gap:40px; }
+  .pendant-features{ grid-template-columns:1fr; }
+}
 
-  /* Footer */
-  .foot { padding: 56px 0 32px 0; background: var(--cream); }
-  .foot-grid { display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr; gap: 32px; padding-bottom: 32px; border-bottom: 1px solid var(--border-soft); }
-  .foot h5 { margin: 0 0 14px 0; font-size: 12px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-500); }
-  .foot ul { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 8px; }
-  .foot a { color: var(--ink-700); text-decoration: none; font-size: 14px; }
-  .foot a:hover { color: var(--primary-deep); }
-  .foot .blurb { font-size: 14px; color: var(--ink-500); line-height: 1.5; max-width: 320px; margin-top: 8px; }
-  .foot-bot { padding-top: 20px; display: flex; justify-content: space-between; font-size: 12px; color: var(--ink-300); }
+/* ============== SECTION 3 — Pivot ============== */
+.pivot{ background:#fff; }
+.pivot-inner{
+  max-width:760px; margin:0 auto; text-align:center;
+  padding:24px 0;
+  position:relative;
+}
+.pivot-inner::before, .pivot-inner::after{
+  content:""; display:block; width:60px; height:2px;
+  background:var(--teal-400); margin:0 auto 36px; border-radius:2px;
+}
+.pivot-inner::after{ margin:36px auto 0; }
+.pivot h2{
+  font-size:clamp(28px, 3.6vw, 42px);
+  line-height:1.18;
+  font-style:italic;
+  font-weight:600;
+}
+.pivot p{
+  font-size:19px; line-height:1.65; color:var(--ink-700);
+  margin:0;
+}
+
+/* ============== SECTION 4 — Three Layers ============== */
+.layers{ background:var(--cream); }
+.layers-grid{
+  display:grid; grid-template-columns:repeat(3, 1fr);
+  gap:24px; margin-top:8px;
+}
+.layer-card{
+  background:#fff; border:1px solid var(--border);
+  border-radius:var(--radius-lg);
+  padding:34px 30px;
+  transition:transform .25s ease, box-shadow .25s ease, border-color .25s ease;
+}
+.layer-card:hover{
+  transform:translateY(-4px);
+  box-shadow:var(--shadow-lg);
+  border-color:var(--teal-400);
+}
+.layer-ico{
+  width:64px; height:64px; border-radius:16px;
+  background:var(--teal-100); color:var(--teal-700);
+  display:flex; align-items:center; justify-content:center;
+  margin-bottom:22px;
+}
+.layer-ico svg{ width:32px; height:32px; }
+.layer-card h3{ font-size:23px; margin-bottom:12px; line-height:1.25; }
+.layer-card p{ font-size:15.5px; color:var(--ink-700); line-height:1.6; margin:0; }
+.layers-note{
+  max-width:760px; margin:48px auto 0; text-align:center;
+  font-size:17px; line-height:1.6; color:var(--teal-800);
+  font-family:var(--font-display); font-style:italic; font-weight:500;
+}
+@media (max-width:900px){
+  .layers-grid{ grid-template-columns:1fr; }
+}
+
+/* ============== SECTION 5 — Dashboard preview ============== */
+.dash{ background:#fff; }
+.dash-grid{
+  display:grid; grid-template-columns:1.15fr 1fr;
+  gap:56px; align-items:center;
+}
+.dash-card{
+  background:#fff;
+  border:1px solid var(--border);
+  border-radius:18px;
+  padding:18px;
+  box-shadow:var(--shadow-lg);
+}
+.dash-status{
+  display:flex; align-items:center; gap:10px;
+  background:#E8F6EE; color:#2F7A4F;
+  padding:12px 16px; border-radius:12px;
+  font-weight:800; font-size:14.5px;
+  margin-bottom:14px;
+}
+.dash-status .pulse{
+  width:10px; height:10px; border-radius:50%; background:#4FA972;
+  box-shadow:0 0 0 4px rgba(79,169,114,0.22);
+  animation:pulse 2.2s ease-in-out infinite;
+}
+@keyframes pulse{
+  0%,100%{ box-shadow:0 0 0 4px rgba(79,169,114,0.22); }
+  50%{ box-shadow:0 0 0 8px rgba(79,169,114,0.05); }
+}
+.stat-grid{
+  display:grid; grid-template-columns:1fr 1fr; gap:10px;
+  margin-bottom:14px;
+}
+.stat{
+  background:var(--teal-100);
+  border:1px solid var(--border-soft);
+  border-radius:12px; padding:14px 16px;
+}
+.stat .v{
+  font-family:var(--font-display); font-weight:700; font-size:26px;
+  color:var(--teal-900); line-height:1.05;
+}
+.stat .v.good{ color:#2F7A4F; }
+.stat .l{
+  font-size:12px; color:var(--ink-500); margin-top:6px;
+  font-weight:700; letter-spacing:.04em; text-transform:uppercase;
+}
+.stat .k{
+  font-size:11px; font-weight:800; letter-spacing:.12em; text-transform:uppercase;
+  color:var(--ink-300); margin-bottom:8px;
+}
+.chart{
+  background:#fff; border:1px solid var(--border-soft); border-radius:12px;
+  padding:14px 16px 10px;
+}
+.chart-head{
+  display:flex; align-items:center; justify-content:space-between;
+  margin-bottom:10px;
+}
+.chart-head .t{ font-weight:800; font-size:13px; color:var(--ink-700); letter-spacing:.04em; text-transform:uppercase; }
+.chart-head .leg{ font-size:12px; color:var(--ink-500); }
+.bars{
+  display:grid; grid-template-columns:repeat(24, 1fr);
+  gap:3px; align-items:end;
+  height:64px;
+}
+.bars span{
+  display:block; width:100%; border-radius:3px 3px 0 0;
+  background:var(--teal-400);
+}
+.x-axis{
+  display:flex; justify-content:space-between;
+  font-size:11px; color:var(--ink-300); margin-top:8px; font-weight:700;
+}
+
+.dash-features{ display:flex; flex-direction:column; gap:22px; }
+.df{ display:flex; gap:16px; align-items:flex-start; }
+.df-ico{
+  flex:0 0 44px; width:44px; height:44px; border-radius:12px;
+  background:var(--teal-100); color:var(--teal-700);
+  display:flex; align-items:center; justify-content:center;
+}
+.df-ico svg{ width:22px; height:22px; }
+.df-txt h4{ margin:0 0 4px; font-family:var(--font-sans); font-size:16px; font-weight:800; color:var(--ink-900); }
+.df-txt p{ margin:0; font-size:15px; color:var(--ink-700); line-height:1.55; }
+@media (max-width:900px){
+  .dash-grid{ grid-template-columns:1fr; gap:36px; }
+}
+
+/* ============== SECTION 6 — How it works ============== */
+.how{ background:var(--cream); }
+.steps{
+  display:grid; grid-template-columns:repeat(3,1fr); gap:24px;
+  margin-top:8px; counter-reset:step;
+}
+.step{
+  background:#fff; border:1px solid var(--border);
+  border-radius:var(--radius-lg); padding:32px 28px;
+  position:relative;
+}
+.step-num{
+  font-family:var(--font-display); font-weight:700;
+  color:var(--teal-400); font-size:64px; line-height:1;
+  margin-bottom:8px;
+}
+.step-ico{
+  position:absolute; top:30px; right:30px;
+  width:44px; height:44px; border-radius:12px;
+  background:var(--teal-100); color:var(--teal-700);
+  display:flex; align-items:center; justify-content:center;
+}
+.step-ico svg{ width:22px; height:22px; }
+.step h3{ font-size:21px; margin-bottom:10px; }
+.step p{ margin:0; font-size:15.5px; color:var(--ink-700); line-height:1.6; }
+@media (max-width:900px){
+  .steps{ grid-template-columns:1fr; }
+}
+
+/* ============== SECTION 8 — Equipment ============== */
+.eq{ background:#fff; }
+.eq-group{ margin-top:36px; }
+.eq-group + .eq-group{ margin-top:36px; }
+.eq-group-h{
+  font-size:13px; font-weight:800; color:var(--teal-700);
+  letter-spacing:.16em; text-transform:uppercase;
+  margin-bottom:14px;
+}
+.eq-grid{
+  display:grid; grid-template-columns:repeat(3,1fr); gap:14px;
+}
+.eq-card{
+  background:#fff; border:1px solid var(--border);
+  border-radius:var(--radius); padding:20px;
+  display:flex; gap:14px; align-items:flex-start;
+  transition:border-color .2s, box-shadow .2s, transform .2s;
+}
+.eq-card:hover{ border-color:var(--teal-400); box-shadow:var(--shadow-md); transform:translateY(-2px); }
+.eq-ico{
+  flex:0 0 40px; width:40px; height:40px; border-radius:10px;
+  background:var(--teal-100); color:var(--teal-700);
+  display:flex; align-items:center; justify-content:center;
+}
+.eq-ico svg{ width:22px; height:22px; }
+.eq-card h4{ margin:0 0 4px; font-family:var(--font-sans); font-size:15.5px; font-weight:800; color:var(--ink-900); }
+.eq-card p{ margin:0; font-size:14px; color:var(--ink-700); line-height:1.5; }
+.eq-callout{
+  margin-top:40px; padding:28px 32px;
+  background:linear-gradient(135deg, var(--teal-700), var(--teal-500));
+  color:#fff; border-radius:var(--radius-lg);
+  text-align:center; font-family:var(--font-display); font-style:italic; font-weight:500;
+  font-size:20px; line-height:1.5;
+}
+@media (max-width:900px){
+  .eq-grid{ grid-template-columns:1fr; }
+}
+
+/* ============== SECTION 8 — FAQ ============== */
+.faq{ background:var(--cream); }
+.faq-grid{
+  display:grid; grid-template-columns:1fr 1fr; gap:18px 28px;
+  margin-top:8px;
+}
+.faq-item{
+  background:#fff; border:1px solid var(--border);
+  border-radius:var(--radius); padding:24px 26px;
+  transition:border-color .2s, box-shadow .2s;
+}
+.faq-item:hover{ border-color:var(--teal-400); box-shadow:var(--shadow-md); }
+.faq-item h4{
+  margin:0 0 10px;
+  font-family:var(--font-display); font-weight:700;
+  font-size:18px; color:var(--teal-900); line-height:1.3;
+}
+.faq-item p{ margin:0; font-size:15px; color:var(--ink-700); line-height:1.6; }
+@media (max-width:820px){
+  .faq-grid{ grid-template-columns:1fr; }
+}
+
+/* ============== SECTION 9 — Form + Footer ============== */
+.consult{
+  background:var(--teal-900);
+  color:#fff;
+  position:relative; overflow:hidden;
+}
+.consult::before{
+  content:""; position:absolute; inset:0;
+  background:
+    radial-gradient(800px 400px at 90% -20%, rgba(91,191,181,0.18), transparent 60%),
+    radial-gradient(700px 400px at -10% 110%, rgba(240,124,107,0.12), transparent 60%);
+  pointer-events:none;
+}
+.consult > .wrap{ position:relative; z-index:1; }
+.consult .eyebrow{ color:var(--teal-300); }
+.consult h2{ color:#fff; }
+.consult .section-sub{ color:rgba(255,255,255,0.78); }
+
+.consult-grid{
+  display:grid; grid-template-columns:1fr 1.1fr; gap:56px;
+  align-items:start; margin-top:14px;
+}
+.consult-list{ list-style:none; padding:0; margin:0; display:flex; flex-direction:column; gap:16px; }
+.consult-list li{
+  display:flex; gap:14px; align-items:flex-start;
+  color:rgba(255,255,255,0.92); font-size:16px; line-height:1.5;
+}
+.consult-list svg{
+  flex:0 0 22px; width:22px; height:22px; color:var(--teal-300);
+  margin-top:2px;
+}
+.form-card{
+  background:rgba(255,255,255,0.06);
+  border:1px solid rgba(255,255,255,0.12);
+  border-radius:var(--radius-lg);
+  padding:30px;
+  backdrop-filter:blur(8px);
+}
+.form-row{ display:flex; flex-direction:column; gap:6px; margin-bottom:16px; }
+.form-row.two{
+  display:grid; grid-template-columns:1fr 1fr; gap:16px;
+}
+.form-row.two > .form-row{ margin-bottom:0; }
+label{
+  font-size:12px; font-weight:800; letter-spacing:.10em; text-transform:uppercase;
+  color:rgba(255,255,255,0.72);
+}
+input, select, textarea{
+  font-family:var(--font-sans); font-size:15px;
+  padding:14px 16px; border-radius:10px;
+  border:1px solid rgba(255,255,255,0.18);
+  background:rgba(255,255,255,0.96); color:var(--ink-900);
+  width:100%;
+}
+input:focus, select:focus, textarea:focus{
+  outline:none; border-color:var(--coral);
+  box-shadow:0 0 0 4px rgba(240,124,107,0.25);
+}
+textarea{ resize:vertical; min-height:96px; }
+.form-card .btn-primary{ width:100%; justify-content:center; margin-top:6px; padding:18px 26px; font-size:16px; }
+.form-note{ font-size:13.5px; color:rgba(255,255,255,0.6); margin-top:14px; line-height:1.5; }
+@media (max-width:900px){
+  .consult-grid{ grid-template-columns:1fr; gap:36px; }
+  .form-row.two{ grid-template-columns:1fr; }
+}
+
+/* Footer */
+.foot{
+  background:#0B3935;
+  color:rgba(255,255,255,0.78);
+  padding:64px 0 28px;
+}
+.foot-grid{
+  display:grid; grid-template-columns:1.4fr 1fr 1.2fr 1.2fr;
+  gap:48px;
+}
+.foot .brand-name{ color:#fff; }
+.foot .brand-name .care{ color:var(--coral); }
+.foot .blurb{ margin-top:16px; font-size:15px; line-height:1.6; max-width:280px; color:rgba(255,255,255,0.7); }
+.foot h5{
+  color:#fff; font-family:var(--font-sans); font-weight:800;
+  font-size:13px; letter-spacing:.14em; text-transform:uppercase;
+  margin:0 0 16px;
+}
+.foot ul{ list-style:none; padding:0; margin:0; display:flex; flex-direction:column; gap:10px; }
+.foot a{ color:rgba(255,255,255,0.78); text-decoration:none; font-size:15px; }
+.foot a:hover{ color:#fff; }
+.foot-bot{
+  margin-top:48px; padding-top:24px;
+  border-top:1px solid rgba(255,255,255,0.10);
+  font-size:13px; color:rgba(255,255,255,0.55); line-height:1.6;
+  max-width:880px;
+}
+@media (max-width:900px){
+  .foot-grid{ grid-template-columns:1fr 1fr; gap:36px; }
+}
+@media (max-width:560px){
+  .foot-grid{ grid-template-columns:1fr; }
+}
+
+/* Reveal animation */
+.reveal{ opacity:0; transform:translateY(20px); transition:opacity .8s ease, transform .8s ease; }
+.reveal.in{ opacity:1; transform:none; }
+.reveal-stagger > *{ opacity:0; transform:translateY(16px); transition:opacity .7s ease, transform .7s ease; }
+.reveal-stagger.in > *{ opacity:1; transform:none; }
+.reveal-stagger.in > *:nth-child(2){ transition-delay:.10s; }
+.reveal-stagger.in > *:nth-child(3){ transition-delay:.20s; }
+.reveal-stagger.in > *:nth-child(4){ transition-delay:.30s; }
+@media (prefers-reduced-motion:reduce){
+  .reveal, .reveal-stagger > *{ opacity:1; transform:none; transition:none; }
+  html{ scroll-behavior:auto; }
+}
 </style>
-</head><body>
+</head>
+<body>
 
-<!-- Nav -->
-<header class="wrap nav">
-  <a class="brand" href="#">
-    <img src="../../assets/proxia-logo.png" alt="">
-    <div class="name">PROXIA<span class="care">CARE</span></div>
-  </a>
-  <nav class="nav-links">
-    <a href="#how">How it works</a>
-    <a href="#equipment">What's installed</a>
-    <a href="#how">Plans</a>
-    <a href="#faq">FAQ</a>
-    <a class="btn btn-primary" href="#consult">Schedule free consultation</a>
-  </nav>
+<!-- ============== NAV ============== -->
+<header class="nav" data-screen-label="Nav">
+  <div class="wrap nav-inner">
+    <a class="brand" href="#top" aria-label="Proxia Care — home">
+      <!-- Inline brand mark: heart + wifi waves + coral beacon dot -->
+      <svg class="brand-mark" viewBox="0 0 64 64" aria-hidden="true">
+        <path d="M32 56 C 10 42, 6 26, 14 18 C 20 12, 28 14, 32 20 C 36 14, 44 12, 50 18 C 58 26, 54 42, 32 56 Z"
+              fill="none" stroke="#1E7A72" stroke-width="3.6" stroke-linejoin="round" stroke-linecap="round"/>
+        <path d="M22 32 Q 32 24 42 32" fill="none" stroke="#5BBFB5" stroke-width="2.8" stroke-linecap="round"/>
+        <path d="M25.5 36.5 Q 32 32 38.5 36.5" fill="none" stroke="#5BBFB5" stroke-width="2.8" stroke-linecap="round"/>
+        <circle cx="32" cy="44" r="4.6" fill="#F07C6B"/>
+      </svg>
+      <span class="brand-name">PROX<span class="beacon" aria-hidden="true">I</span>A<span class="care">CARE</span></span>
+    </a>
+    <nav class="nav-links" aria-label="Primary">
+      <a href="#how">How it works</a>
+      <a href="#equipment">What's installed</a>
+      <a href="#faq">FAQ</a>
+      <a href="#consult" class="btn btn-primary nav-cta">Book Assessment</a>
+    </nav>
+  </div>
 </header>
 
-<!-- Hero -->
-<section class="hero">
-  <div class="hero-blob"></div>
-  <div class="wrap hero-grid">
-    <div>
-      <span class="eyebrow"><span class="dot"></span>Locally owned in Phoenix, AZ</span>
-      <h1 class="h1">Keep your loved one safe at home, <em>without watching their every move.</em></h1>
-      <p class="lead">Discreet smart sensors learn mom or dad's daily routine — then notify you when something changes. No cameras. No wearables required. Just patterns we watch, so you don't have to.</p>
-      <div class="ctas">
-        <a class="btn btn-primary" href="#consult">Schedule free consultation <i data-lucide="arrow-right" style="width:16px; height:16px;"></i></a>
-        <a class="btn btn-secondary" href="#how">See how it works</a>
-      </div>
-      <div class="ctas" style="margin-top: 16px;"><span class="small">Free 30-minute in-home visit · No pressure, no obligation</span></div>
-    </div>
-    <div class="scene">
-      <div class="card">
-        <div class="head">
-          <div class="who">
-            <div class="av">D</div>
-            <div>
-              <div class="nm">Dad · this week</div>
-              <div class="sub">Sunday wellness report</div>
-            </div>
-          </div>
-          <span class="pill" style="background: rgba(232,163,58,0.16); color: #8E5E15;"><span class="d" style="background: #E8A33A;"></span>Worth a look</span>
-        </div>
-        <div class="ttl">Dad hasn't been sleeping well.</div>
-        <div class="row-st">
-          <div class="stat"><div class="l">Sleep this week</div><div class="v">5.2 hrs</div><div class="d">↓ 1.6 hrs vs. his usual</div></div>
-          <div class="stat"><div class="l">Up at night</div><div class="v">3.4x</div><div class="d">↑ double his usual</div></div>
-        </div>
-        <div class="note"><i data-lucide="moon-star"></i><span>Worth mentioning at his next appointment — could be the heat, could be something else.</span></div>
-      </div>
+<a id="top"></a>
+
+<!-- ============== 1. HERO ============== -->
+<section class="hero" data-screen-label="01 Hero">
+  <div class="wrap hero-inner reveal">
+    <h1>You can't be there every day.<br>We can.</h1>
+    <p class="lede">Proxia Care gives your family 24/7 protection and daily insight into how your loved one is really doing — fall detection, two-way voice emergency response, activity monitoring, and Arizona heat protection. One service. One local Phoenix team.</p>
+    <div class="hero-cta">
+      <a href="#consult" class="btn btn-primary">Schedule Free Home Assessment</a>
+      <a href="#how" class="btn btn-ghost">See how it works ↓</a>
     </div>
   </div>
-</section>
-
-<!-- Trust strip -->
-<section class="trust">
-  <div class="wrap trust-grid">
-    <div class="trust-item">
-      <span class="ic"><i data-lucide="camera-off"></i></span>
-      <div class="t">No cameras</div>
-      <div class="s">Anywhere in the home</div>
-    </div>
-    <div class="trust-item">
-      <span class="ic"><i data-lucide="watch"></i></span>
-      <div class="t">No wearables required</div>
-      <div class="s">Pendant optional</div>
-    </div>
-    <div class="trust-item">
-      <span class="ic"><i data-lucide="map-pin"></i></span>
-      <div class="t">Phoenix-based</div>
-      <div class="s">Not a 1-800 line</div>
-    </div>
-    <div class="trust-item">
-      <span class="ic"><i data-lucide="thermometer-sun"></i></span>
-      <div class="t">Built for Arizona</div>
-      <div class="s">Heat &amp; AC protection</div>
-    </div>
-  </div>
-</section>
-
-<!-- The three core worries -->
-<section class="band">
   <div class="wrap">
-    <span class="center-eyebrow">What keeps you up at night</span>
-    <h2 class="section-h">Three worries every family has — and what we do about them.</h2>
-    <div class="worry">
-      <div class="worry-card">
-        <div class="ic-tile"><i data-lucide="sunrise"></i></div>
-        <span class="tag">Worry 01</span>
-        <h3>Is something slowly getting worse?</h3>
-        <p>Our sensors learn your loved one's normal — wake times, kitchen visits, movement patterns — over the first 2 to 4 weeks. After that, we tell you when things start to drift. The gradual changes a weekly phone call would never catch.</p>
-      </div>
-      <div class="worry-card coral">
-        <div class="ic-tile"><i data-lucide="hand-heart"></i></div>
-        <span class="tag">Worry 02</span>
-        <h3>What if they fall and nobody knows?</h3>
-        <p>Ceiling-mounted FP400 radar detects falls in seconds, including in the bathroom where most happen. Posture detection means we can tell the difference between your mother lying on the floor and lying on the couch.</p>
-      </div>
-      <div class="worry-card">
-        <div class="ic-tile"><i data-lucide="thermometer-sun"></i></div>
-        <span class="tag">Worry 03</span>
-        <h3>What if something goes wrong in the house?</h3>
-        <p>AC failure detection, indoor temperature alerts, and water leak monitoring — built specifically for Phoenix summers, where an AC failure can become an emergency in hours.</p>
-      </div>
+    <div class="trust-strip reveal">
+      <div class="trust-item"><span class="trust-dot"></span>24/7 Protection</div>
+      <div class="trust-item"><span class="trust-dot"></span>No Cameras</div>
+      <div class="trust-item"><span class="trust-dot"></span>Local Phoenix Team</div>
+      <div class="trust-item"><span class="trust-dot"></span>Smart Pattern Detection</div>
     </div>
   </div>
 </section>
 
-<!-- Sunday report: insights -->
-<section class="band cream">
+<!-- ============== 2. PENDANT ============== -->
+<section class="pendant-section" data-screen-label="02 Pendant">
   <div class="wrap">
-    <span class="center-eyebrow">Weekly Wellness Report</span>
-    <h2 class="section-h">Every Sunday, the full picture arrives.</h2>
-    <p class="section-sub">No more guessing. No more "she says she's fine." Every week, Proxia Care delivers a clear, easy-to-read report so every family member stays genuinely informed.</p>
-    <div class="sunday-grid">
-      <div class="sunday">
-        <div class="ic-tile"><i data-lucide="moon-star"></i></div>
-        <div>
-          <h4>Sleep patterns</h4>
-          <p>Duration, quality, and breathing patterns — so you can spot changes early, before they signal a bigger issue.</p>
-          <span class="tag">Powered by FDA-cleared sleep tracking</span>
-        </div>
-      </div>
-      <div class="sunday">
-        <div class="ic-tile"><i data-lucide="house"></i></div>
-        <div>
-          <h4>Activity &amp; daily routine</h4>
-          <p>Room-by-room movement, meal-time activity, and engagement with daily life. Any break from their normal baseline gets flagged.</p>
-        </div>
-      </div>
-      <div class="sunday">
-        <div class="ic-tile"><i data-lucide="trending-up"></i></div>
-        <div>
-          <h4>Routine consistency</h4>
-          <p>Week-over-week comparison of your loved one's patterns. Gradual changes that are hard to notice day-by-day become clear in the weekly trend.</p>
-        </div>
-      </div>
-      <div class="sunday">
-        <div class="ic-tile"><i data-lucide="thermometer-sun"></i></div>
-        <div>
-          <h4>Home environment summary</h4>
-          <p>Temperature safety throughout the week — especially vital during Phoenix summers — plus AC status and any environmental events.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- How it works -->
-<section class="band tint" id="how">
-  <div class="wrap">
-    <span class="center-eyebrow">How it works</span>
-    <h2 class="section-h">From living-room conversation to peace of mind, in under a week.</h2>
-    <div class="worry" style="grid-template-columns: repeat(3, 1fr);">
-      <div class="worry-card">
-        <span class="tag">Step 01</span>
-        <h3>We sit down together</h3>
-        <p>A free 30-minute consultation in the home. We listen, we walk through together, we plan what makes sense for the layout and the routine.</p>
-      </div>
-      <div class="worry-card">
-        <span class="tag">Step 02</span>
-        <h3>We install, quietly</h3>
-        <p>Sensors go up in under two hours. No drilling, no wires, no fuss. Most visitors won't even notice them.</p>
-      </div>
-      <div class="worry-card">
-        <span class="tag">Step 03</span>
-        <h3>Family gets the picture</h3>
-        <p>Same-day app access for everyone in the family. Pattern-change alerts. Wellness reports every Sunday morning.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- Protection beyond the home -->
-<section class="band">
-  <div class="wrap">
-    <span class="center-eyebrow">Complete Care upgrade</span>
-    <h2 class="section-h">Protection that goes where they go.</h2>
-    <p class="section-sub">Our in-home sensors cover the house. For everywhere else — the grocery store, walks around the block, visiting friends — the optional Belle+ pendant extends protection to anywhere with cellular coverage.</p>
     <div class="pendant-grid">
-      <div class="pendant-mock">
-        <div class="device">
-          <div class="ring"><i data-lucide="phone-call"></i></div>
-          <div class="label">BELLE+</div>
-        </div>
-      </div>
-      <div>
-        <div class="pendant-features">
-          <div class="row">
-            <div class="ic"><i data-lucide="mic"></i></div>
-            <div>
-              <h5>Two-way voice</h5>
-              <div class="d">One button, and they talk directly to a trained operator at our monitoring center.</div>
-            </div>
+      <div class="reveal">
+        <div class="eyebrow">Immediate Protection</div>
+        <h2 class="section-h">One button. One voice.<br>Help is on the way.</h2>
+        <p style="font-size:17px; color:var(--ink-700); max-width:540px;">The Proxia Care mobile pendant goes everywhere your loved one goes. One press connects them to a trained operator who can hear them, talk to them, locate them, and send help — anywhere in the country, 24/7.</p>
+        <div class="pendant-features reveal-stagger">
+          <div class="pf">
+            <div class="pf-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 0 1 18 0v3.5a2.5 2.5 0 0 1-2.5 2.5H17v-6h3"/><path d="M7 18H5.5A2.5 2.5 0 0 1 3 15.5V12h4v6z"/></svg></div>
+            <div class="pf-txt"><strong>Two-Way Voice</strong><span>Talk directly with a trained emergency operator.</span></div>
           </div>
-          <div class="row">
-            <div class="ic"><i data-lucide="activity"></i></div>
-            <div>
-              <h5>Automatic fall detection</h5>
-              <div class="d">Works outside the home — no button to press if they can't reach it.</div>
-            </div>
+          <div class="pf">
+            <div class="pf-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s-8-8-8-13a8 8 0 0 1 16 0c0 5-8 13-8 13z"/><circle cx="12" cy="9" r="2.6"/></svg></div>
+            <div class="pf-txt"><strong>GPS Location</strong><span>Help is dispatched to their exact location.</span></div>
           </div>
-          <div class="row">
-            <div class="ic"><i data-lucide="map-pin"></i></div>
-            <div>
-              <h5>GPS location</h5>
-              <div class="d">Help is dispatched to their exact location, not a guess.</div>
-            </div>
+          <div class="pf">
+            <div class="pf-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 3 4 14h7l-1 7 9-11h-7l1-7z"/></svg></div>
+            <div class="pf-txt"><strong>Automatic Fall Detection</strong><span>Calls for help even if they can't press the button.</span></div>
           </div>
-          <div class="row">
-            <div class="ic"><i data-lucide="droplets"></i></div>
-            <div>
-              <h5>Waterproof &amp; long-lasting</h5>
-              <div class="d">IP67 — wearable in the shower, where most falls happen. 30-day battery life.</div>
-            </div>
+          <div class="pf">
+            <div class="pf-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3s6 7.5 6 12a6 6 0 0 1-12 0c0-4.5 6-12 6-12z"/></svg></div>
+            <div class="pf-txt"><strong>Waterproof</strong><span>Wearable in the shower, where most falls happen.</span></div>
           </div>
         </div>
-        <a class="btn btn-secondary" href="#pricing" style="margin-top: 28px;">See Complete Care plan <i data-lucide="arrow-right" style="width:16px; height:16px;"></i></a>
+        <p class="fine">Works on 4G LTE anywhere with cellular coverage. 30-day battery life. No base station needed.</p>
+      </div>
+      <div class="pendant-illo reveal">
+        <svg viewBox="0 0 360 360" aria-hidden="true">
+          <!-- Soft halo -->
+          <circle cx="180" cy="180" r="150" fill="#fff" opacity="0.6"/>
+          <!-- Signal arcs -->
+          <g stroke="#5BBFB5" stroke-width="3" fill="none" stroke-linecap="round" opacity="0.65">
+            <path d="M70 180 Q 180 60 290 180"/>
+            <path d="M95 188 Q 180 100 265 188"/>
+            <path d="M120 196 Q 180 140 240 196"/>
+          </g>
+          <!-- Pendant body (rounded teal pill) -->
+          <g>
+            <ellipse cx="180" cy="220" rx="78" ry="98" fill="#1E7A72"/>
+            <ellipse cx="180" cy="208" rx="74" ry="92" fill="#247E76"/>
+            <!-- Lanyard loop -->
+            <rect x="172" y="118" width="16" height="20" rx="6" fill="#0F4A45"/>
+            <path d="M168 118 q 12 -24 24 0" fill="none" stroke="#0F4A45" stroke-width="6" stroke-linecap="round"/>
+            <!-- Coral SOS button -->
+            <circle cx="180" cy="226" r="38" fill="#F07C6B"/>
+            <circle cx="180" cy="226" r="38" fill="none" stroke="rgba(255,255,255,0.35)" stroke-width="2"/>
+            <text x="180" y="234" text-anchor="middle" fill="#fff" font-family="Nunito, sans-serif" font-weight="800" font-size="20" letter-spacing="2">SOS</text>
+            <!-- Speaker grille -->
+            <g fill="#0F4A45" opacity="0.7">
+              <circle cx="166" cy="290" r="2"/><circle cx="174" cy="290" r="2"/><circle cx="182" cy="290" r="2"/><circle cx="190" cy="290" r="2"/>
+            </g>
+            <!-- LED -->
+            <circle cx="180" cy="170" r="3.5" fill="#5BBFB5"/>
+          </g>
+        </svg>
       </div>
     </div>
   </div>
 </section>
 
-<!-- What's installed -->
-<section class="band tint" id="equipment">
+<!-- ============== 3. PIVOT ============== -->
+<section class="pivot tight" data-screen-label="03 Pivot">
   <div class="wrap">
-    <span class="center-eyebrow">What gets installed</span>
-    <h2 class="section-h">Discreet equipment, professionally installed.</h2>
-    <p class="section-sub">Most pieces tuck into corners or sit on shelves. No drilling. No visible wires. Most visitors won't notice them.</p>
-    <div class="equip">
-      <div class="equip-card featured">
-        <div class="ic"><i data-lucide="radar"></i></div>
-        <div>
-          <h5>Aqara FP400 Spatial Multi-Sensor</h5>
-          <p>Ceiling or wall mounted. Covers full rooms up to 527 sq ft. Fall detection with posture recognition — standing, sitting, lying — so we can tell the floor from the couch. No camera.</p>
-          <span class="tag">Cornerstone of every plan</span>
+    <div class="pivot-inner reveal">
+      <h2 class="section-h">A pendant catches the fall. But what about the weeks before?</h2>
+      <p>Falls don't happen out of nowhere. They're preceded by weeks of subtle changes — declining activity, disrupted sleep, fewer meals, less movement around the house. By the time your loved one falls, something has been changing for a while. What if you could see those changes and act before the fall ever happens?</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============== 4. THREE LAYERS ============== -->
+<section class="layers" data-screen-label="04 Three Layers">
+  <div class="wrap">
+    <div class="reveal center">
+      <div class="eyebrow">Complete Protection</div>
+      <h2 class="section-h">Three layers. One service. No gaps.</h2>
+      <p class="section-sub center">Proxia Care protects your loved one at every level — from the emergency that happens in a moment to the gradual changes that unfold over weeks.</p>
+    </div>
+    <div class="layers-grid reveal-stagger">
+      <div class="layer-card">
+        <div class="layer-ico">
+          <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M16 3 L26 7 V15 c0 7-5 12-10 14C11 27 6 22 6 15 V7 L16 3z"/>
+            <path d="M11 16 L15 20 L22 12"/>
+          </svg>
+        </div>
+        <h3>Fall Detection &amp; Emergency Response</h3>
+        <p>Two layers of fall protection working together. Radar sensors in the home detect falls in seconds — no camera, no wearable, no button to press. Works in the bathroom, even in the shower. The mobile pendant adds two-way voice and fall detection everywhere else — at the store, on a walk, visiting friends. Between them, your loved one is covered everywhere they go.</p>
+      </div>
+      <div class="layer-card">
+        <div class="layer-ico">
+          <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M3 17 L16 5 L29 17"/>
+            <path d="M6 15 V27 H26 V15"/>
+            <circle cx="24" cy="9" r="3"/>
+            <path d="M24 4v2 M24 12v2 M19 9h2 M27 9h2"/>
+          </svg>
+        </div>
+        <h3>Arizona Heat &amp; Home Hazard Monitoring</h3>
+        <p>Arizona summers kill seniors every year — usually because an AC fails and nobody notices in time. Our sensors detect AC failures, dangerous indoor temperatures, and water leaks the moment they happen. Your family knows in minutes, not hours. This is the protection no national service offers — built specifically for Phoenix.</p>
+      </div>
+      <div class="layer-card">
+        <div class="layer-ico">
+          <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M5 25 V7 M5 25 H27"/>
+            <path d="M9 21 L14 16 L18 19 L25 10"/>
+            <path d="M21 10 H25 V14"/>
+          </svg>
+        </div>
+        <h3>Activity Monitoring &amp; Weekly Wellness Reports</h3>
+        <p>This is what makes Proxia Care different from everything else. Our sensors learn your loved one's daily routine — when they wake, how they move room to room, how they sleep. When patterns change — declining activity, more time in bed, fewer meals, increased nighttime bathroom visits — your family sees it in the weekly report. The signs that something may be developing, caught weeks before they become a crisis.</p>
+      </div>
+    </div>
+    <p class="layers-note reveal">We don't diagnose. We give your family the data to have better conversations with your loved one's doctor. Catching changes early is the difference between a simple fix and a hospital stay.</p>
+  </div>
+</section>
+
+<!-- ============== 5. DASHBOARD ============== -->
+<section class="dash" data-screen-label="05 Dashboard">
+  <div class="wrap">
+    <div class="reveal">
+      <div class="eyebrow">Your Family Dashboard</div>
+      <h2 class="section-h">See everything. From anywhere.</h2>
+    </div>
+    <div class="dash-grid">
+      <div class="dash-card reveal" role="img" aria-label="Proxia Care family dashboard preview">
+        <div class="dash-status"><span class="pulse"></span> All Quiet — No Active Alerts</div>
+        <div class="stat-grid">
+          <div class="stat">
+            <div class="k">Indoor Temp</div>
+            <div class="v good">72°F</div>
+            <div class="l">Comfortable</div>
+          </div>
+          <div class="stat">
+            <div class="k">AC Status</div>
+            <div class="v good">On</div>
+            <div class="l">Drawing 1,100W</div>
+          </div>
+          <div class="stat">
+            <div class="k">Last Seen</div>
+            <div class="v">Kitchen</div>
+            <div class="l">12 min ago</div>
+          </div>
+          <div class="stat">
+            <div class="k">Sleep Last Night</div>
+            <div class="v">7.4h</div>
+            <div class="l">Quality 81 / 100</div>
+          </div>
+        </div>
+        <div class="chart">
+          <div class="chart-head"><span class="t">Activity — Last 24 Hours</span><span class="leg">room movement</span></div>
+          <div class="bars" id="bars" aria-hidden="true"></div>
+          <div class="x-axis"><span>12a</span><span>6a</span><span>12p</span><span>6p</span><span>12a</span></div>
         </div>
       </div>
-      <div class="equip-card">
-        <div class="ic"><i data-lucide="footprints"></i></div>
-        <div><h5>Motion sensors</h5><p>Small, battery-powered. Track room-to-room movement patterns.</p></div>
-      </div>
-      <div class="equip-card">
-        <div class="ic"><i data-lucide="door-open"></i></div>
-        <div><h5>Door &amp; window sensors</h5><p>Front door, fridge, medicine cabinet. Subtle, wireless.</p></div>
-      </div>
-      <div class="equip-card">
-        <div class="ic"><i data-lucide="thermometer-sun"></i></div>
-        <div><h5>Temperature sensors</h5><p>Monitor indoor temperature across the home.</p></div>
-      </div>
-      <div class="equip-card">
-        <div class="ic"><i data-lucide="plug-zap"></i></div>
-        <div><h5>AC power monitor</h5><p>Detects the instant the AC stops drawing power.</p></div>
-      </div>
-      <div class="equip-card">
-        <div class="ic"><i data-lucide="droplets"></i></div>
-        <div><h5>Water leak sensors</h5><p>Under sinks, behind the water heater.</p></div>
-      </div>
-      <div class="equip-card">
-        <div class="ic"><i data-lucide="router"></i></div>
-        <div><h5>Smart home hub</h5><p>Processes everything locally. Your data doesn't sit on a server somewhere.</p></div>
-      </div>
-      <div class="equip-card" style="grid-column: span 3;">
-        <div class="ic" style="background: var(--coral-100); color: var(--coral-700);"><i data-lucide="phone-call"></i></div>
-        <div>
-          <h5>Freeus Belle+ pendant <span style="font-weight: 500; color: var(--ink-500); font-size: 13px;">(Complete Care plan)</span></h5>
-          <p>Mobile emergency pendant with two-way voice, GPS, automatic fall detection, IP67 waterproof, 30-day battery life. Works on 4G LTE anywhere with cellular coverage.</p>
+      <div class="dash-features reveal-stagger">
+        <div class="df">
+          <div class="df-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 18 V6 M3 18 H21"/><path d="M7 14 L11 10 L14 13 L20 7"/></svg></div>
+          <div class="df-txt"><h4>Real-Time Status</h4><p>Temperature, AC, activity, sleep — all at a glance, updated continuously.</p></div>
+        </div>
+        <div class="df">
+          <div class="df-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 8 3 8H3s3-1 3-8z"/><path d="M10 21a2 2 0 0 0 4 0"/></svg></div>
+          <div class="df-txt"><h4>Instant Alerts</h4><p>Falls, heat events, nighttime door activity — sent to every family member.</p></div>
+        </div>
+        <div class="df">
+          <div class="df-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="5" width="16" height="16" rx="2"/><path d="M4 9h16 M9 13h6 M9 17h4"/><path d="M8 3v4 M16 3v4"/></svg></div>
+          <div class="df-txt"><h4>Weekly Wellness Reports</h4><p>Every Sunday: activity trends, sleep patterns, routine consistency.</p></div>
+        </div>
+        <div class="df">
+          <div class="df-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="9" r="3.2"/><circle cx="17" cy="10" r="2.6"/><path d="M3 19c0-3 3-5 6-5s6 2 6 5"/><path d="M14 19c0-2 2-4 4.5-4S22 17 22 19"/></svg></div>
+          <div class="df-txt"><h4>Unlimited Family Access</h4><p>Every family member gets their own login. Daughter in Phoenix, son in Chicago — everyone stays informed.</p></div>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- Pricing removed — value built during in-home consultation -->
-<section class="band" id="pricing" style="display:none;">
+<!-- ============== 6. HOW IT WORKS ============== -->
+<section class="how" id="how" data-screen-label="06 How It Works">
   <div class="wrap">
-    <span class="center-eyebrow">Three plans</span>
-    <h2 class="section-h">Plans that grow with what they need.</h2>
-    <p class="section-sub">Start with the essentials, or layer on professional monitoring and outside-the-home protection.</p>
-    <div class="tiers">
-      <div class="tier">
-        <h3 class="nm">Smart Home</h3>
-        <div class="price"><span class="v">$79</span><span class="u">/ month</span></div>
-        <div class="blurb">Pattern intelligence, fall detection, and family dashboard for the home.</div>
-        <ul>
-          <li><i data-lucide="check"></i><span><b>2 FP400 radar sensors</b> — bathroom + living area, full-room fall detection</span></li>
-          <li><i data-lucide="check"></i>2 motion sensors, 1 door sensor, 1 temp sensor</li>
-          <li><i data-lucide="check"></i>Smart home hub with local processing</li>
-          <li><i data-lucide="check"></i>Family dashboard, <b>unlimited family logins</b></li>
-          <li><i data-lucide="check"></i>Weekly wellness reports every Sunday</li>
-          <li><i data-lucide="check"></i>Email alerts for pattern changes</li>
-        </ul>
-        <div class="install"><b>Installation:</b> $599 upfront, or $199 with 24-month service agreement</div>
-        <a class="btn btn-ghost" href="#consult">Schedule consultation</a>
-      </div>
-      <div class="tier featured">
-        <span class="ribbon">Most popular</span>
-        <h3 class="nm">Smart Home + Monitoring</h3>
-        <div class="price"><span class="v">$119</span><span class="u">/ month</span></div>
-        <div class="blurb">Everything in Smart Home, plus whole-home fall coverage and 24/7 professional response.</div>
-        <ul>
-          <li><i data-lucide="check"></i><span><b>3rd FP400 sensor</b> — bedroom, for whole-home fall coverage</span></li>
-          <li><i data-lucide="check"></i>Additional motion, 2 door &amp; 2 temp sensors</li>
-          <li><i data-lucide="check"></i><b>AC power monitor</b> &amp; water leak sensors</li>
-          <li><i data-lucide="check"></i><b>24/7 professional monitoring</b> via AvantGuard — trained operators respond to critical alerts</li>
-          <li><i data-lucide="check"></i>SMS + email alerts, priority response</li>
-          <li><i data-lucide="check"></i>Everything in Smart Home</li>
-        </ul>
-        <div class="install"><b>Installation:</b> $799 upfront, or $299 with 24-month service agreement</div>
-        <a class="btn btn-primary" href="#consult">Schedule consultation</a>
-      </div>
-      <div class="tier">
-        <h3 class="nm">Complete Care</h3>
-        <div class="price"><span class="v">$149</span><span class="u">/ month</span></div>
-        <div class="blurb">All of the above, plus protection that follows them out of the house.</div>
-        <ul>
-          <li><i data-lucide="check"></i><span><b>Freeus Belle+ mobile pendant</b> — two-way voice, GPS, fall detection</span></li>
-          <li><i data-lucide="check"></i>Waterproof (IP67), 30-day battery, 4G LTE</li>
-          <li><i data-lucide="check"></i>Protection at the grocery store, on walks, visiting friends</li>
-          <li><i data-lucide="check"></i><b>FDA-cleared Withings sleep sensor</b> (optional add-on)</li>
-          <li><i data-lucide="check"></i>Everything in Smart Home + Monitoring</li>
-        </ul>
-        <div class="install"><b>Installation:</b> $1,099 upfront, or $499 with 24-month service agreement</div>
-        <a class="btn btn-ghost" href="#consult">Schedule consultation</a>
-      </div>
+    <div class="reveal">
+      <div class="eyebrow">Simple Process</div>
+      <h2 class="section-h">Up and running in three easy steps.</h2>
     </div>
-    <div class="install-note">
-      <b>Pay upfront for flexibility, or choose a 24-month service agreement with reduced installation.</b> We'll walk through both options during your free consultation and help you pick what fits your family.
-    </div>
-    <div class="pricing-footer">Your specialist will help you choose the right plan during your free in-home consultation.</div>
-  </div>
-</section>
-
-<!-- FAQ -->
-<section class="band tint" id="faq">
-  <div class="wrap">
-    <span class="center-eyebrow">Common questions</span>
-    <h2 class="section-h">What families ask before saying yes.</h2>
-    <div class="faq">
-      <details open>
-        <summary>How does the service agreement work?</summary>
-        <div class="answer">You have two options. Pay the full equipment cost upfront and stay flexible — your monthly service is on its own terms. Or choose a 24-month service agreement with reduced installation cost up front. About 80% of our families choose the agreement. We'll walk through both in the consultation and help you pick what makes sense.</div>
-      </details>
-      <details>
-        <summary>What if my loved one is outside the home?</summary>
-        <div class="answer">Our in-home sensors cover the house. For everywhere else, the Belle+ pendant (included with Complete Care) extends protection to anywhere with cellular coverage. It has GPS, two-way voice with a trained operator, automatic fall detection, and a 30-day battery. It's waterproof and wearable in the shower.</div>
-      </details>
-      <details>
-        <summary>What happens if my loved one falls?</summary>
-        <div class="answer">Inside the home, our ceiling-mounted FP400 radar detects falls in seconds — no button to press, no wearable required. Posture detection means it can tell "lying on the floor" from "lying on the couch." On Complete Care, the Belle+ pendant adds automatic fall detection for outside the home, with two-way voice to the monitoring center so help can be dispatched to their exact GPS location.</div>
-      </details>
-      <details>
-        <summary>Is anyone watching cameras inside the home?</summary>
-        <div class="answer">No. We don't install cameras anywhere. Our radar sensors detect presence and posture, not images. There is no video feed of your loved one at any point, ever.</div>
-      </details>
-      <details>
-        <summary>What if my mom doesn't want to wear anything?</summary>
-        <div class="answer">She doesn't have to. The Smart Home and Smart Home + Monitoring plans require no wearables. The pendant is only included with Complete Care, and even then it's optional — many families choose to leave it on the bedside table for outings.</div>
-      </details>
-      <details>
-        <summary>How long does installation take?</summary>
-        <div class="answer">Under two hours. No drilling, no wires, no disruption. Our installer will walk through the home with you to confirm the layout, then place everything where it makes sense.</div>
-      </details>
-      <details>
-        <summary>Do we get charged for adding family members?</summary>
-        <div class="answer">No. Unlimited family logins on every plan. Adult children, siblings, spouses, anyone you want — same view, same alerts.</div>
-      </details>
-    </div>
-  </div>
-</section>
-
-<!-- Final CTA -->
-<section class="band" id="consult">
-  <div class="wrap">
-    <div class="founder">
-      <div>
-        <span class="eyebrow" style="color: var(--coral-300);"><span class="dot"></span>Free in-home consultation</span>
-        <h2>Let's sit down and talk about what would help.</h2>
-        <p>Thirty minutes in the home. No pressure, no obligation. We'll listen, walk through the space together, and put together a plan that fits the layout, the routine, and the budget. You'll have everything you need to decide.</p>
-        <a class="btn btn-primary" href="#">Schedule a free consultation <i data-lucide="arrow-right" style="width:16px; height:16px;"></i></a>
+    <div class="steps reveal-stagger">
+      <div class="step">
+        <div class="step-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11 L12 4 L21 11"/><path d="M5 10 V20 H19 V10"/><path d="M10 20v-5h4v5"/></svg></div>
+        <div class="step-num">01</div>
+        <h3>Free Home Assessment</h3>
+        <p>A Proxia Care specialist visits your loved one's home, walks through every room, identifies the specific risks, and recommends the right coverage level. About 30 minutes. No cost. No obligation. You'll receive a complimentary mobile safety pendant during the visit.</p>
       </div>
-      <div class="seats-mini">
-        <div style="font-family: var(--font-display); font-size: 48px; line-height: 1.1; font-weight: 500; color: var(--paper); letter-spacing: -0.02em;">30 min</div>
-        <div style="color: var(--teal-100); font-size: 14px; margin-top: 4px;">in your home</div>
-        <div class="lbl">No obligation</div>
+      <div class="step">
+        <div class="step-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a4 4 0 0 0-5.4 5.4l-6 6 2.6 2.6 6-6a4 4 0 0 0 5.4-5.4l-2.6 2.6-2-2 2.6-2.6z"/></svg></div>
+        <div class="step-num">02</div>
+        <h3>Professional Installation</h3>
+        <p>We install everything in under 2 hours. No drilling, no wall damage, no disruption. Discreet sensors placed exactly where they're needed, configured for your loved one's specific routine. We test every alert with your family before we leave.</p>
+      </div>
+      <div class="step">
+        <div class="step-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="2" width="12" height="20" rx="2.5"/><path d="M10 18h4"/></svg></div>
+        <div class="step-num">03</div>
+        <h3>Your Family Dashboard Goes Live</h3>
+        <p>Every family member gets their own login. Real-time status, instant alerts, and weekly wellness reports begin immediately. The full picture of how your loved one is doing — every single day.</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- Footer -->
-<footer class="foot">
+<!-- ============== 8. EQUIPMENT ============== -->
+<section class="eq" id="equipment" data-screen-label="08 Equipment">
+  <div class="wrap">
+    <div class="reveal">
+      <div class="eyebrow">The Proxia Care System</div>
+      <h2 class="section-h">What goes in your loved one's home.</h2>
+      <p class="section-sub">Discreet sensors you'd barely notice, doing work you can't live without.</p>
+    </div>
+
+    <div class="eq-group reveal">
+      <div class="eq-group-h">Fall Protection</div>
+      <div class="eq-grid">
+        <div class="eq-card">
+          <div class="eq-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="2"/><path d="M8.5 8.5a5 5 0 0 0 0 7M15.5 8.5a5 5 0 0 1 0 7M5.5 5.5a9 9 0 0 0 0 13M18.5 5.5a9 9 0 0 1 0 13"/></svg></div>
+          <div><h4>FP400 Radar Sensors</h4><p>Ceiling or wall mounted. Covers full rooms. Detects falls by posture — knows the difference between lying on the floor and lying on the couch. No camera.</p></div>
+        </div>
+        <div class="eq-card">
+          <div class="eq-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="14" rx="5" ry="6"/><circle cx="12" cy="14" r="2"/><path d="M10 6 q2 -3 4 0"/></svg></div>
+          <div><h4>Belle+ Mobile Pendant</h4><p>Two-way voice, GPS, automatic fall detection, waterproof. Protection at home and everywhere else. Included with every plan.</p></div>
+        </div>
+        <div class="eq-card" style="visibility:hidden"></div>
+      </div>
+    </div>
+
+    <div class="eq-group reveal">
+      <div class="eq-group-h">Activity Intelligence</div>
+      <div class="eq-grid">
+        <div class="eq-card">
+          <div class="eq-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 3 L13 9 L8 12 L13 16 L9 21"/><circle cx="16" cy="6" r="1.5"/></svg></div>
+          <div><h4>Motion Sensors</h4><p>Discreet sensors throughout the home learning daily movement patterns room by room.</p></div>
+        </div>
+        <div class="eq-card">
+          <div class="eq-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 21 V5 a2 2 0 0 1 2-2 h10 a2 2 0 0 1 2 2 V21"/><path d="M3 21h18"/><circle cx="15" cy="12" r="1"/></svg></div>
+          <div><h4>Door &amp; Window Sensors</h4><p>Tracking entries, exits, and unusual nighttime activity.</p></div>
+        </div>
+        <div class="eq-card">
+          <div class="eq-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="6" width="16" height="12" rx="2"/><circle cx="12" cy="12" r="2"/><path d="M9 4h6 M9 20h6"/></svg></div>
+          <div><h4>Smart Home Hub</h4><p>The brain of the system. Connects every sensor. Keeps working through internet outages.</p></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="eq-group reveal">
+      <div class="eq-group-h">Environmental Protection</div>
+      <div class="eq-grid">
+        <div class="eq-card">
+          <div class="eq-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 14V4a2 2 0 1 1 4 0v10a4 4 0 1 1-4 0z"/><circle cx="12" cy="17" r="1.6" fill="currentColor" stroke="none"/></svg></div>
+          <div><h4>Temperature Sensors</h4><p>Multiple units monitoring indoor conditions. Critical for Arizona summers.</p></div>
+        </div>
+        <div class="eq-card">
+          <div class="eq-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 L4 14 H11 L10 22 L20 10 H13 L13 2z"/></svg></div>
+          <div><h4>AC Power Monitor</h4><p>Detects AC failures the moment they happen, before the home becomes unsafe.</p></div>
+        </div>
+        <div class="eq-card">
+          <div class="eq-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 s6 7.5 6 12 a6 6 0 0 1-12 0 c0-4.5 6-12 6-12z"/></svg></div>
+          <div><h4>Water Leak Sensors</h4><p>Under-sink and near appliances. Catches leaks before they become disasters.</p></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="eq-group reveal">
+      <div class="eq-group-h">Optional Add-On</div>
+      <div class="eq-grid">
+        <div class="eq-card">
+          <div class="eq-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 14a8 8 0 1 1-10-10 6 6 0 0 0 10 10z"/></svg></div>
+          <div><h4>Sleep Analyzer</h4><p>FDA-cleared under-mattress sensor. Tracks sleep quality, duration, and breathing disturbances. Nothing to wear.</p></div>
+        </div>
+        <div class="eq-card" style="visibility:hidden"></div>
+        <div class="eq-card" style="visibility:hidden"></div>
+      </div>
+    </div>
+
+    <div class="eq-callout reveal">Total install time: under 2 hours. No drilling. No wall damage. No disruption to your loved one's home.</div>
+  </div>
+</section>
+
+<!-- ============== 9. FAQ ============== -->
+<section class="faq" id="faq" data-screen-label="09 FAQ">
+  <div class="wrap">
+    <div class="reveal">
+      <div class="eyebrow">Common Questions</div>
+      <h2 class="section-h">What Phoenix families ask.</h2>
+    </div>
+    <div class="faq-grid reveal-stagger">
+      <div class="faq-item">
+        <h4>Will my loved one have to wear anything?</h4>
+        <p>The mobile pendant is small, lightweight, and waterproof — most seniors forget they're wearing it. Inside the home, our radar sensors work without any wearable at all. Your loved one doesn't need to interact with any technology.</p>
+      </div>
+      <div class="faq-item">
+        <h4>Are there cameras in the home?</h4>
+        <p>No cameras anywhere. Our system uses millimeter-wave radar — the same technology in modern automotive safety systems — to detect presence, posture, and falls without recording any video or audio.</p>
+      </div>
+      <div class="faq-item">
+        <h4>What happens when my loved one needs help?</h4>
+        <p>If they press the pendant button or a fall is detected, they're instantly connected to a trained operator through the pendant's two-way speaker. The operator can talk to them, locate them via GPS, notify your family, and dispatch emergency services. For in-home sensor alerts (heat, activity anomalies), your family is notified by email and SMS within seconds.</p>
+      </div>
+      <div class="faq-item">
+        <h4>What if the internet goes out?</h4>
+        <p>The in-home hub continues processing locally during internet outages. The mobile pendant works independently on its own 4G cellular connection — it doesn't need wifi or internet at all.</p>
+      </div>
+      <div class="faq-item">
+        <h4>What if my loved one isn't comfortable with technology?</h4>
+        <p>That's the point. The sensors are invisible — they don't interact with them at all. The pendant is one button. There are no apps to learn, no screens to check, no devices to charge except the pendant once a month. The technology works around their life, not the other way around.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============== 10. CONSULT + FOOTER ============== -->
+<section class="consult" id="consult" data-screen-label="10 Consult">
+  <div class="wrap">
+    <div class="reveal">
+      <div class="eyebrow">Get Started</div>
+      <h2 class="section-h">Schedule your free home assessment.</h2>
+      <p class="section-sub">We'll walk through your loved one's home, identify the specific risks, and show you what complete protection looks like. Every assessment includes a complimentary mobile safety pendant.</p>
+    </div>
+    <div class="consult-grid">
+      <ul class="consult-list reveal-stagger">
+        <li>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12 L10 18 L20 6"/></svg>
+          Free 30-minute in-home assessment
+        </li>
+        <li>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12 L10 18 L20 6"/></svg>
+          Personalized protection plan for their specific home
+        </li>
+        <li>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12 L10 18 L20 6"/></svg>
+          Complimentary mobile safety pendant
+        </li>
+        <li>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12 L10 18 L20 6"/></svg>
+          Same-week installation typically available
+        </li>
+        <li>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12 L10 18 L20 6"/></svg>
+          Flexible service agreements — no hidden fees
+        </li>
+        <li>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12 L10 18 L20 6"/></svg>
+          Local Phoenix team — not a national call center
+        </li>
+      </ul>
+      <form class="form-card reveal" onsubmit="event.preventDefault(); this.querySelector('button').textContent='Thanks — we\\'ll be in touch.'; this.querySelector('button').disabled=true;">
+        <div class="form-row two">
+          <div class="form-row"><label for="name">Your Name</label><input id="name" type="text" placeholder="Jane Smith" required></div>
+          <div class="form-row"><label for="phone">Your Phone</label><input id="phone" type="tel" placeholder="(602) 555-0123" required></div>
+        </div>
+        <div class="form-row">
+          <label for="email">Your Email</label>
+          <input id="email" type="email" placeholder="jane@example.com" required>
+        </div>
+        <div class="form-row">
+          <label for="city">Your Loved One's City</label>
+          <select id="city" required>
+            <option value="">Choose a city…</option>
+            <option>Phoenix</option><option>Scottsdale</option><option>Mesa</option>
+            <option>Gold Canyon</option><option>Sun City</option><option>Gilbert</option>
+            <option>Chandler</option><option>Tempe</option><option>Other</option>
+          </select>
+        </div>
+        <div class="form-row">
+          <label for="note">Tell us what's on your mind</label>
+          <textarea id="note" rows="4" placeholder="My mom lives alone in Sun City and I'm worried about the summer…"></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Request My Free Assessment</button>
+        <p class="form-note">We'll call you within 24 hours to schedule. Your information stays with Proxia Care — we never share or sell family data.</p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ============== FOOTER ============== -->
+<footer class="foot" data-screen-label="Footer">
   <div class="wrap">
     <div class="foot-grid">
       <div>
-        <div class="brand">
-          <img src="../../assets/proxia-logo.png" alt="">
-          <div class="name">PROXIA<span class="care">CARE</span></div>
-        </div>
-        <p class="blurb">Locally owned and operated in Phoenix, AZ. Built for Arizona families, by Arizona families.</p>
-      </div>
-      <div>
-        <h5>Service</h5>
-        <ul>
-          <li><a href="#how">How it works</a></li>
-          <li><a href="#equipment">What's installed</a></li>
-          <li><a href="#how">Plans</a></li>
-          <li><a href="#faq">FAQ</a></li>
-        </ul>
+        <a class="brand" href="#top" aria-label="Proxia Care — home">
+          <svg class="brand-mark" viewBox="0 0 64 64" aria-hidden="true">
+            <path d="M32 56 C 10 42, 6 26, 14 18 C 20 12, 28 14, 32 20 C 36 14, 44 12, 50 18 C 58 26, 54 42, 32 56 Z"
+                  fill="none" stroke="#5BBFB5" stroke-width="3.6" stroke-linejoin="round" stroke-linecap="round"/>
+            <path d="M22 32 Q 32 24 42 32" fill="none" stroke="#8DDBD4" stroke-width="2.8" stroke-linecap="round"/>
+            <path d="M25.5 36.5 Q 32 32 38.5 36.5" fill="none" stroke="#8DDBD4" stroke-width="2.8" stroke-linecap="round"/>
+            <circle cx="32" cy="44" r="4.6" fill="#F07C6B"/>
+          </svg>
+          <span class="brand-name">PROX<span class="beacon" aria-hidden="true">I</span>A<span class="care">CARE</span></span>
+        </a>
+        <p class="blurb">Keeping Phoenix seniors safe at home.</p>
       </div>
       <div>
         <h5>Company</h5>
         <ul>
-          <li><a href="#">Our story</a></li>
-          <li><a href="#">Service area</a></li>
-          <li><a href="#">Privacy</a></li>
+          <li><a href="#how">How it works</a></li>
+          <li><a href="#equipment">What's included</a></li>
+          <li><a href="#faq">FAQ</a></li>
+          <li><a href="#consult">Contact</a></li>
         </ul>
       </div>
       <div>
-        <h5>Talk to us</h5>
+        <h5>Service Areas</h5>
         <ul>
-          <li><a href="#">(602) 555-0142</a></li>
-          <li><a href="#"><span class="__cf_email__" data-cfemail="e68e838a8a89a69694899e8f8785879483c885898b">[email&#160;protected]</span></a></li>
-          <li><a href="#consult">Schedule a consultation</a></li>
+          <li>Phoenix · Scottsdale</li>
+          <li>Mesa · Gilbert · Chandler</li>
+          <li>Tempe · Glendale · Peoria</li>
+          <li>Sun City · Gold Canyon · Paradise Valley</li>
+        </ul>
+      </div>
+      <div>
+        <h5>Contact</h5>
+        <ul>
+          <li><a href="tel:+14806723615">(480) 672-3615</a></li>
+          <li><a href="/cdn-cgi/l/email-protection#a5cdc0c9c9cae5d5d7caddccc4c6c4d7c08bc6cac8"><span class="__cf_email__" data-cfemail="234b464f4f4c6353514c5b4a42404251460d404c4e">[email&#160;protected]</span></a></li>
+          <li>Phoenix, AZ</li>
         </ul>
       </div>
     </div>
     <div class="foot-bot">
-      <span>© 2026 Proxia Care, LLC · Phoenix, AZ</span>
-      <span>Smart sensors · No cameras · Built for Arizona</span>
+      © 2026 Proxia Care, LLC. All rights reserved. Proxia Care is not a medical device or emergency response service. For life-threatening emergencies, always dial 911.
     </div>
   </div>
 </footer>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>lucide.createIcons();</script>
-</body></html>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+/* ----- Render the dashboard activity bars ----- */
+(function buildBars(){
+  var host = document.getElementById('bars');
+  if(!host) return;
+  // 24 bars representing hours of the day, varying heights
+  var heights = [10,8,8,7,9,12,28,46,58,52,40,44,50,38,42,48,54,44,36,28,22,18,14,12];
+  var palette = ['#5BBFB5','#5BBFB5','#5BBFB5','#5BBFB5','#5BBFB5','#5BBFB5',
+                 '#3A9E94','#3A9E94','#1E7A72','#1E7A72','#1E7A72','#1E7A72',
+                 '#1E7A72','#1E7A72','#1E7A72','#1E7A72','#1E7A72','#F07C6B',
+                 '#3A9E94','#3A9E94','#5BBFB5','#5BBFB5','#5BBFB5','#5BBFB5'];
+  var max = Math.max.apply(null, heights);
+  heights.forEach(function(h, i){
+    var s = document.createElement('span');
+    s.style.height = (4 + (h/max)*54) + 'px';
+    s.style.background = palette[i];
+    host.appendChild(s);
+  });
+})();
+
+/* ----- Scroll reveal ----- */
+(function reveal(){
+  var els = document.querySelectorAll('.reveal, .reveal-stagger');
+  if(!('IntersectionObserver' in window)){
+    els.forEach(function(el){ el.classList.add('in'); });
+    return;
+  }
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); }
+    });
+  }, { rootMargin:'0px 0px -10% 0px', threshold:0.12 });
+  els.forEach(function(el){ io.observe(el); });
+})();
+</script>
+</body>
+</html>
