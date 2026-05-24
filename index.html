@@ -990,18 +990,18 @@ textarea{ resize:vertical; min-height:96px; }
           Local Phoenix team — not a national call center
         </li>
       </ul>
-      <form class="form-card reveal" onsubmit="event.preventDefault(); this.querySelector('button').textContent='Thanks — we\\'ll be in touch.'; this.querySelector('button').disabled=true;">
-        <div class="form-row two">
-          <div class="form-row"><label for="name">Your Name</label><input id="name" type="text" placeholder="Jane Smith" required></div>
-          <div class="form-row"><label for="phone">Your Phone</label><input id="phone" type="tel" placeholder="(602) 555-0123" required></div>
+       class="form-card reveal" action="https://formspree.io/f/mwvzqqea" method="POST"
+        <dig class="form-row two">
+          <div class="form-row"><label for="name">Your Name</label><input id="name" name="name" type="text" placeholder="Jane Smith" required></div>
+          <div class="form-row"><label for="phone">Your Phone</label><input id="phone" name="phone" type="tel" placeholder="(602) 555-0123" required></div>
         </div>
         <div class="form-row">
           <label for="email">Your Email</label>
-          <input id="email" type="email" placeholder="jane@example.com" required>
+          <input id="email" name="email" type="email" placeholder="jane@example.com" required>
         </div>
         <div class="form-row">
           <label for="city">Your Loved One's City</label>
-          <select id="city" required>
+          <select id="city" name="city" required>
             <option value="">Choose a city…</option>
             <option>Phoenix</option><option>Scottsdale</option><option>Mesa</option>
             <option>Gold Canyon</option><option>Sun City</option><option>Gilbert</option>
@@ -1010,7 +1010,7 @@ textarea{ resize:vertical; min-height:96px; }
         </div>
         <div class="form-row">
           <label for="note">Tell us what's on your mind</label>
-          <textarea id="note" rows="4" placeholder="My mom lives alone in Sun City and I'm worried about the summer…"></textarea>
+          <textarea id="note" name="message" rows="4" placeholder="My mom lives alone in Sun City and I'm worried about the summer…"></textarea>
         </div>
         <button type="submit" class="btn btn-primary">Request My Free Assessment</button>
         <p class="form-note">We'll call you within 24 hours to schedule. Your information stays with Proxia Care — we never share or sell family data.</p>
