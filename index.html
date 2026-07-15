@@ -1,1133 +1,499 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Proxia Care · Keeping Phoenix Seniors Safe at Home</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Proxia Care — Senior Home Safety &amp; Wellness | Greater Phoenix East Valley</title>
+<meta name="description" content="24/7 emergency response, daily wellness awareness, and Arizona heat protection for East Valley seniors — with a weekly report that tells your family you're doing fine. No cameras. Ever. Book a free in-home safety assessment.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600;700&family=Nunito:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,500;0,600;1,500&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
 <style>
-/* =========================================================
-   Proxia Care — Homepage
-   Single self-contained file. All CSS inline.
-   ========================================================= */
-:root{
-  --teal-900:#0F4A45;
-  --teal-800:#155F58;
-  --teal-700:#1E7A72;
-  --teal-500:#3A9E94;
-  --teal-400:#5BBFB5;
-  --teal-300:#8DDBD4;
-  --teal-100:#EAF8F6;
-  --coral:#F07C6B;
-  --coral-dark:#D45F4D;
-  --cream:#FAF6F0;
-  --ink-900:#1C2B29;
-  --ink-700:#3D5552;
-  --ink-500:#5C7572;
-  --ink-300:#7A9694;
-  --border:#D8EDEB;
-  --border-soft:#E8F2F1;
-  --paper:#FFFFFF;
+  :root{
+    --teal-deep:#1E7A72; --teal:#3A9E94; --teal-light:#5BBFB5; --teal-pale:#EAF8F6;
+    --coral:#F07C6B; --coral-dark:#D45F4D; --cream:#FAF6F0; --ink:#1C2B29;
+    --ink-soft:#42544F; --white:#FFFFFF; --paper-shadow:0 10px 30px rgba(28,43,41,.10);
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  @media (prefers-reduced-motion: reduce){ html{scroll-behavior:auto} *,*::before,*::after{animation:none!important;transition:none!important} }
+  body{font-family:'Nunito',sans-serif;font-size:18px;line-height:1.65;color:var(--ink);background:var(--cream)}
+  h1,h2,h3{font-family:'Lora',serif;font-weight:600;line-height:1.18;color:var(--ink)}
+  a{color:var(--teal-deep)}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 24px}
+  .eyebrow{display:inline-block;font-weight:800;font-size:.82rem;letter-spacing:.12em;text-transform:uppercase;color:var(--teal-deep);margin-bottom:14px}
 
-  --shadow-sm: 0 1px 2px rgba(15,74,69,0.04), 0 1px 1px rgba(15,74,69,0.03);
-  --shadow-md: 0 4px 14px rgba(15,74,69,0.06), 0 2px 4px rgba(15,74,69,0.04);
-  --shadow-lg: 0 14px 40px rgba(15,74,69,0.10), 0 4px 10px rgba(15,74,69,0.05);
+  /* ---------- Buttons ---------- */
+  .btn{display:inline-block;font-family:'Nunito',sans-serif;font-weight:800;font-size:1.06rem;text-decoration:none;border-radius:999px;padding:16px 30px;transition:transform .15s ease, background .15s ease, box-shadow .15s ease;cursor:pointer;border:none}
+  .btn:focus-visible{outline:3px solid var(--ink);outline-offset:3px}
+  .btn-coral{background:var(--coral);color:#fff;box-shadow:0 6px 18px rgba(240,124,107,.35)}
+  .btn-coral:hover{background:var(--coral-dark);transform:translateY(-1px)}
+  .btn-ghost{background:transparent;color:var(--teal-deep);border:2px solid var(--teal-deep)}
+  .btn-ghost:hover{background:var(--teal-pale)}
+  .btn-white{background:#fff;color:var(--teal-deep)}
+  .btn-white:hover{background:var(--teal-pale)}
 
-  --radius-sm: 10px;
-  --radius:    14px;
-  --radius-lg: 20px;
+  /* ---------- Header ---------- */
+  header{position:sticky;top:0;z-index:50;background:rgba(250,246,240,.92);backdrop-filter:blur(8px);border-bottom:1px solid rgba(30,122,114,.12)}
+  .nav{display:flex;align-items:center;justify-content:space-between;padding:14px 0}
+  .logo{display:flex;align-items:center;gap:12px;text-decoration:none}
+  .logo svg{height:44px;width:auto;display:block}
+  .logo-word{font-family:'Lora',serif;font-weight:600;font-size:1.5rem;color:#005444;letter-spacing:.01em}
+  .nav-cta{display:flex;align-items:center;gap:18px}
+  .nav-phone{font-weight:800;color:var(--ink);text-decoration:none;font-size:1.05rem;white-space:nowrap}
+  .nav-phone span{color:var(--teal-deep)}
+  .nav .btn{padding:12px 22px;font-size:.98rem}
+  @media(max-width:720px){ .nav-phone{display:none} }
 
-  --font-display: 'Lora', Georgia, 'Source Serif Pro', serif;
-  --font-sans: 'Nunito', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-}
+  /* ---------- Hero ---------- */
+  .hero{padding:72px 0 60px;background:linear-gradient(180deg,var(--cream) 0%, var(--teal-pale) 100%)}
+  .hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:56px;align-items:center}
+  @media(max-width:900px){ .hero-grid{grid-template-columns:1fr;gap:40px} }
+  .hero h1{font-size:clamp(2.4rem,5vw,3.6rem);margin-bottom:20px}
+  .hero h1 em{font-style:italic;color:var(--teal-deep)}
+  .hero-sub{font-size:1.18rem;color:var(--ink-soft);max-width:34em;margin-bottom:12px}
+  .hero-nocam{font-weight:800;color:var(--teal-deep);margin-bottom:28px;font-size:1.05rem}
+  .hero-ctas{display:flex;flex-wrap:wrap;gap:14px;margin-bottom:18px}
+  .hero-trust{font-size:.95rem;color:var(--ink-soft)}
+  .hero-trust b{color:var(--ink)}
 
-*,*::before,*::after{ box-sizing:border-box; }
-html{ scroll-behavior:smooth; }
-body{
-  margin:0;
-  font-family:var(--font-sans);
-  font-size:17px;
-  line-height:1.55;
-  color:var(--ink-900);
-  background:var(--paper);
-  -webkit-font-smoothing:antialiased;
-  text-rendering:optimizeLegibility;
-}
-img{ max-width:100%; display:block; }
-a{ color:var(--teal-700); }
-button{ font-family:inherit; }
-p{ margin:0 0 1em; }
-h1,h2,h3,h4,h5{ font-family:var(--font-display); color:var(--teal-900); margin:0 0 .5em; font-weight:700; letter-spacing:-0.01em; }
-h1{ font-size:clamp(40px, 6vw, 76px); line-height:1.05; letter-spacing:-0.02em; }
-h2{ font-size:clamp(30px, 4vw, 46px); line-height:1.12; }
-h3{ font-size:clamp(22px, 2.4vw, 28px); line-height:1.2; }
-h4{ font-size:20px; line-height:1.25; }
+  /* Signature element: the weekly report card */
+  .report-card{background:#fff;border-radius:18px;box-shadow:var(--paper-shadow);padding:30px 30px 26px;transform:rotate(1.6deg);position:relative;max-width:420px;margin:0 auto;border:1px solid rgba(30,122,114,.10)}
+  .report-card::before{content:"";position:absolute;inset:auto auto -12px 26px;width:82%;height:14px;background:rgba(28,43,41,.05);border-radius:12px;filter:blur(6px);z-index:-1}
+  .report-tag{display:flex;align-items:center;gap:10px;margin-bottom:14px}
+  .report-dot{width:12px;height:12px;border-radius:50%;background:var(--coral);animation:pulse 2.6s ease-in-out infinite}
+  @keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(240,124,107,.45)}55%{box-shadow:0 0 0 12px rgba(240,124,107,0)}}
+  .report-tag small{font-weight:800;letter-spacing:.1em;text-transform:uppercase;font-size:.72rem;color:var(--teal-deep)}
+  .report-card h3{font-size:1.45rem;margin-bottom:12px}
+  .report-line{display:flex;gap:12px;align-items:flex-start;padding:9px 0;border-top:1px dashed rgba(30,122,114,.18);font-size:1rem;color:var(--ink-soft)}
+  .report-line:first-of-type{border-top:none}
+  .report-line svg{flex:none;margin-top:3px}
+  .report-sig{margin-top:14px;font-size:.92rem;color:var(--ink-soft);font-style:italic}
 
-/* layout */
-.wrap{ max-width:1180px; margin:0 auto; padding:0 28px; }
-section{ padding:96px 0; position:relative; }
-section.tight{ padding:72px 0; }
-@media (max-width:720px){
-  section{ padding:64px 0; }
-  section.tight{ padding:48px 0; }
-  .wrap{ padding:0 20px; }
-}
+  /* ---------- Value blocks ---------- */
+  section{padding:76px 0}
+  .sec-head{max-width:44em;margin-bottom:44px}
+  .sec-head h2{font-size:clamp(1.8rem,3.4vw,2.5rem);margin-bottom:14px}
+  .sec-head p{color:var(--ink-soft);font-size:1.1rem}
+  .cards3{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+  @media(max-width:860px){ .cards3{grid-template-columns:1fr} }
+  .vcard{background:#fff;border-radius:16px;padding:32px 28px;box-shadow:0 4px 16px rgba(28,43,41,.06);border-top:4px solid var(--teal)}
+  .vcard.coral-top{border-top-color:var(--coral)}
+  .vcard h3{font-size:1.3rem;margin:16px 0 10px}
+  .vcard p{color:var(--ink-soft);font-size:1rem}
+  .vicon{width:52px;height:52px;border-radius:14px;background:var(--teal-pale);display:flex;align-items:center;justify-content:center}
 
-.eyebrow{
-  display:inline-block;
-  font-size:12px;
-  font-weight:800;
-  letter-spacing:0.16em;
-  text-transform:uppercase;
-  color:var(--teal-500);
-  margin-bottom:14px;
-}
-.section-h{ margin:0 0 14px; }
-.section-sub{
-  font-size:19px;
-  color:var(--ink-700);
-  max-width:680px;
-  margin:0 0 36px;
-  line-height:1.55;
-}
-.section-sub.center{ margin-left:auto; margin-right:auto; }
+  /* ---------- Anchor math ---------- */
+  .anchor{background:var(--teal-deep);color:#fff}
+  .anchor .eyebrow{color:var(--teal-light)}
+  .anchor h2{color:#fff;font-size:clamp(1.8rem,3.4vw,2.5rem);max-width:22em;margin-bottom:40px}
+  .anchor-grid{display:grid;grid-template-columns:1fr auto 1fr;gap:28px;align-items:stretch;max-width:880px}
+  @media(max-width:760px){ .anchor-grid{grid-template-columns:1fr;gap:16px} .anchor-vs{transform:rotate(90deg)} }
+  .anchor-box{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.22);border-radius:16px;padding:34px 30px;text-align:center}
+  .anchor-box.hl{background:#fff;color:var(--ink);border:none}
+  .anchor-num{font-family:'Lora',serif;font-size:clamp(2.2rem,4.5vw,3.1rem);font-weight:600;line-height:1}
+  .anchor-box.hl .anchor-num{color:var(--teal-deep)}
+  .anchor-lbl{margin-top:10px;font-size:1rem;opacity:.92}
+  .anchor-box.hl .anchor-lbl{color:var(--ink-soft);opacity:1}
+  .anchor-vs{align-self:center;font-family:'Lora',serif;font-style:italic;font-size:1.3rem;opacity:.85}
+  .anchor-note{margin-top:30px;font-size:1.05rem;max-width:44em;opacity:.95}
 
-/* utility */
-.center{ text-align:center; }
-.flex{ display:flex; }
-.grid{ display:grid; }
+  /* ---------- How it works ---------- */
+  .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;counter-reset:step}
+  @media(max-width:860px){ .steps{grid-template-columns:1fr} }
+  .step{background:#fff;border-radius:16px;padding:30px 28px;box-shadow:0 4px 16px rgba(28,43,41,.06);position:relative}
+  .step::before{counter-increment:step;content:counter(step);position:absolute;top:-18px;left:24px;width:40px;height:40px;border-radius:50%;background:var(--coral);color:#fff;font-weight:800;display:flex;align-items:center;justify-content:center;font-size:1.1rem;box-shadow:0 4px 12px rgba(240,124,107,.4)}
+  .step h3{font-size:1.22rem;margin:14px 0 10px}
+  .step p{color:var(--ink-soft);font-size:1rem}
 
-/* buttons + links */
-.btn{
-  display:inline-flex; align-items:center; gap:10px;
-  font-family:var(--font-sans); font-weight:700; font-size:16px;
-  padding:16px 26px; border-radius:999px; border:0; cursor:pointer;
-  text-decoration:none; transition:transform .15s ease, box-shadow .2s ease, background .15s ease;
-  letter-spacing:0.01em;
-}
-.btn-primary{
-  background:var(--coral); color:#fff;
-  box-shadow:0 8px 18px rgba(240,124,107,0.30);
-}
-.btn-primary:hover{ background:var(--coral-dark); transform:translateY(-1px); box-shadow:0 10px 22px rgba(240,124,107,0.36); }
-.btn-ghost{
-  background:transparent; color:var(--teal-700);
-  text-decoration:underline; text-underline-offset:4px;
-  padding:14px 4px; font-weight:700;
-}
-.btn-ghost:hover{ color:var(--coral-dark); }
+  /* ---------- Founder ---------- */
+  .founder{background:var(--teal-pale)}
+  .founder-grid{display:grid;grid-template-columns:1fr 1.4fr;gap:48px;align-items:center}
+  @media(max-width:820px){ .founder-grid{grid-template-columns:1fr} }
+  .founder-quote{font-family:'Lora',serif;font-style:italic;font-size:1.35rem;line-height:1.5;color:var(--ink);border-left:4px solid var(--coral);padding-left:22px;margin-bottom:18px}
+  .founder p{color:var(--ink-soft)}
+  .founder-name{font-weight:800;color:var(--ink);margin-top:16px}
+  .founder-mark{background:#fff;border-radius:18px;box-shadow:var(--paper-shadow);padding:40px;display:flex;align-items:center;justify-content:center}
+  .founder-mark svg{width:200px;height:auto}
 
-/* ============== NAV ============== */
-.nav{
-  position:sticky; top:0; z-index:50;
-  background:rgba(255,255,255,0.88);
-  backdrop-filter:saturate(160%) blur(10px);
-  -webkit-backdrop-filter:saturate(160%) blur(10px);
-  border-bottom:1px solid var(--border-soft);
-}
-.nav-inner{
-  display:flex; align-items:center; justify-content:space-between;
-  padding:18px 0;
-}
-.brand{ display:flex; align-items:center; gap:12px; text-decoration:none; color:inherit; }
-.brand-mark{ width:42px; height:42px; flex:0 0 auto; }
-.brand-name{
-  font-family:var(--font-display);
-  font-weight:700;
-  font-size:24px;
-  letter-spacing:0.04em;
-  color:var(--teal-900);
-  line-height:1;
-  display:inline-flex; align-items:baseline;
-}
-.brand-name .care{ color:var(--coral); margin-left:6px; }
-/* The 'I' in PROXIA — keep the stem, float a coral beacon dot above */
-.brand-name .beacon{ position:relative; display:inline-block; }
-.brand-name .beacon::before{
-  content:""; position:absolute; left:50%; top:-0.28em;
-  transform:translateX(-50%);
-  width:0.30em; height:0.30em; border-radius:50%;
-  background:var(--coral);
-  box-shadow:0 0 0 0.08em rgba(240,124,107,0.22);
-}
-.nav-links{ display:flex; gap:30px; align-items:center; }
-.nav-links a{ color:var(--ink-700); text-decoration:none; font-weight:700; font-size:15px; }
-.nav-links a:hover{ color:var(--teal-700); }
-.nav-cta{ margin-left:8px; padding:10px 18px; font-size:14px; }
-@media (max-width:760px){
-  .nav-links a:not(.nav-cta){ display:none; }
-}
+  /* ---------- Plans ---------- */
+  .plans{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+  @media(max-width:860px){ .plans{grid-template-columns:1fr} }
+  .plan{background:#fff;border-radius:16px;padding:32px 28px;box-shadow:0 4px 16px rgba(28,43,41,.06);display:flex;flex-direction:column}
+  .plan.mid{border:2px solid var(--teal);position:relative}
+  .plan-flag{position:absolute;top:-14px;left:50%;transform:translateX(-50%);background:var(--teal);color:#fff;font-size:.78rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;padding:5px 16px;border-radius:999px;white-space:nowrap}
+  .plan h3{font-size:1.35rem;margin-bottom:6px}
+  .plan-tag{color:var(--teal-deep);font-weight:700;font-size:.95rem;margin-bottom:16px}
+  .plan ul{list-style:none;margin-bottom:20px}
+  .plan li{padding:7px 0 7px 30px;position:relative;color:var(--ink-soft);font-size:.99rem}
+  .plan li::before{content:"";position:absolute;left:0;top:13px;width:16px;height:16px;background:var(--teal-pale);border-radius:50%}
+  .plan li::after{content:"";position:absolute;left:5px;top:17px;width:7px;height:4px;border-left:2px solid var(--teal-deep);border-bottom:2px solid var(--teal-deep);transform:rotate(-45deg)}
+  .plans-note{margin-top:26px;color:var(--ink-soft);font-size:1.02rem;max-width:46em}
 
-/* ============== HERO ============== */
-.hero{
-  padding:88px 0 64px;
-  background:
-    radial-gradient(1100px 600px at 80% -10%, rgba(91,191,181,0.10), transparent 60%),
-    radial-gradient(900px 500px at -10% 30%, rgba(240,124,107,0.06), transparent 60%),
-    #ffffff;
-}
-.hero-inner{ max-width:920px; }
-.hero h1{
-  color:var(--teal-900);
-  margin-bottom:24px;
-}
-.hero .lede{
-  font-size:clamp(18px, 1.55vw, 21px);
-  line-height:1.55;
-  color:var(--teal-700);
-  max-width:760px;
-  margin:0 0 36px;
-  font-weight:500;
-}
-.hero-cta{
-  display:flex; flex-wrap:wrap; gap:18px; align-items:center;
-}
-.trust-strip{
-  margin-top:64px;
-  display:grid; grid-template-columns:repeat(4, 1fr);
-  border-top:1px solid var(--border);
-  border-bottom:1px solid var(--border);
-}
-.trust-item{
-  padding:22px 18px;
-  display:flex; align-items:center; gap:14px;
-  font-weight:700; color:var(--ink-700);
-  font-size:15px;
-}
-.trust-item + .trust-item{ border-left:1px solid var(--border); }
-.trust-dot{
-  width:8px; height:8px; border-radius:50%;
-  background:var(--coral);
-  box-shadow:0 0 0 6px rgba(240,124,107,0.16);
-  flex:0 0 8px;
-}
-@media (max-width:760px){
-  .trust-strip{ grid-template-columns:1fr 1fr; }
-  .trust-item:nth-child(3){ border-left:0; border-top:1px solid var(--border); }
-  .trust-item:nth-child(4){ border-top:1px solid var(--border); }
-}
+  /* ---------- FAQ ---------- */
+  .faq details{background:#fff;border-radius:14px;box-shadow:0 3px 12px rgba(28,43,41,.05);margin-bottom:14px;overflow:hidden}
+  .faq summary{cursor:pointer;padding:22px 26px;font-weight:800;font-size:1.08rem;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:16px}
+  .faq summary::-webkit-details-marker{display:none}
+  .faq summary::after{content:"+";font-family:'Lora',serif;font-size:1.6rem;color:var(--teal-deep);flex:none;line-height:1}
+  .faq details[open] summary::after{content:"–"}
+  .faq .a{padding:0 26px 24px;color:var(--ink-soft);font-size:1.02rem}
 
-/* ============== SECTION 2 — Pendant ============== */
-.pendant-section{ background:var(--teal-100); }
-.pendant-grid{
-  display:grid; grid-template-columns:1fr 1fr;
-  gap:64px; align-items:center;
-}
-.pendant-features{
-  display:grid; grid-template-columns:1fr 1fr;
-  gap:22px 28px; margin-top:30px;
-}
-.pf{ display:flex; gap:14px; align-items:flex-start; }
-.pf-ico{
-  flex:0 0 36px; width:36px; height:36px; border-radius:10px;
-  background:#fff; color:var(--teal-700);
-  display:flex; align-items:center; justify-content:center;
-}
-.pf-ico svg{ width:20px; height:20px; }
-.pf-txt strong{ display:block; font-weight:800; color:var(--ink-900); margin-bottom:2px; font-size:15px; }
-.pf-txt span{ font-size:14.5px; color:var(--ink-700); line-height:1.5; }
-.fine{ margin-top:28px; font-size:14px; color:var(--ink-500); }
+  /* ---------- Final CTA / form ---------- */
+  .final{background:linear-gradient(160deg,var(--teal-deep),var(--teal));color:#fff}
+  .final-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:52px;align-items:center}
+  @media(max-width:860px){ .final-grid{grid-template-columns:1fr} }
+  .final h2{color:#fff;font-size:clamp(1.9rem,3.6vw,2.6rem);margin-bottom:16px}
+  .final p{opacity:.95;font-size:1.12rem;margin-bottom:26px;max-width:30em}
+  .final-phone{display:block;font-family:'Lora',serif;font-size:2rem;color:#fff;text-decoration:none;font-weight:600;margin-bottom:8px}
+  .final small{opacity:.85}
+  .form-card{background:#fff;border-radius:18px;padding:34px 30px;box-shadow:0 16px 40px rgba(0,0,0,.18);color:var(--ink)}
+  .form-card h3{font-size:1.35rem;margin-bottom:6px}
+  .form-card .sub{color:var(--ink-soft);font-size:.98rem;margin-bottom:20px}
+  .field{margin-bottom:16px}
+  .field label{display:block;font-weight:800;font-size:.92rem;margin-bottom:6px}
+  .field input,.field select{width:100%;padding:14px 16px;font-family:'Nunito',sans-serif;font-size:1.02rem;border:2px solid #DCE7E4;border-radius:10px;background:#FDFDFC;color:var(--ink)}
+  .field input:focus,.field select:focus{outline:none;border-color:var(--teal)}
+  .form-card .btn{width:100%;text-align:center;margin-top:6px}
+  .form-fine{font-size:.85rem;color:var(--ink-soft);margin-top:12px;text-align:center}
 
-/* Pendant illustration */
-.pendant-illo{
-  position:relative; aspect-ratio:1/1; width:100%; max-width:460px; margin:0 auto;
-  display:flex; align-items:center; justify-content:center;
-}
-.pendant-illo svg{ width:100%; height:auto; }
-@media (max-width:820px){
-  .pendant-grid{ grid-template-columns:1fr; gap:40px; }
-  .pendant-features{ grid-template-columns:1fr; }
-}
+  /* ---------- Footer ---------- */
+  footer{background:var(--ink);color:#B9C8C4;padding:44px 0 96px;font-size:.95rem}
+  .foot-grid{display:flex;flex-wrap:wrap;justify-content:space-between;gap:24px;align-items:center}
+  footer a{color:#DDE9E6;text-decoration:none}
+  footer .logo-word{color:#fff;font-size:1.2rem}
 
-/* ============== SECTION 3 — Pivot ============== */
-.pivot{ background:#fff; }
-.pivot-inner{
-  max-width:760px; margin:0 auto; text-align:center;
-  padding:24px 0;
-  position:relative;
-}
-.pivot-inner::before, .pivot-inner::after{
-  content:""; display:block; width:60px; height:2px;
-  background:var(--teal-400); margin:0 auto 36px; border-radius:2px;
-}
-.pivot-inner::after{ margin:36px auto 0; }
-.pivot h2{
-  font-size:clamp(28px, 3.6vw, 42px);
-  line-height:1.18;
-  font-style:italic;
-  font-weight:600;
-}
-.pivot p{
-  font-size:19px; line-height:1.65; color:var(--ink-700);
-  margin:0;
-}
-
-/* ============== SECTION 4 — Three Layers ============== */
-.layers{ background:var(--cream); }
-.layers-grid{
-  display:grid; grid-template-columns:repeat(3, 1fr);
-  gap:24px; margin-top:8px;
-}
-.layer-card{
-  background:#fff; border:1px solid var(--border);
-  border-radius:var(--radius-lg);
-  padding:34px 30px;
-  transition:transform .25s ease, box-shadow .25s ease, border-color .25s ease;
-}
-.layer-card:hover{
-  transform:translateY(-4px);
-  box-shadow:var(--shadow-lg);
-  border-color:var(--teal-400);
-}
-.layer-ico{
-  width:64px; height:64px; border-radius:16px;
-  background:var(--teal-100); color:var(--teal-700);
-  display:flex; align-items:center; justify-content:center;
-  margin-bottom:22px;
-}
-.layer-ico svg{ width:32px; height:32px; }
-.layer-card h3{ font-size:23px; margin-bottom:12px; line-height:1.25; }
-.layer-card p{ font-size:15.5px; color:var(--ink-700); line-height:1.6; margin:0; }
-.layers-note{
-  max-width:760px; margin:48px auto 0; text-align:center;
-  font-size:17px; line-height:1.6; color:var(--teal-800);
-  font-family:var(--font-display); font-style:italic; font-weight:500;
-}
-@media (max-width:900px){
-  .layers-grid{ grid-template-columns:1fr; }
-}
-
-/* ============== SECTION 5 — Dashboard preview ============== */
-.dash{ background:#fff; }
-.dash-grid{
-  display:grid; grid-template-columns:1.15fr 1fr;
-  gap:56px; align-items:center;
-}
-.dash-card{
-  background:#fff;
-  border:1px solid var(--border);
-  border-radius:18px;
-  padding:18px;
-  box-shadow:var(--shadow-lg);
-}
-.dash-status{
-  display:flex; align-items:center; gap:10px;
-  background:#E8F6EE; color:#2F7A4F;
-  padding:12px 16px; border-radius:12px;
-  font-weight:800; font-size:14.5px;
-  margin-bottom:14px;
-}
-.dash-status .pulse{
-  width:10px; height:10px; border-radius:50%; background:#4FA972;
-  box-shadow:0 0 0 4px rgba(79,169,114,0.22);
-  animation:pulse 2.2s ease-in-out infinite;
-}
-@keyframes pulse{
-  0%,100%{ box-shadow:0 0 0 4px rgba(79,169,114,0.22); }
-  50%{ box-shadow:0 0 0 8px rgba(79,169,114,0.05); }
-}
-.stat-grid{
-  display:grid; grid-template-columns:1fr 1fr; gap:10px;
-  margin-bottom:14px;
-}
-.stat{
-  background:var(--teal-100);
-  border:1px solid var(--border-soft);
-  border-radius:12px; padding:14px 16px;
-}
-.stat .v{
-  font-family:var(--font-display); font-weight:700; font-size:26px;
-  color:var(--teal-900); line-height:1.05;
-}
-.stat .v.good{ color:#2F7A4F; }
-.stat .l{
-  font-size:12px; color:var(--ink-500); margin-top:6px;
-  font-weight:700; letter-spacing:.04em; text-transform:uppercase;
-}
-.stat .k{
-  font-size:11px; font-weight:800; letter-spacing:.12em; text-transform:uppercase;
-  color:var(--ink-300); margin-bottom:8px;
-}
-.chart{
-  background:#fff; border:1px solid var(--border-soft); border-radius:12px;
-  padding:14px 16px 10px;
-}
-.chart-head{
-  display:flex; align-items:center; justify-content:space-between;
-  margin-bottom:10px;
-}
-.chart-head .t{ font-weight:800; font-size:13px; color:var(--ink-700); letter-spacing:.04em; text-transform:uppercase; }
-.chart-head .leg{ font-size:12px; color:var(--ink-500); }
-.bars{
-  display:grid; grid-template-columns:repeat(24, 1fr);
-  gap:3px; align-items:end;
-  height:64px;
-}
-.bars span{
-  display:block; width:100%; border-radius:3px 3px 0 0;
-  background:var(--teal-400);
-}
-.x-axis{
-  display:flex; justify-content:space-between;
-  font-size:11px; color:var(--ink-300); margin-top:8px; font-weight:700;
-}
-
-.dash-features{ display:flex; flex-direction:column; gap:22px; }
-.df{ display:flex; gap:16px; align-items:flex-start; }
-.df-ico{
-  flex:0 0 44px; width:44px; height:44px; border-radius:12px;
-  background:var(--teal-100); color:var(--teal-700);
-  display:flex; align-items:center; justify-content:center;
-}
-.df-ico svg{ width:22px; height:22px; }
-.df-txt h4{ margin:0 0 4px; font-family:var(--font-sans); font-size:16px; font-weight:800; color:var(--ink-900); }
-.df-txt p{ margin:0; font-size:15px; color:var(--ink-700); line-height:1.55; }
-@media (max-width:900px){
-  .dash-grid{ grid-template-columns:1fr; gap:36px; }
-}
-
-/* ============== SECTION — Local Team ============== */
-.local{ background:#fff; }
-.local-inner{ max-width:780px; margin:0 auto; text-align:center; }
-.local-inner .eyebrow{ display:inline-block; }
-.local-inner p{ font-size:18px; line-height:1.65; color:var(--ink-700); margin:0 0 1.2em; }
-.local-inner p:last-child{ margin-bottom:0; }
-.local-emphasis{
-  font-family:var(--font-display); font-style:italic; font-weight:600;
-  color:var(--teal-800); font-size:22px;
-}
-
-/* ============== SECTION 6 — How it works ============== */
-.how{ background:var(--cream); }
-.steps{
-  display:grid; grid-template-columns:repeat(3,1fr); gap:24px;
-  margin-top:8px; counter-reset:step;
-}
-.step{
-  background:#fff; border:1px solid var(--border);
-  border-radius:var(--radius-lg); padding:32px 28px;
-  position:relative;
-}
-.step-num{
-  font-family:var(--font-display); font-weight:700;
-  color:var(--teal-400); font-size:64px; line-height:1;
-  margin-bottom:8px;
-}
-.step-ico{
-  position:absolute; top:30px; right:30px;
-  width:44px; height:44px; border-radius:12px;
-  background:var(--teal-100); color:var(--teal-700);
-  display:flex; align-items:center; justify-content:center;
-}
-.step-ico svg{ width:22px; height:22px; }
-.step h3{ font-size:21px; margin-bottom:10px; }
-.step p{ margin:0; font-size:15.5px; color:var(--ink-700); line-height:1.6; }
-@media (max-width:900px){
-  .steps{ grid-template-columns:1fr; }
-}
-
-/* ============== SECTION 8 — Equipment ============== */
-.eq{ background:#fff; }
-.eq-group{ margin-top:36px; }
-.eq-group + .eq-group{ margin-top:36px; }
-.eq-group-h{
-  font-size:13px; font-weight:800; color:var(--teal-700);
-  letter-spacing:.16em; text-transform:uppercase;
-  margin-bottom:14px;
-}
-.eq-grid{
-  display:grid; grid-template-columns:repeat(3,1fr); gap:14px;
-}
-.eq-card{
-  background:#fff; border:1px solid var(--border);
-  border-radius:var(--radius); padding:20px;
-  display:flex; gap:14px; align-items:flex-start;
-  transition:border-color .2s, box-shadow .2s, transform .2s;
-}
-.eq-card:hover{ border-color:var(--teal-400); box-shadow:var(--shadow-md); transform:translateY(-2px); }
-.eq-ico{
-  flex:0 0 40px; width:40px; height:40px; border-radius:10px;
-  background:var(--teal-100); color:var(--teal-700);
-  display:flex; align-items:center; justify-content:center;
-}
-.eq-ico svg{ width:22px; height:22px; }
-.eq-card h4{ margin:0 0 4px; font-family:var(--font-sans); font-size:15.5px; font-weight:800; color:var(--ink-900); }
-.eq-card p{ margin:0; font-size:14px; color:var(--ink-700); line-height:1.5; }
-.eq-callout{
-  margin-top:40px; padding:28px 32px;
-  background:linear-gradient(135deg, var(--teal-700), var(--teal-500));
-  color:#fff; border-radius:var(--radius-lg);
-  text-align:center; font-family:var(--font-display); font-style:italic; font-weight:500;
-  font-size:20px; line-height:1.5;
-}
-@media (max-width:900px){
-  .eq-grid{ grid-template-columns:1fr; }
-}
-
-/* ============== SECTION 8 — FAQ ============== */
-.faq{ background:var(--cream); }
-.faq-grid{
-  display:grid; grid-template-columns:1fr 1fr; gap:18px 28px;
-  margin-top:8px;
-}
-.faq-item{
-  background:#fff; border:1px solid var(--border);
-  border-radius:var(--radius); padding:24px 26px;
-  transition:border-color .2s, box-shadow .2s;
-}
-.faq-item:hover{ border-color:var(--teal-400); box-shadow:var(--shadow-md); }
-.faq-item h4{
-  margin:0 0 10px;
-  font-family:var(--font-display); font-weight:700;
-  font-size:18px; color:var(--teal-900); line-height:1.3;
-}
-.faq-item p{ margin:0; font-size:15px; color:var(--ink-700); line-height:1.6; }
-@media (max-width:820px){
-  .faq-grid{ grid-template-columns:1fr; }
-}
-
-/* ============== SECTION 9 — Form + Footer ============== */
-.consult{
-  background:var(--teal-900);
-  color:#fff;
-  position:relative; overflow:hidden;
-}
-.consult::before{
-  content:""; position:absolute; inset:0;
-  background:
-    radial-gradient(800px 400px at 90% -20%, rgba(91,191,181,0.18), transparent 60%),
-    radial-gradient(700px 400px at -10% 110%, rgba(240,124,107,0.12), transparent 60%);
-  pointer-events:none;
-}
-.consult > .wrap{ position:relative; z-index:1; }
-.consult .eyebrow{ color:var(--teal-300); }
-.consult h2{ color:#fff; }
-.consult .section-sub{ color:rgba(255,255,255,0.78); }
-
-.consult-grid{
-  display:grid; grid-template-columns:1fr 1.1fr; gap:56px;
-  align-items:start; margin-top:14px;
-}
-.consult-list{ list-style:none; padding:0; margin:0; display:flex; flex-direction:column; gap:16px; }
-.consult-list li{
-  display:flex; gap:14px; align-items:flex-start;
-  color:rgba(255,255,255,0.92); font-size:16px; line-height:1.5;
-}
-.consult-list svg{
-  flex:0 0 22px; width:22px; height:22px; color:var(--teal-300);
-  margin-top:2px;
-}
-.form-card{
-  background:rgba(255,255,255,0.06);
-  border:1px solid rgba(255,255,255,0.12);
-  border-radius:var(--radius-lg);
-  padding:30px;
-  backdrop-filter:blur(8px);
-}
-.form-row{ display:flex; flex-direction:column; gap:6px; margin-bottom:16px; }
-.form-row.two{
-  display:grid; grid-template-columns:1fr 1fr; gap:16px;
-}
-.form-row.two > .form-row{ margin-bottom:0; }
-label{
-  font-size:12px; font-weight:800; letter-spacing:.10em; text-transform:uppercase;
-  color:rgba(255,255,255,0.72);
-}
-input, select, textarea{
-  font-family:var(--font-sans); font-size:15px;
-  padding:14px 16px; border-radius:10px;
-  border:1px solid rgba(255,255,255,0.18);
-  background:rgba(255,255,255,0.96); color:var(--ink-900);
-  width:100%;
-}
-input:focus, select:focus, textarea:focus{
-  outline:none; border-color:var(--coral);
-  box-shadow:0 0 0 4px rgba(240,124,107,0.25);
-}
-textarea{ resize:vertical; min-height:96px; }
-.form-card .btn-primary{ width:100%; justify-content:center; margin-top:6px; padding:18px 26px; font-size:16px; }
-.form-note{ font-size:13.5px; color:rgba(255,255,255,0.6); margin-top:14px; line-height:1.5; }
-@media (max-width:900px){
-  .consult-grid{ grid-template-columns:1fr; gap:36px; }
-  .form-row.two{ grid-template-columns:1fr; }
-}
-
-/* Footer */
-.foot{
-  background:#0B3935;
-  color:rgba(255,255,255,0.78);
-  padding:64px 0 28px;
-}
-.foot-grid{
-  display:grid; grid-template-columns:1.4fr 1fr 1.2fr 1.2fr;
-  gap:48px;
-}
-.foot .brand-name{ color:#fff; }
-.foot .brand-name .care{ color:var(--coral); }
-.foot .blurb{ margin-top:16px; font-size:15px; line-height:1.6; max-width:280px; color:rgba(255,255,255,0.7); }
-.foot h5{
-  color:#fff; font-family:var(--font-sans); font-weight:800;
-  font-size:13px; letter-spacing:.14em; text-transform:uppercase;
-  margin:0 0 16px;
-}
-.foot ul{ list-style:none; padding:0; margin:0; display:flex; flex-direction:column; gap:10px; }
-.foot a{ color:rgba(255,255,255,0.78); text-decoration:none; font-size:15px; }
-.foot a:hover{ color:#fff; }
-.foot-bot{
-  margin-top:48px; padding-top:24px;
-  border-top:1px solid rgba(255,255,255,0.10);
-  font-size:13px; color:rgba(255,255,255,0.55); line-height:1.6;
-  max-width:880px;
-}
-@media (max-width:900px){
-  .foot-grid{ grid-template-columns:1fr 1fr; gap:36px; }
-}
-@media (max-width:560px){
-  .foot-grid{ grid-template-columns:1fr; }
-}
-
-/* Reveal animation */
-.reveal{ opacity:0; transform:translateY(20px); transition:opacity .8s ease, transform .8s ease; }
-.reveal.in{ opacity:1; transform:none; }
-.reveal-stagger > *{ opacity:0; transform:translateY(16px); transition:opacity .7s ease, transform .7s ease; }
-.reveal-stagger.in > *{ opacity:1; transform:none; }
-.reveal-stagger.in > *:nth-child(2){ transition-delay:.10s; }
-.reveal-stagger.in > *:nth-child(3){ transition-delay:.20s; }
-.reveal-stagger.in > *:nth-child(4){ transition-delay:.30s; }
-@media (prefers-reduced-motion:reduce){
-  .reveal, .reveal-stagger > *{ opacity:1; transform:none; transition:none; }
-  html{ scroll-behavior:auto; }
-}
+  /* ---------- Sticky mobile call bar ---------- */
+  .callbar{position:fixed;left:0;right:0;bottom:0;z-index:60;display:none;background:var(--coral);box-shadow:0 -4px 18px rgba(0,0,0,.18)}
+  .callbar a{display:flex;align-items:center;justify-content:center;gap:10px;color:#fff;font-weight:800;font-size:1.12rem;text-decoration:none;padding:16px}
+  @media(max-width:720px){ .callbar{display:block} footer{padding-bottom:120px} }
 </style>
 </head>
 <body>
 
-<!-- ============== NAV ============== -->
-<header class="nav" data-screen-label="Nav">
-  <div class="wrap nav-inner">
-    <a class="brand" href="#top" aria-label="Proxia Care — home">
-      <!-- Inline brand mark: heart + wifi waves + coral beacon dot -->
-      <svg class="brand-mark" viewBox="0 0 64 64" aria-hidden="true">
-        <path d="M32 56 C 10 42, 6 26, 14 18 C 20 12, 28 14, 32 20 C 36 14, 44 12, 50 18 C 58 26, 54 42, 32 56 Z"
-              fill="none" stroke="#1E7A72" stroke-width="3.6" stroke-linejoin="round" stroke-linecap="round"/>
-        <path d="M22 32 Q 32 24 42 32" fill="none" stroke="#5BBFB5" stroke-width="2.8" stroke-linecap="round"/>
-        <path d="M25.5 36.5 Q 32 32 38.5 36.5" fill="none" stroke="#5BBFB5" stroke-width="2.8" stroke-linecap="round"/>
-        <circle cx="32" cy="44" r="4.6" fill="#F07C6B"/>
-      </svg>
-      <span class="brand-name">PROX<span class="beacon" aria-hidden="true">I</span>A<span class="care">CARE</span></span>
+<!-- ============ HEADER ============ -->
+<header>
+  <div class="wrap nav">
+    <a class="logo" href="#top" aria-label="Proxia Care home">
+      <!-- LOGO MARK (exact vectors extracted from Proxia_Care_Logo1.eps) -->
+      <svg viewBox="-4.5 -3.0 409.6 355.4" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Proxia Care logo">
+<path d="M 395.69 138.70 L 207.17 2.31 C 207.15 2.29 207.13 2.28 207.11 2.26 L 207.00 2.18 C 206.93 2.13 206.86 2.09 206.79 2.04 C 206.56 1.88 206.32 1.73 206.09 1.59 C 205.96 1.51 205.83 1.45 205.70 1.38 C 205.50 1.27 205.30 1.16 205.10 1.07 C 204.93 0.99 204.75 0.92 204.58 0.85 C 204.41 0.78 204.25 0.71 204.08 0.65 C 203.87 0.58 203.67 0.52 203.46 0.46 C 203.31 0.42 203.17 0.37 203.02 0.34 C 202.80 0.28 202.59 0.24 202.37 0.20 C 202.22 0.17 202.07 0.14 201.92 0.12 C 201.72 0.09 201.51 0.07 201.30 0.05 C 201.13 0.03 200.96 0.02 200.79 0.01 C 200.61 -0.00 200.43 0.00 200.24 0.00 C 200.05 -0.00 199.85 -0.00 199.66 0.01 C 199.50 0.02 199.34 0.03 199.18 0.05 C 198.97 0.07 198.75 0.09 198.53 0.12 C 198.39 0.14 198.25 0.17 198.11 0.20 C 197.89 0.24 197.66 0.28 197.44 0.34 C 197.30 0.37 197.16 0.41 197.02 0.45 C 196.81 0.52 196.59 0.58 196.38 0.66 C 196.22 0.71 196.06 0.78 195.91 0.84 C 195.72 0.92 195.54 0.99 195.36 1.07 C 195.16 1.16 194.97 1.27 194.77 1.37 C 194.64 1.44 194.51 1.51 194.38 1.59 C 194.14 1.73 193.91 1.88 193.69 2.04 C 193.61 2.09 193.53 2.13 193.46 2.18 L 193.35 2.27 C 193.33 2.28 193.31 2.29 193.29 2.30 L 4.78 138.70 C -0.39 142.44 -1.55 149.66 2.19 154.83 C 4.45 157.95 7.98 159.60 11.56 159.60 C 13.90 159.60 16.27 158.89 18.32 157.41 L 35.11 145.26 L 35.11 337.81 C 35.11 344.19 40.28 349.36 46.66 349.36 L 146.33 349.36 C 152.70 349.36 157.87 344.19 157.87 337.81 C 157.87 331.44 152.70 326.26 146.33 326.26 L 58.21 326.26 L 58.21 128.55 L 200.23 25.79 L 342.25 128.55 L 342.25 326.26 L 254.14 326.26 C 247.76 326.26 242.59 331.44 242.59 337.81 C 242.59 344.19 247.76 349.36 254.14 349.36 L 353.80 349.36 C 360.18 349.36 365.35 344.19 365.35 337.81 L 365.35 145.26 L 382.14 157.41 C 384.19 158.89 386.56 159.60 388.90 159.60 C 392.48 159.60 396.01 157.95 398.27 154.83 C 402.01 149.66 400.85 142.44 395.69 138.70 Z" fill="#005444"/>
+<path d="M 277.32 206.78 C 257.31 183.90 230.14 171.25 200.77 171.13 C 200.74 171.13 200.70 171.13 200.67 171.13 C 200.62 171.13 200.57 171.13 200.52 171.13 C 200.47 171.13 200.42 171.13 200.38 171.13 C 200.34 171.13 200.31 171.13 200.27 171.13 C 170.91 171.25 143.73 183.90 123.72 206.78 C 120.41 210.57 120.79 216.31 124.58 219.62 C 126.30 221.13 128.44 221.87 130.56 221.87 C 133.09 221.87 135.62 220.82 137.41 218.76 C 147.01 207.79 167.97 189.38 200.52 189.33 C 233.07 189.38 254.03 207.79 263.63 218.76 C 265.43 220.82 267.95 221.87 270.48 221.87 C 272.61 221.87 274.74 221.13 276.46 219.62 C 280.25 216.31 280.63 210.57 277.32 206.78 Z" fill="#005444"/>
+<path d="M 204.12 199.50 C 203.58 199.40 203.04 199.34 202.48 199.34 C 201.81 199.34 201.17 199.35 200.52 199.37 C 199.87 199.35 199.23 199.34 198.56 199.34 C 198.00 199.34 197.46 199.40 196.93 199.50 C 170.74 200.98 157.13 213.02 143.46 227.38 C 139.99 231.02 140.13 236.78 143.77 240.25 C 145.53 241.93 147.79 242.76 150.05 242.76 C 152.45 242.76 154.85 241.81 156.64 239.93 C 169.14 226.80 179.08 218.06 200.52 217.56 C 221.96 218.06 231.90 226.80 244.41 239.93 C 246.19 241.81 248.59 242.76 251.00 242.76 C 253.25 242.76 255.51 241.93 257.27 240.25 C 260.91 236.78 261.05 231.02 257.58 227.38 C 243.91 213.02 230.31 200.98 204.12 199.50 Z" fill="#005444"/>
+<path d="M 200.68 228.76 C 200.62 228.76 200.57 228.77 200.52 228.77 C 200.47 228.77 200.42 228.76 200.37 228.76 C 182.97 228.76 173.16 236.05 163.79 247.00 C 160.52 250.81 160.97 256.56 164.78 259.83 C 166.50 261.30 168.60 262.01 170.70 262.01 C 173.26 262.01 175.81 260.93 177.61 258.83 C 184.50 250.79 189.66 246.96 200.37 246.96 C 200.42 246.96 200.47 246.95 200.52 246.95 C 200.57 246.95 200.62 246.96 200.68 246.96 C 211.38 246.96 216.54 250.79 223.43 258.83 C 225.23 260.93 227.78 262.01 230.34 262.01 C 232.44 262.01 234.54 261.29 236.26 259.83 C 240.07 256.56 240.52 250.81 237.25 247.00 C 227.88 236.05 218.07 228.76 200.68 228.76 Z" fill="#005444"/>
+<path d="M 200.67 258.79 C 192.00 258.79 184.97 265.82 184.97 274.49 C 184.97 283.16 192.00 290.19 200.67 290.19 C 209.34 290.19 216.37 283.16 216.37 274.49 C 216.37 265.82 209.34 258.79 200.67 258.79 Z" fill="#005444"/>
+<path d="M 292.57 220.99 C 275.44 245.05 221.83 297.92 200.45 318.69 C 179.07 297.92 125.47 245.05 108.34 220.99 C 96.82 204.82 95.49 191.67 95.49 183.18 C 95.49 151.98 117.18 126.59 143.84 126.59 C 161.14 126.59 174.37 137.51 190.10 155.13 C 192.82 158.18 196.68 159.58 200.45 159.29 C 204.23 159.58 208.09 158.18 210.81 155.13 C 226.54 137.51 239.77 126.59 257.07 126.59 C 283.73 126.59 305.42 151.98 305.42 183.18 C 305.42 191.67 304.09 204.82 292.57 220.99 Z M 257.07 101.40 C 233.40 101.40 215.68 113.94 200.45 129.33 C 185.23 113.94 167.51 101.40 143.84 101.40 C 103.28 101.40 70.29 138.09 70.29 183.18 C 70.29 201.90 76.02 219.05 87.81 235.61 C 108.81 265.10 176.40 330.56 189.76 343.42 C 190.16 344.01 190.61 344.59 191.12 345.13 C 193.60 347.72 196.91 349.02 200.23 349.02 C 200.31 349.02 200.38 349.02 200.45 349.01 C 200.53 349.02 200.60 349.02 200.67 349.02 C 203.99 349.02 207.31 347.72 209.78 345.13 C 210.30 344.59 210.74 344.01 211.15 343.42 C 224.51 330.56 292.10 265.10 313.10 235.61 C 324.89 219.05 330.62 201.90 330.62 183.18 C 330.62 138.09 297.62 101.40 257.07 101.40 Z" fill="#DA1C28"/>
+</svg>
+      <span class="logo-word">Proxia&nbsp;Care</span>
     </a>
-    <nav class="nav-links" aria-label="Primary">
-      <a href="#how">How it works</a>
-      <a href="#equipment">What's installed</a>
-      <a href="#faq">FAQ</a>
-      <a href="#consult" class="btn btn-primary nav-cta">Book Assessment</a>
-    </nav>
+    <div class="nav-cta">
+      <a class="nav-phone" href="tel:+16028225913">Call <span>(602) 822-5913</span></a>
+      <a class="btn btn-coral" href="#book">Book a free assessment</a>
+    </div>
   </div>
 </header>
 
-<a id="top"></a>
+<main id="top">
 
-<!-- ============== 1. HERO ============== -->
-<section class="hero" data-screen-label="01 Hero">
-  <div class="wrap hero-inner reveal">
-    <h1>Your parent's home,<br>made safe.</h1>
-    <p class="lede">Complete in-home protection for Phoenix seniors — installed and serviced by a local team that actually shows up. Fall detection, emergency response, Arizona heat monitoring, water leak protection, and gentle activity insights — all in one service. One local Phoenix team. One number to call. No call centers.</p>
-    <div class="hero-cta">
-      <a href="#consult" class="btn btn-primary">Schedule Free Home Assessment</a>
-      <a href="#how" class="btn btn-ghost">See how it works ↓</a>
+<!-- ============ HERO ============ -->
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <span class="eyebrow">Senior home safety &amp; wellness · East Valley, Phoenix</span>
+      <h1>More good <em>years</em> at home.</h1>
+      <p class="hero-sub">24/7 emergency response, daily wellness awareness, and Arizona heat protection for seniors who love the home they're in — with a weekly report that tells your family you're doing fine.</p>
+      <p class="hero-nocam">No cameras. Ever.</p>
+      <div class="hero-ctas">
+        <a class="btn btn-coral" href="#book">Book your free in-home assessment</a>
+        <a class="btn btn-ghost" href="tel:+16028225913">Call (602) 822-5913</a>
+      </div>
+      <p class="hero-trust"><b>Local, founder-led team</b> · Professionally monitored 24/7 · Free assessment, no obligation</p>
     </div>
-  </div>
-  <div class="wrap">
-    <div class="trust-strip reveal">
-      <div class="trust-item"><span class="trust-dot"></span>Local Phoenix Team</div>
-      <div class="trust-item"><span class="trust-dot"></span>Professionally Monitored</div>
-      <div class="trust-item"><span class="trust-dot"></span>No Cameras</div>
-      <div class="trust-item"><span class="trust-dot"></span>UL-Listed Monitoring</div>
-    </div>
-  </div>
-</section>
 
-<!-- ============== 2. PROBLEM ============== -->
-<section class="pendant-section" data-screen-label="02 Problem">
-  <div class="wrap">
-    <div class="pendant-grid">
-      <div class="reveal">
-        <div class="eyebrow">The Problem</div>
-        <h2 class="section-h">A pendant isn't a plan.</h2>
-        <p style="font-size:17px; color:var(--ink-700); max-width:540px;">Most medical alert services give your parent a button to press. That helps in one specific moment — when they're conscious, the device is on them, and they can reach it.</p>
-        <p style="font-size:17px; color:var(--ink-700); max-width:540px;">But the things that actually go wrong in a senior's home are bigger than that.</p>
-        <p style="font-size:17px; color:var(--ink-700); max-width:540px;">The AC fails on a 112° afternoon and nobody knows for six hours. A slow leak under the sink ruins the floor before anyone notices. Activity patterns shift over weeks — less movement, less cooking, more time in bed — and by the time something visible happens, something invisible has been changing for a while.</p>
-        <p class="fine" style="font-family:var(--font-display); font-style:italic; font-size:18px; color:var(--teal-800); margin-top:24px;">That's what we built.</p>
+    <!-- SIGNATURE: the weekly report card -->
+    <div class="report-card" aria-label="Sample weekly wellness report">
+      <div class="report-tag"><span class="report-dot" aria-hidden="true"></span><small>This week's report</small></div>
+      <h3>Margaret had a good week</h3>
+      <div class="report-line">
+        <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true"><circle cx="9" cy="9" r="8" stroke="#3A9E94" stroke-width="2"/><path d="M9 5v4l3 2" stroke="#3A9E94" stroke-width="2" stroke-linecap="round"/></svg>
+        Slept her usual hours, all seven nights
       </div>
-      <div class="pendant-illo reveal">
-        <svg viewBox="0 0 360 360" aria-hidden="true">
-          <!-- Soft halo -->
-          <circle cx="180" cy="180" r="150" fill="#fff" opacity="0.6"/>
-          <!-- Signal arcs -->
-          <g stroke="#5BBFB5" stroke-width="3" fill="none" stroke-linecap="round" opacity="0.65">
-            <path d="M70 180 Q 180 60 290 180"/>
-            <path d="M95 188 Q 180 100 265 188"/>
-            <path d="M120 196 Q 180 140 240 196"/>
-          </g>
-          <!-- Pendant body (rounded teal pill) -->
-          <g>
-            <ellipse cx="180" cy="220" rx="78" ry="98" fill="#1E7A72"/>
-            <ellipse cx="180" cy="208" rx="74" ry="92" fill="#247E76"/>
-            <!-- Lanyard loop -->
-            <rect x="172" y="118" width="16" height="20" rx="6" fill="#0F4A45"/>
-            <path d="M168 118 q 12 -24 24 0" fill="none" stroke="#0F4A45" stroke-width="6" stroke-linecap="round"/>
-            <!-- Coral SOS button -->
-            <circle cx="180" cy="226" r="38" fill="#F07C6B"/>
-            <circle cx="180" cy="226" r="38" fill="none" stroke="rgba(255,255,255,0.35)" stroke-width="2"/>
-            <text x="180" y="234" text-anchor="middle" fill="#fff" font-family="Nunito, sans-serif" font-weight="800" font-size="20" letter-spacing="2">SOS</text>
-            <!-- Speaker grille -->
-            <g fill="#0F4A45" opacity="0.7">
-              <circle cx="166" cy="290" r="2"/><circle cx="174" cy="290" r="2"/><circle cx="182" cy="290" r="2"/><circle cx="190" cy="290" r="2"/>
-            </g>
-            <!-- LED -->
-            <circle cx="180" cy="170" r="3.5" fill="#5BBFB5"/>
-          </g>
-        </svg>
+      <div class="report-line">
+        <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true"><path d="M3 15V8l6-5 6 5v7" stroke="#3A9E94" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        Kitchen busy every morning, right on schedule
       </div>
+      <div class="report-line">
+        <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true"><path d="M9 2v10M9 12a3 3 0 1 0 .01 0" stroke="#F07C6B" stroke-width="2" stroke-linecap="round"/></svg>
+        House held a steady 76° through Tuesday's 111° afternoon
+      </div>
+      <p class="report-sig">Everything looks like Margaret. — Your Proxia team</p>
     </div>
   </div>
 </section>
 
-<!-- ============== 3. PIVOT ============== -->
-<section class="pivot tight" data-screen-label="03 Pivot">
+<!-- ============ VALUE BLOCKS ============ -->
+<section>
   <div class="wrap">
-    <div class="pivot-inner reveal">
-      <h2 class="section-h">A pendant catches the fall. A real safety system catches everything else.</h2>
-      <p>Heat. Water. Smoke. Activity patterns shifting over weeks. The things that don't announce themselves with a single moment — but matter just as much.</p>
+    <div class="sec-head">
+      <span class="eyebrow">What your family gets</span>
+      <h2>A pendant catches the fall. We watch over the whole picture.</h2>
+      <p>Three layers of protection, working quietly in the background — so she stays independent and you stop guessing.</p>
     </div>
-  </div>
-</section>
-
-<!-- ============== 4. THREE LAYERS ============== -->
-<section class="layers" data-screen-label="04 Three Layers">
-  <div class="wrap">
-    <div class="reveal center">
-      <div class="eyebrow">Complete Protection</div>
-      <h2 class="section-h">Three layers of protection. One service.</h2>
-      <p class="section-sub center">Built around the home, the person, and the family — so the things that matter aren't sitting in three different apps from three different vendors.</p>
-    </div>
-    <div class="layers-grid reveal-stagger">
-      <div class="layer-card">
-        <div class="layer-ico">
-          <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M3 17 L16 5 L29 17"/>
-            <path d="M6 15 V27 H26 V15"/>
-            <circle cx="24" cy="9" r="3"/>
-            <path d="M24 4v2 M24 12v2 M19 9h2 M27 9h2"/>
-          </svg>
-        </div>
-        <h3>Layer 1 — The Home</h3>
-        <p>Arizona heat monitoring. AC failure detection. Water leak sensors. Smoke and carbon monoxide integration. The things that make a Phoenix home actually safe for an aging adult — built specifically for our summers, our homes, and our families.</p>
+    <div class="cards3">
+      <div class="vcard">
+        <div class="vicon"><svg width="28" height="28" viewBox="0 0 28 28" fill="none" aria-hidden="true"><circle cx="14" cy="14" r="9" stroke="#1E7A72" stroke-width="2.5"/><circle cx="14" cy="14" r="3.5" fill="#F07C6B"/></svg></div>
+        <h3>Help, instantly</h3>
+        <p>A comfortable pendant with automatic fall detection and two-way voice, monitored around the clock by a professional emergency response center. Press it — or fall — and a real person responds, day or night.</p>
       </div>
-      <div class="layer-card">
-        <div class="layer-ico">
-          <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M16 3 L26 7 V15 c0 7-5 12-10 14C11 27 6 22 6 15 V7 L16 3z"/>
-            <path d="M11 16 L15 20 L22 12"/>
-          </svg>
-        </div>
-        <h3>Layer 2 — The Person</h3>
-        <p>Two-way voice emergency pendant with GPS and automatic fall detection. Waterproof. Works in the shower, where most serious falls happen — and everywhere your loved one goes. At the store. On a walk. Visiting friends. Connected 24/7 to a professional monitoring center that answers in seconds.</p>
+      <div class="vcard coral-top">
+        <div class="vicon"><svg width="28" height="28" viewBox="0 0 28 28" fill="none" aria-hidden="true"><path d="M4 20c3-1 4-8 6-8s3 10 5 10 3-14 5-14 3 8 4 8" stroke="#1E7A72" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <h3>Know, don't guess</h3>
+        <p>Quiet home sensors notice the rhythms of daily life — sleeping, eating, moving around. Every week, the family gets a plain-language note on how she's really doing. Good news, most weeks. A gentle heads-up when something changes.</p>
       </div>
-      <div class="layer-card">
-        <div class="layer-ico">
-          <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M5 25 V7 M5 25 H27"/>
-            <path d="M9 21 L14 16 L18 19 L25 10"/>
-            <path d="M21 10 H25 V14"/>
-          </svg>
-        </div>
-        <h3>Layer 3 — The Family</h3>
-        <p>Gentle activity sensors learn your loved one's daily routine. If patterns change — less movement, fewer trips to the kitchen, disrupted sleep — your family sees it in the weekly wellness summary. Not surveillance. Just the information you'd want, when you'd want it.</p>
-      </div>
-    </div>
-    <p class="layers-note reveal">Every family member gets their own login. Real-time status, instant alerts, weekly summaries. Daughter in Phoenix, son in Chicago — everyone stays in the loop.</p>
-  </div>
-</section>
-
-<!-- ============== 5. DASHBOARD ============== -->
-<section class="dash" data-screen-label="05 Dashboard">
-  <div class="wrap">
-    <div class="reveal">
-      <div class="eyebrow">Your Family Dashboard</div>
-      <h2 class="section-h">See everything. From anywhere.</h2>
-    </div>
-    <div class="dash-grid">
-      <div class="dash-card reveal" role="img" aria-label="Proxia Care family dashboard preview">
-        <div class="dash-status"><span class="pulse"></span> All Quiet — No Active Alerts</div>
-        <div class="stat-grid">
-          <div class="stat">
-            <div class="k">Indoor Temp</div>
-            <div class="v good">72°F</div>
-            <div class="l">Comfortable</div>
-          </div>
-          <div class="stat">
-            <div class="k">AC Status</div>
-            <div class="v good">On</div>
-            <div class="l">Drawing 1,100W</div>
-          </div>
-          <div class="stat">
-            <div class="k">Last Seen</div>
-            <div class="v">Kitchen</div>
-            <div class="l">12 min ago</div>
-          </div>
-          <div class="stat">
-            <div class="k">Sleep Last Night</div>
-            <div class="v">7.4h</div>
-            <div class="l">Quality 81 / 100</div>
-          </div>
-        </div>
-        <div class="chart">
-          <div class="chart-head"><span class="t">Activity — Last 24 Hours</span><span class="leg">room movement</span></div>
-          <div class="bars" id="bars" aria-hidden="true"></div>
-          <div class="x-axis"><span>12a</span><span>6a</span><span>12p</span><span>6p</span><span>12a</span></div>
-        </div>
-      </div>
-      <div class="dash-features reveal-stagger">
-        <div class="df">
-          <div class="df-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 18 V6 M3 18 H21"/><path d="M7 14 L11 10 L14 13 L20 7"/></svg></div>
-          <div class="df-txt"><h4>Real-Time Status</h4><p>Temperature, AC, activity, sleep — all at a glance, updated continuously.</p></div>
-        </div>
-        <div class="df">
-          <div class="df-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 8 3 8H3s3-1 3-8z"/><path d="M10 21a2 2 0 0 0 4 0"/></svg></div>
-          <div class="df-txt"><h4>Instant Alerts</h4><p>Falls, heat events, nighttime door activity — sent to every family member.</p></div>
-        </div>
-        <div class="df">
-          <div class="df-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="5" width="16" height="16" rx="2"/><path d="M4 9h16 M9 13h6 M9 17h4"/><path d="M8 3v4 M16 3v4"/></svg></div>
-          <div class="df-txt"><h4>Weekly Wellness Reports</h4><p>Every Sunday: activity trends, sleep patterns, routine consistency.</p></div>
-        </div>
-        <div class="df">
-          <div class="df-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="9" r="3.2"/><circle cx="17" cy="10" r="2.6"/><path d="M3 19c0-3 3-5 6-5s6 2 6 5"/><path d="M14 19c0-2 2-4 4.5-4S22 17 22 19"/></svg></div>
-          <div class="df-txt"><h4>Unlimited Family Access</h4><p>Every family member gets their own login. Daughter in Phoenix, son in Chicago — everyone stays informed.</p></div>
-        </div>
+      <div class="vcard">
+        <div class="vicon"><svg width="28" height="28" viewBox="0 0 28 28" fill="none" aria-hidden="true"><circle cx="14" cy="14" r="5" stroke="#F07C6B" stroke-width="2.5"/><path d="M14 2v4M14 22v4M2 14h4M22 14h4M5.5 5.5l2.8 2.8M19.7 19.7l2.8 2.8M22.5 5.5l-2.8 2.8M8.3 19.7l-2.8 2.8" stroke="#F07C6B" stroke-width="2.5" stroke-linecap="round"/></svg></div>
+        <h3>Built for Arizona</h3>
+        <p>Here, a failed air conditioner is a life-safety issue. We watch the temperature in the home 24/7 — plus water leaks and unusual door activity — and alert the family the moment something's wrong.</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ============== LOCAL TEAM ============== -->
-<section class="local" data-screen-label="Local Team">
+<!-- ============ ANCHOR MATH ============ -->
+<section class="anchor">
   <div class="wrap">
-    <div class="local-inner reveal">
-      <div class="eyebrow">Local Phoenix Team</div>
-      <h2 class="section-h">Local matters in this work.</h2>
-      <p>When you call us, you reach the people who installed your system. When something needs fixing, we drive there — same week, often same day. When the battery in your loved one's pendant needs replacing, we come by and replace it. When the new app feature needs explaining, we sit down at their kitchen table and walk them through it.</p>
-      <p>The national medical alert companies can't do this. They have call centers in other states and UPS shipping labels.</p>
-      <p class="local-emphasis">We have a Phoenix team that knows your loved one by name.</p>
+    <span class="eyebrow">The honest math</span>
+    <h2>Most families don't move Mom because she needs full-time care. They move her because nobody could be sure she was okay.</h2>
+    <div class="anchor-grid">
+      <div class="anchor-box">
+        <div class="anchor-num">$5,000+</div>
+        <div class="anchor-lbl">Typical monthly cost of assisted living in the Valley</div>
+      </div>
+      <div class="anchor-vs">vs.</div>
+      <div class="anchor-box hl">
+        <div class="anchor-num">A tiny fraction</div>
+        <div class="anchor-lbl">Knowing she's safe and doing fine — at home. Exact pricing at your free assessment.</div>
+      </div>
     </div>
+    <p class="anchor-note">Proxia gives your family that certainty for a tiny fraction of the cost. If it buys even a few extra months of confidence keeping her home — and it usually buys years — it may be the most affordable long-term care decision your family ever makes. We'll walk you through exact pricing for her home, in person, at the free assessment.</p>
   </div>
 </section>
 
-<!-- ============== 6. HOW IT WORKS ============== -->
-<section class="how" id="how" data-screen-label="06 How It Works">
+<!-- ============ HOW IT WORKS ============ -->
+<section>
   <div class="wrap">
-    <div class="reveal">
-      <div class="eyebrow">How It Works</div>
-      <h2 class="section-h">Three steps to a safer home.</h2>
+    <div class="sec-head">
+      <span class="eyebrow">How it works</span>
+      <h2>From first call to first report, in about a week.</h2>
     </div>
-    <div class="steps reveal-stagger">
+    <div class="steps">
       <div class="step">
-        <div class="step-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11 L12 4 L21 11"/><path d="M5 10 V20 H19 V10"/><path d="M10 20v-5h4v5"/></svg></div>
-        <div class="step-num">01</div>
-        <h3>Free Home Assessment</h3>
-        <p>A Proxia specialist visits the home, walks through every room with you, identifies the specific risks, and recommends the right level of protection. About 30 minutes. No cost.</p>
+        <h3>The free assessment</h3>
+        <p>The founder visits in person, walks the home with you and your parent, and gives you an honest read on what she actually needs — about 45 minutes, no obligation. Her pendant can be active before we leave.</p>
       </div>
       <div class="step">
-        <div class="step-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a4 4 0 0 0-5.4 5.4l-6 6 2.6 2.6 6-6a4 4 0 0 0 5.4-5.4l-2.6 2.6-2-2 2.6-2.6z"/></svg></div>
-        <div class="step-num">02</div>
-        <h3>Professional Installation</h3>
-        <p>We install everything in under two hours. No drilling. No wall damage. No disruption. Discreet sensors placed exactly where they're needed, configured for your loved one's specific routine. We test every alert with your family on the line before we leave.</p>
+        <h3>The gentle install</h3>
+        <p>Our local technician places small, discreet sensors — no cameras, no wiring through the house, nothing to charge or remember. Most homes take under two hours.</p>
       </div>
       <div class="step">
-        <div class="step-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="2" width="12" height="20" rx="2.5"/><path d="M10 18h4"/></svg></div>
-        <div class="step-num">03</div>
-        <h3>Your Family Dashboard Goes Live</h3>
-        <p>Every family member gets their own login. Real-time status, instant alerts, weekly wellness reports. The full picture of how your loved one is doing — every single day.</p>
+        <h3>The weekly report</h3>
+        <p>Every week, the family gets a short, human note: how she's sleeping, eating, moving — and how the house is holding up in the heat. Eight seconds to read. Peace of mind all week.</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ============== 8. EQUIPMENT ============== -->
-<section class="eq" id="equipment" data-screen-label="08 Equipment">
-  <div class="wrap">
-    <div class="reveal">
-      <div class="eyebrow">The Complete System</div>
-      <h2 class="section-h">What's installed in your loved one's home.</h2>
-      <p class="section-sub">Discreet sensors you'd barely notice, doing work you can't live without.</p>
+<!-- ============ FOUNDER ============ -->
+<section class="founder">
+  <div class="wrap founder-grid">
+    <div class="founder-mark" aria-hidden="true">
+      <svg viewBox="-4.5 -3.0 957.9 361.4" xmlns="http://www.w3.org/2000/svg">
+<path d="M 395.69 138.70 L 207.17 2.31 C 207.15 2.29 207.13 2.28 207.11 2.26 L 207.00 2.18 C 206.93 2.13 206.86 2.09 206.79 2.04 C 206.56 1.88 206.32 1.73 206.09 1.59 C 205.96 1.51 205.83 1.45 205.70 1.38 C 205.50 1.27 205.30 1.16 205.10 1.07 C 204.93 0.99 204.75 0.92 204.58 0.85 C 204.41 0.78 204.25 0.71 204.08 0.65 C 203.87 0.58 203.67 0.52 203.46 0.46 C 203.31 0.42 203.17 0.37 203.02 0.34 C 202.80 0.28 202.59 0.24 202.37 0.20 C 202.22 0.17 202.07 0.14 201.92 0.12 C 201.72 0.09 201.51 0.07 201.30 0.05 C 201.13 0.03 200.96 0.02 200.79 0.01 C 200.61 -0.00 200.43 0.00 200.24 0.00 C 200.05 -0.00 199.85 -0.00 199.66 0.01 C 199.50 0.02 199.34 0.03 199.18 0.05 C 198.97 0.07 198.75 0.09 198.53 0.12 C 198.39 0.14 198.25 0.17 198.11 0.20 C 197.89 0.24 197.66 0.28 197.44 0.34 C 197.30 0.37 197.16 0.41 197.02 0.45 C 196.81 0.52 196.59 0.58 196.38 0.66 C 196.22 0.71 196.06 0.78 195.91 0.84 C 195.72 0.92 195.54 0.99 195.36 1.07 C 195.16 1.16 194.97 1.27 194.77 1.37 C 194.64 1.44 194.51 1.51 194.38 1.59 C 194.14 1.73 193.91 1.88 193.69 2.04 C 193.61 2.09 193.53 2.13 193.46 2.18 L 193.35 2.27 C 193.33 2.28 193.31 2.29 193.29 2.30 L 4.78 138.70 C -0.39 142.44 -1.55 149.66 2.19 154.83 C 4.45 157.95 7.98 159.60 11.56 159.60 C 13.90 159.60 16.27 158.89 18.32 157.41 L 35.11 145.26 L 35.11 337.81 C 35.11 344.19 40.28 349.36 46.66 349.36 L 146.33 349.36 C 152.70 349.36 157.87 344.19 157.87 337.81 C 157.87 331.44 152.70 326.26 146.33 326.26 L 58.21 326.26 L 58.21 128.55 L 200.23 25.79 L 342.25 128.55 L 342.25 326.26 L 254.14 326.26 C 247.76 326.26 242.59 331.44 242.59 337.81 C 242.59 344.19 247.76 349.36 254.14 349.36 L 353.80 349.36 C 360.18 349.36 365.35 344.19 365.35 337.81 L 365.35 145.26 L 382.14 157.41 C 384.19 158.89 386.56 159.60 388.90 159.60 C 392.48 159.60 396.01 157.95 398.27 154.83 C 402.01 149.66 400.85 142.44 395.69 138.70 Z" fill="#005444"/>
+<path d="M 277.32 206.78 C 257.31 183.90 230.14 171.25 200.77 171.13 C 200.74 171.13 200.70 171.13 200.67 171.13 C 200.62 171.13 200.57 171.13 200.52 171.13 C 200.47 171.13 200.42 171.13 200.38 171.13 C 200.34 171.13 200.31 171.13 200.27 171.13 C 170.91 171.25 143.73 183.90 123.72 206.78 C 120.41 210.57 120.79 216.31 124.58 219.62 C 126.30 221.13 128.44 221.87 130.56 221.87 C 133.09 221.87 135.62 220.82 137.41 218.76 C 147.01 207.79 167.97 189.38 200.52 189.33 C 233.07 189.38 254.03 207.79 263.63 218.76 C 265.43 220.82 267.95 221.87 270.48 221.87 C 272.61 221.87 274.74 221.13 276.46 219.62 C 280.25 216.31 280.63 210.57 277.32 206.78 Z" fill="#005444"/>
+<path d="M 204.12 199.50 C 203.58 199.40 203.04 199.34 202.48 199.34 C 201.81 199.34 201.17 199.35 200.52 199.37 C 199.87 199.35 199.23 199.34 198.56 199.34 C 198.00 199.34 197.46 199.40 196.93 199.50 C 170.74 200.98 157.13 213.02 143.46 227.38 C 139.99 231.02 140.13 236.78 143.77 240.25 C 145.53 241.93 147.79 242.76 150.05 242.76 C 152.45 242.76 154.85 241.81 156.64 239.93 C 169.14 226.80 179.08 218.06 200.52 217.56 C 221.96 218.06 231.90 226.80 244.41 239.93 C 246.19 241.81 248.59 242.76 251.00 242.76 C 253.25 242.76 255.51 241.93 257.27 240.25 C 260.91 236.78 261.05 231.02 257.58 227.38 C 243.91 213.02 230.31 200.98 204.12 199.50 Z" fill="#005444"/>
+<path d="M 200.68 228.76 C 200.62 228.76 200.57 228.77 200.52 228.77 C 200.47 228.77 200.42 228.76 200.37 228.76 C 182.97 228.76 173.16 236.05 163.79 247.00 C 160.52 250.81 160.97 256.56 164.78 259.83 C 166.50 261.30 168.60 262.01 170.70 262.01 C 173.26 262.01 175.81 260.93 177.61 258.83 C 184.50 250.79 189.66 246.96 200.37 246.96 C 200.42 246.96 200.47 246.95 200.52 246.95 C 200.57 246.95 200.62 246.96 200.68 246.96 C 211.38 246.96 216.54 250.79 223.43 258.83 C 225.23 260.93 227.78 262.01 230.34 262.01 C 232.44 262.01 234.54 261.29 236.26 259.83 C 240.07 256.56 240.52 250.81 237.25 247.00 C 227.88 236.05 218.07 228.76 200.68 228.76 Z" fill="#005444"/>
+<path d="M 200.67 258.79 C 192.00 258.79 184.97 265.82 184.97 274.49 C 184.97 283.16 192.00 290.19 200.67 290.19 C 209.34 290.19 216.37 283.16 216.37 274.49 C 216.37 265.82 209.34 258.79 200.67 258.79 Z" fill="#005444"/>
+<path d="M 465.12 173.91 C 476.91 173.91 482.08 167.36 482.08 158.12 C 482.08 148.36 476.76 141.89 465.34 141.89 L 444.23 141.89 L 444.23 173.91 L 465.12 173.91 Z M 502.53 158.04 C 502.53 179.01 488.48 192.84 465.85 192.84 L 444.23 192.84 L 444.23 215.98 C 444.23 222.82 440.23 226.90 434.11 226.90 C 427.93 226.90 423.92 222.82 423.92 215.98 L 423.92 137.45 C 423.92 127.98 428.87 122.96 438.33 122.96 L 466.79 122.96 C 487.90 122.96 502.53 135.85 502.53 158.04 Z" fill="#005444"/>
+<path d="M 560.98 171.73 C 572.12 171.73 577.14 165.91 577.14 157.10 C 577.14 147.78 572.12 141.89 560.98 141.89 L 539.58 141.89 L 539.58 171.73 L 560.98 171.73 Z M 599.99 217.95 C 599.99 223.55 595.84 227.12 590.53 227.12 C 586.02 227.12 583.11 224.35 580.41 221.08 L 557.85 192.91 C 555.96 190.51 555.66 190.43 552.10 190.43 L 539.58 190.43 L 539.58 215.98 C 539.58 222.82 535.58 226.90 529.46 226.90 C 523.28 226.90 519.27 222.82 519.27 215.98 L 519.27 137.45 C 519.27 127.98 524.22 122.96 533.68 122.96 L 562.80 122.96 C 585.22 122.96 597.59 137.52 597.59 157.03 C 597.59 170.20 590.24 181.34 576.99 185.70 L 595.48 208.05 C 598.32 211.54 599.99 214.67 599.99 217.95 Z" fill="#005444"/>
+<path d="M 634.13 184.25 C 635.15 199.02 645.05 208.63 659.02 208.63 C 673.00 208.63 682.82 199.02 683.99 184.25 C 684.42 177.84 684.35 171.36 683.84 164.96 C 682.75 150.11 673.00 140.50 659.02 140.50 C 645.05 140.50 635.08 150.11 634.06 164.96 C 633.62 171.29 633.62 177.77 634.13 184.25 Z M 613.82 186.36 C 613.17 178.50 613.24 170.71 613.82 162.78 C 615.57 139.27 634.27 121.58 659.02 121.58 C 683.77 121.58 702.69 139.27 704.29 162.78 C 704.88 170.64 704.88 178.42 704.29 186.36 C 702.55 209.87 683.77 227.55 659.02 227.55 C 634.27 227.55 615.64 209.87 613.82 186.36 Z" fill="#005444"/>
+<path d="M 793.97 122.23 C 799.35 122.23 803.28 126.31 803.28 131.26 C 803.28 134.03 801.97 137.01 799.93 139.56 L 771.69 174.93 L 799.28 209.50 C 801.32 212.12 802.63 215.03 802.63 217.80 C 802.63 222.75 798.62 226.90 793.24 226.90 C 789.60 226.90 786.76 225.30 784.00 221.80 L 758.74 190.22 L 733.63 221.80 C 730.86 225.30 728.02 226.90 724.38 226.90 C 718.92 226.90 715.00 222.75 715.00 217.80 C 715.00 215.03 716.38 212.12 718.34 209.50 L 746.22 174.57 L 718.27 139.56 C 716.23 137.01 714.92 134.03 714.92 131.26 C 714.92 126.31 718.92 122.23 724.31 122.23 C 727.95 122.23 730.79 123.69 733.55 127.26 L 759.17 159.28 L 784.65 127.26 C 787.49 123.76 790.25 122.23 793.97 122.23 Z" fill="#005444"/>
+<path d="M 840.62 133.15 L 840.62 215.98 C 840.62 222.82 836.62 226.90 830.43 226.90 C 824.32 226.90 820.31 222.82 820.31 215.98 L 820.31 133.15 C 820.31 126.31 824.32 122.23 830.43 122.23 C 836.62 122.23 840.62 126.31 840.62 133.15 Z" fill="#005444"/>
+<path d="M 917.41 180.39 L 904.45 142.32 C 904.02 141.23 903.65 140.72 902.78 140.72 C 901.98 140.72 901.54 141.23 901.18 142.32 L 888.37 180.39 L 917.41 180.39 Z M 856.56 212.12 L 883.27 138.47 C 887.57 126.46 894.04 122.23 903.07 122.23 C 912.10 122.23 918.57 126.46 922.94 138.47 L 949.51 212.20 C 950.16 214.09 950.38 215.76 950.38 217.29 C 950.38 222.53 946.30 226.90 940.48 226.90 C 935.75 226.90 932.33 224.50 930.51 218.89 L 923.38 198.00 L 882.47 198.00 L 875.49 218.82 C 873.66 224.42 870.25 226.90 865.51 226.90 C 859.69 226.90 855.54 222.53 855.54 217.22 C 855.54 215.84 855.83 214.09 856.56 212.12 Z" fill="#005444"/>
+<path d="M 425.04 314.23 C 424.38 306.30 424.38 298.58 425.04 290.65 C 426.93 267.65 445.64 249.45 470.53 249.45 C 486.76 249.45 501.75 257.17 508.16 270.63 C 509.40 273.40 509.83 275.80 509.83 277.91 C 509.83 283.44 505.83 287.15 500.30 287.15 C 495.79 287.15 493.02 284.83 490.84 281.33 C 487.42 275.00 480.94 268.89 469.87 268.89 C 456.19 268.89 446.51 278.93 445.49 293.20 C 445.06 299.24 445.06 305.71 445.49 311.76 C 446.51 325.95 456.19 336.07 469.87 336.07 C 480.28 336.07 487.20 330.17 490.62 323.77 C 492.87 319.98 495.64 317.43 500.15 317.43 C 505.68 317.43 509.76 321.15 509.76 326.68 C 509.76 328.79 509.40 331.04 508.09 333.95 C 502.12 347.06 486.83 355.43 470.53 355.43 C 445.64 355.43 426.93 337.23 425.04 314.23 Z" fill="#DA1C28"/>
+<path d="M 580.43 308.26 L 567.48 270.20 C 567.04 269.11 566.68 268.60 565.81 268.60 C 565.00 268.60 564.57 269.11 564.20 270.20 L 551.39 308.26 L 580.43 308.26 Z M 519.59 340.00 L 546.30 266.34 C 550.59 254.33 557.07 250.11 566.10 250.11 C 575.12 250.11 581.60 254.33 585.97 266.34 L 612.53 340.07 C 613.19 341.96 613.41 343.64 613.41 345.16 C 613.41 350.40 609.33 354.77 603.51 354.77 C 598.78 354.77 595.36 352.37 593.54 346.77 L 586.40 325.88 L 545.50 325.88 L 538.51 346.69 C 536.69 352.30 533.27 354.77 528.54 354.77 C 522.72 354.77 518.57 350.40 518.57 345.09 C 518.57 343.71 518.86 341.96 519.59 340.00 Z" fill="#DA1C28"/>
+<path d="M 670.03 299.60 C 681.17 299.60 686.19 293.78 686.19 284.97 C 686.19 275.65 681.17 269.76 670.03 269.76 L 648.64 269.76 L 648.64 299.60 L 670.03 299.60 Z M 709.05 345.82 C 709.05 351.42 704.90 354.99 699.59 354.99 C 695.07 354.99 692.16 352.23 689.47 348.95 L 666.90 320.78 C 665.01 318.38 664.72 318.31 661.15 318.31 L 648.64 318.31 L 648.64 343.86 C 648.64 350.70 644.63 354.77 638.52 354.77 C 632.33 354.77 628.33 350.70 628.33 343.86 L 628.33 265.32 C 628.33 255.86 633.28 250.84 642.74 250.84 L 671.86 250.84 C 694.27 250.84 706.64 265.39 706.64 284.90 C 706.64 298.07 699.29 309.21 686.05 313.58 L 704.53 335.92 C 707.37 339.41 709.05 342.54 709.05 345.82 Z" fill="#DA1C28"/>
+<path d="M 726.45 339.56 L 726.45 265.32 C 726.45 255.86 731.47 250.84 740.86 250.84 L 787.73 250.84 C 793.99 250.84 797.85 254.55 797.85 260.30 C 797.85 266.05 793.99 269.76 787.73 269.76 L 746.83 269.76 L 746.83 293.71 L 783.51 293.71 C 789.33 293.71 792.97 297.20 792.97 302.58 C 792.97 307.97 789.33 311.46 783.51 311.46 L 746.83 311.46 L 746.83 335.12 L 787.88 335.12 C 794.21 335.12 798.07 338.83 798.07 344.51 C 798.07 350.33 794.21 354.04 787.88 354.04 L 740.86 354.04 C 731.47 354.04 726.45 349.02 726.45 339.56 Z" fill="#DA1C28"/>
+<path d="M 292.57 220.99 C 275.44 245.05 221.83 297.92 200.45 318.69 C 179.07 297.92 125.47 245.05 108.34 220.99 C 96.82 204.82 95.49 191.67 95.49 183.18 C 95.49 151.98 117.18 126.59 143.84 126.59 C 161.14 126.59 174.37 137.51 190.10 155.13 C 192.82 158.18 196.68 159.58 200.45 159.29 C 204.23 159.58 208.09 158.18 210.81 155.13 C 226.54 137.51 239.77 126.59 257.07 126.59 C 283.73 126.59 305.42 151.98 305.42 183.18 C 305.42 191.67 304.09 204.82 292.57 220.99 Z M 257.07 101.40 C 233.40 101.40 215.68 113.94 200.45 129.33 C 185.23 113.94 167.51 101.40 143.84 101.40 C 103.28 101.40 70.29 138.09 70.29 183.18 C 70.29 201.90 76.02 219.05 87.81 235.61 C 108.81 265.10 176.40 330.56 189.76 343.42 C 190.16 344.01 190.61 344.59 191.12 345.13 C 193.60 347.72 196.91 349.02 200.23 349.02 C 200.31 349.02 200.38 349.02 200.45 349.01 C 200.53 349.02 200.60 349.02 200.67 349.02 C 203.99 349.02 207.31 347.72 209.78 345.13 C 210.30 344.59 210.74 344.01 211.15 343.42 C 224.51 330.56 292.10 265.10 313.10 235.61 C 324.89 219.05 330.62 201.90 330.62 183.18 C 330.62 138.09 297.62 101.40 257.07 101.40 Z" fill="#DA1C28"/>
+</svg>
     </div>
-
-    <div class="eq-group reveal">
-      <div class="eq-group-h">Emergency Response</div>
-      <div class="eq-grid">
-        <div class="eq-card">
-          <div class="eq-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="14" rx="5" ry="6"/><circle cx="12" cy="14" r="2"/><path d="M10 6 q2 -3 4 0"/></svg></div>
-          <div><h4>Mobile Safety Pendant</h4><p>Two-way voice, GPS, automatic fall detection, and 30-day battery. Waterproof for the shower. Works on cellular anywhere in the country.</p></div>
-        </div>
-        <div class="eq-card">
-          <div class="eq-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 0 1 18 0v3.5a2.5 2.5 0 0 1-2.5 2.5H17v-6h3"/><path d="M7 18H5.5A2.5 2.5 0 0 1 3 15.5V12h4v6z"/></svg></div>
-          <div><h4>24/7 Professional Monitoring</h4><p>UL-listed central station partner. Trained operators answer within seconds, dispatch help, and notify your family.</p></div>
-        </div>
-        <div class="eq-card" style="visibility:hidden"></div>
-      </div>
-    </div>
-
-    <div class="eq-group reveal">
-      <div class="eq-group-h">Phoenix Home Protection</div>
-      <div class="eq-grid">
-        <div class="eq-card">
-          <div class="eq-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 14V4a2 2 0 1 1 4 0v10a4 4 0 1 1-4 0z"/><circle cx="12" cy="17" r="1.6" fill="currentColor" stroke="none"/></svg></div>
-          <div><h4>Indoor Temperature Sensors</h4><p>Placed in main living areas. Your family is notified when conditions move toward dangerous heat.</p></div>
-        </div>
-        <div class="eq-card">
-          <div class="eq-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 L4 14 H11 L10 22 L20 10 H13 L13 2z"/></svg></div>
-          <div><h4>AC Power Monitor</h4><p>Detects the moment the AC stops drawing power — before the home becomes unsafe.</p></div>
-        </div>
-        <div class="eq-card">
-          <div class="eq-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 s6 7.5 6 12 a6 6 0 0 1-12 0 c0-4.5 6-12 6-12z"/></svg></div>
-          <div><h4>Water Leak Sensors</h4><p>Placed under sinks and near appliances. Catches leaks before they become disasters.</p></div>
-        </div>
-        <div class="eq-card">
-          <div class="eq-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 8v4 M12 16h.01"/></svg></div>
-          <div><h4>Smoke &amp; CO Integration</h4><p>Smoke and carbon monoxide detection with professional monitoring. A real response, not just a beeping detector.</p></div>
-        </div>
-        <div class="eq-card" style="visibility:hidden"></div>
-        <div class="eq-card" style="visibility:hidden"></div>
-      </div>
-    </div>
-
-    <div class="eq-group reveal">
-      <div class="eq-group-h">Activity Awareness <span style="font-weight:600; color:var(--ink-500); letter-spacing:0; text-transform:none;">(in our most complete service level)</span></div>
-      <div class="eq-grid">
-        <div class="eq-card">
-          <div class="eq-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 3 L13 9 L8 12 L13 16 L9 21"/><circle cx="16" cy="6" r="1.5"/></svg></div>
-          <div><h4>Motion &amp; Door Sensors</h4><p>Discreet sensors that learn daily routines. Designed for dignity — no cameras, no audio recording, no surveillance.</p></div>
-        </div>
-        <div class="eq-card">
-          <div class="eq-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="5" width="16" height="16" rx="2"/><path d="M4 9h16 M9 13h6 M9 17h4"/><path d="M8 3v4 M16 3v4"/></svg></div>
-          <div><h4>Weekly Wellness Summary</h4><p>Delivered to your family in plain language. The information you actually want, when you'd want it.</p></div>
-        </div>
-        <div class="eq-card" style="visibility:hidden"></div>
-      </div>
-    </div>
-
-    <div class="eq-group reveal">
-      <div class="eq-group-h">Optional Add-On</div>
-      <div class="eq-grid">
-        <div class="eq-card">
-          <div class="eq-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 14a8 8 0 1 1-10-10 6 6 0 0 0 10 10z"/></svg></div>
-          <div><h4>Sleep Analyzer</h4><p>Under-mattress sensor that tracks sleep quality and breathing patterns. Nothing to wear.</p></div>
-        </div>
-        <div class="eq-card" style="visibility:hidden"></div>
-        <div class="eq-card" style="visibility:hidden"></div>
-      </div>
-    </div>
-
-    <div class="eq-callout reveal">Total install time: under 2 hours. No drilling. No wall damage. No disruption to your loved one's home.</div>
-  </div>
-</section>
-
-<!-- ============== 9. FAQ ============== -->
-<section class="faq" id="faq" data-screen-label="09 FAQ">
-  <div class="wrap">
-    <div class="reveal">
-      <div class="eyebrow">Common Questions</div>
-      <h2 class="section-h">What Phoenix families ask.</h2>
-    </div>
-    <div class="faq-grid reveal-stagger">
-      <div class="faq-item">
-        <h4>How is this different from a medical alert system?</h4>
-        <p>A medical alert pendant is one component of what we install — and it's a good one. But we also install heat and AC monitoring built for Arizona summers, water leak protection, smoke and CO integration, and (in our most complete service) gentle activity sensors that help families see how their loved one is doing day to day. And unlike the national medical alert companies, we're a local Phoenix team that comes to the home, installs everything professionally, and handles service in person. The pendant is the foundation. The complete system is what makes the home actually safe.</p>
-      </div>
-      <div class="faq-item">
-        <h4>How much does Proxia cost?</h4>
-        <p>Pricing depends on what your loved one's home actually needs — every situation is a little different. Plans start in the $40s per month. We'll give you a clear, transparent price for your specific situation during the free in-home assessment.</p>
-      </div>
-      <div class="faq-item">
-        <h4>Will my loved one have to wear anything?</h4>
-        <p>The mobile pendant is small, lightweight, and waterproof — most seniors forget they're wearing it. Inside the home, our sensors work without any wearable at all. Your loved one doesn't need to interact with any technology.</p>
-      </div>
-      <div class="faq-item">
-        <h4>Are there cameras in the home?</h4>
-        <p>No cameras anywhere. We deliberately don't use them. Cameras feel like surveillance, get unplugged or covered, and undermine the dignity that makes aging in place actually work. Our sensors detect presence, movement, and falls without recording any video or audio.</p>
-      </div>
-      <div class="faq-item">
-        <h4>What happens when my loved one needs help?</h4>
-        <p>If they press the pendant or a fall is detected, they're instantly connected to a trained operator through the pendant's two-way speaker. The operator can talk to them, locate them by GPS, notify your family, and dispatch emergency services. For in-home sensor alerts (heat, water, activity changes), your family is notified by app, text, and email within seconds — or routed to professional monitoring for the most critical events.</p>
-      </div>
-      <div class="faq-item">
-        <h4>What if the internet goes out?</h4>
-        <p>The in-home hub continues processing locally during internet outages. The mobile pendant works independently on its own 4G cellular connection — it doesn't need wifi at all.</p>
-      </div>
-      <div class="faq-item">
-        <h4>What if my loved one isn't comfortable with technology?</h4>
-        <p>That's the point. The sensors are invisible — they don't interact with them at all. The pendant is one button. There are no apps to learn, no screens to check, no devices to charge except the pendant once a month. The technology works around their life, not the other way around.</p>
-      </div>
-      <div class="faq-item">
-        <h4>Where do you provide service?</h4>
-        <p>We serve the greater Phoenix area, with concentrated coverage in the East Valley — Mesa, Gilbert, Chandler, Tempe, Apache Junction, Gold Canyon, Queen Creek — as well as Phoenix, Scottsdale, Glendale, Peoria, Sun City, Sun City West, Sun Lakes, Anthem, and Paradise Valley. If your loved one lives in the Valley, we can get to their home.</p>
-      </div>
+    <div>
+      <span class="eyebrow">Local &amp; founder-led</span>
+      <p class="founder-quote">"I spent eight years protecting homes. Now I protect the people who love them most — and I still do the first visit myself."</p>
+      <p>Proxia Care is a local East Valley company, not a national call center. The founder personally conducts every in-home assessment, our technicians live here, and when you call, someone who knows your mom's name answers.</p>
+      <p class="founder-name">Matt McLeish — Founder &amp; Managing Director</p>
     </div>
   </div>
 </section>
 
-<!-- ============== 10. CONSULT + FOOTER ============== -->
-<section class="consult" id="consult" data-screen-label="10 Consult">
+<!-- ============ PLANS ============ -->
+<section>
   <div class="wrap">
-    <div class="reveal">
-      <div class="eyebrow">Get Started</div>
-      <h2 class="section-h">Schedule your free home assessment.</h2>
-      <p class="section-sub">A Proxia specialist comes to your loved one's home, walks through every room with you, and shows you what real protection would look like for their specific situation. About 30 minutes.</p>
+    <div class="sec-head">
+      <span class="eyebrow">Three simple plans</span>
+      <h2>Priced for real life. Recommended for her home.</h2>
+      <p>Every home — and every parent — is different. We'll recommend the right fit after the free assessment, and we'll tell you honestly if the smallest plan is all she needs.</p>
     </div>
-    <div class="consult-grid">
-      <ul class="consult-list reveal-stagger">
-        <li>
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12 L10 18 L20 6"/></svg>
-          Free 30-minute in-home assessment
-        </li>
-        <li>
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12 L10 18 L20 6"/></svg>
-          Personalized protection plan for their specific home
-        </li>
-        <li>
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12 L10 18 L20 6"/></svg>
-          Same-week installation typically available
-        </li>
-        <li>
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12 L10 18 L20 6"/></svg>
-          Local Phoenix team — not a national call center
-        </li>
-      </ul>
-       <form class="form-card reveal" action="https://formspree.io/f/mwvzqqea" method="POST">
-        <div class="form-row two">
-          <div class="form-row"><label for="name">Your Name</label><input id="name" name="name" type="text" placeholder="Jane Smith" required></div>
-          <div class="form-row"><label for="phone">Your Phone</label><input id="phone" name="phone" type="tel" placeholder="(602) 555-0123" required></div>
+    <div class="plans">
+      <div class="plan">
+        <h3>Essential</h3>
+        <div class="plan-tag">The button</div>
+        <ul>
+          <li>Mobile pendant with two-way voice</li>
+          <li>Automatic fall detection &amp; GPS</li>
+          <li>24/7 professional monitoring</li>
+          <li>Family notifications</li>
+        </ul>
+      </div>
+      <div class="plan mid">
+        <span class="plan-flag">Most families choose</span>
+        <h3>Wellness</h3>
+        <div class="plan-tag">The button + the weekly report</div>
+        <ul>
+          <li>Everything in Essential</li>
+          <li>Bedroom &amp; core-home sensing (no cameras)</li>
+          <li>Family dashboard</li>
+          <li>Weekly wellness report</li>
+          <li>AC &amp; water-leak alerts</li>
+        </ul>
+      </div>
+      <div class="plan">
+        <h3>Complete</h3>
+        <div class="plan-tag">Whole-home coverage</div>
+        <ul>
+          <li>Everything in Wellness</li>
+          <li>Bathroom &amp; bedroom fall sensing</li>
+          <li>Activity awareness in every main room</li>
+          <li>Full environmental protection</li>
+        </ul>
+      </div>
+    </div>
+    <p class="plans-note">We install everything, we own and service the equipment forever, and additional sensors can be added to any plan at no extra monthly cost. Ask us anything at the assessment — including exact pricing for her home.</p>
+  </div>
+</section>
+
+<!-- ============ FAQ ============ -->
+<section class="faq">
+  <div class="wrap" style="max-width:820px">
+    <div class="sec-head">
+      <span class="eyebrow">Common questions</span>
+      <h2>The things families ask us first.</h2>
+    </div>
+    <details>
+      <summary>Are there cameras in the house?</summary>
+      <div class="a">No. Ever. Our sensors notice patterns — movement, temperature, sleep rhythms — without watching or recording anyone. Nothing sees her, nothing films her, and nothing ends up on the internet. It's the difference between a home that quietly notices and a home under surveillance — and it's why parents actually say yes.</div>
+    </details>
+    <details>
+      <summary>How does this compare to the cost of assisted living?</summary>
+      <div class="a">Assisted living in the Phoenix area typically runs $4,000–$8,000 a month, and the average stay is about two years — a six-figure decision. Proxia costs a small fraction of that. Most families tell us the move happened not because their parent suddenly needed nursing care, but because nobody could be sure she was okay at home. That certainty is exactly what we provide — and we'll give you exact pricing for her home at the free assessment.</div>
+    </details>
+    <details>
+      <summary>What if she won't wear a pendant?</summary>
+      <div class="a">It happens — and it's why the home layer matters. The sensors work whether or not the pendant is on her wrist, so the family still gets the weekly report and the safety alerts even on the days it sits on the nightstand. Most parents come around once they realize the pendant is theirs, not a leash.</div>
+    </details>
+    <details>
+      <summary>Is there a contract?</summary>
+      <div class="a">Yes — 36 months, because keeping your parent home is a long-term plan, and we price it like one: we install everything, we own the equipment, and we service it forever at no extra cost. And in writing: if she ever moves to full-time care, or passes, the agreement ends. Nobody pays for service they don't need.</div>
+    </details>
+    <details>
+      <summary>Who responds if something happens?</summary>
+      <div class="a">A professional, UL-listed emergency monitoring center staffed 24/7 by trained operators — the same caliber of response center that protects hospitals and businesses. They speak with her through the pendant, dispatch help if needed, and notify the family immediately.</div>
+    </details>
+    <details>
+      <summary>What happens at the free assessment?</summary>
+      <div class="a">The founder visits in person — with you and your parent together — walks the home, points out what he sees (good and bad), and recommends the right plan for her specific home. About 45 minutes, completely free, no obligation. If Proxia isn't the right fit, we'll say so.</div>
+    </details>
+  </div>
+</section>
+
+<!-- ============ FINAL CTA + FORM ============ -->
+<section class="final" id="book">
+  <div class="wrap final-grid">
+    <div>
+      <h2>Start with a free in-home safety assessment.</h2>
+      <p>45 minutes. No obligation. An honest read on what she actually needs — and her pendant can be protecting her before we leave.</p>
+      <a class="final-phone" href="tel:+16028225913">(602) 822-5913</a>
+      <small>Prefer to talk? Call anytime — you'll reach a local person, not a call center.</small>
+    </div>
+    <div class="form-card">
+      <h3>Book the free assessment</h3>
+      <p class="sub">We'll call you back within minutes during business hours.</p>
+      <!-- Replace YOUR_FORM_ID with your Formspree form ID before deploying -->
+      <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+        <div class="field">
+          <label for="name">Your name</label>
+          <input id="name" name="name" type="text" autocomplete="name" required>
         </div>
-        <div class="form-row">
-          <label for="email">Your Email</label>
-          <input id="email" name="email" type="email" placeholder="jane@example.com" required>
+        <div class="field">
+          <label for="phone">Phone number</label>
+          <input id="phone" name="phone" type="tel" autocomplete="tel" required>
         </div>
-        <div class="form-row">
-          <label for="city">City or area in Greater Phoenix</label>
-          <select id="city" name="city" required>
-            <option value="">Choose a city…</option>
-            <option>Mesa</option>
-            <option>Gilbert</option>
-            <option>Chandler</option>
-            <option>Tempe</option>
-            <option>Apache Junction</option>
-            <option>Gold Canyon</option>
-            <option>Queen Creek</option>
-            <option>Phoenix</option>
-            <option>Scottsdale</option>
-            <option>Glendale</option>
-            <option>Peoria</option>
-            <option>Sun City</option>
-            <option>Sun City West</option>
-            <option>Sun Lakes</option>
-            <option>Anthem</option>
-            <option>Paradise Valley</option>
-            <option>Other</option>
+        <div class="field">
+          <label for="for-whom">Who is this for?</label>
+          <select id="for-whom" name="for_whom">
+            <option>My mom</option>
+            <option>My dad</option>
+            <option>Both my parents</option>
+            <option>Myself</option>
+            <option>Someone else</option>
           </select>
         </div>
-        <div class="form-row">
-          <label for="note">Tell us what's on your mind</label>
-          <textarea id="note" name="message" rows="4" placeholder="My mom lives alone in Sun City and I'm worried about the summer…"></textarea>
+        <div class="field">
+          <label for="best-time">Best time to reach you</label>
+          <select id="best-time" name="best_time">
+            <option>Morning</option>
+            <option>Afternoon</option>
+            <option>Evening</option>
+          </select>
         </div>
-        <button type="submit" class="btn btn-primary">Request My Free Assessment</button>
-        <p class="form-note">We'll call you within 24 hours to schedule. Your information stays with Proxia Care — we never share or sell family data.</p>
+        <button class="btn btn-coral" type="submit">Request my free assessment</button>
+        <p class="form-fine">No spam, no pressure — just a friendly call to set up a time.</p>
       </form>
     </div>
   </div>
 </section>
 
-<!-- ============== FOOTER ============== -->
-<footer class="foot" data-screen-label="Footer">
-  <div class="wrap">
-    <div class="foot-grid">
-      <div>
-        <a class="brand" href="#top" aria-label="Proxia Care — home">
-          <svg class="brand-mark" viewBox="0 0 64 64" aria-hidden="true">
-            <path d="M32 56 C 10 42, 6 26, 14 18 C 20 12, 28 14, 32 20 C 36 14, 44 12, 50 18 C 58 26, 54 42, 32 56 Z"
-                  fill="none" stroke="#5BBFB5" stroke-width="3.6" stroke-linejoin="round" stroke-linecap="round"/>
-            <path d="M22 32 Q 32 24 42 32" fill="none" stroke="#8DDBD4" stroke-width="2.8" stroke-linecap="round"/>
-            <path d="M25.5 36.5 Q 32 32 38.5 36.5" fill="none" stroke="#8DDBD4" stroke-width="2.8" stroke-linecap="round"/>
-            <circle cx="32" cy="44" r="4.6" fill="#F07C6B"/>
-          </svg>
-          <span class="brand-name">PROX<span class="beacon" aria-hidden="true">I</span>A<span class="care">CARE</span></span>
-        </a>
-        <p class="blurb">Keeping Phoenix seniors safe at home.</p>
-      </div>
-      <div>
-        <h5>Company</h5>
-        <ul>
-          <li><a href="#how">How it works</a></li>
-          <li><a href="#equipment">What's installed</a></li>
-          <li><a href="#faq">FAQ</a></li>
-          <li><a href="#consult">Contact</a></li>
-        </ul>
-      </div>
-      <div>
-        <h5>Service Areas</h5>
-        <p class="blurb" style="margin-top:0;">Greater Phoenix area, including:</p>
-        <p class="blurb" style="margin-top:0;">Mesa · Gilbert · Chandler · Tempe · Apache Junction · Gold Canyon · Queen Creek · Phoenix · Scottsdale · Glendale · Peoria · Sun City · Sun City West · Sun Lakes · Anthem · Paradise Valley</p>
-      </div>
-      <div>
-        <h5>Contact</h5>
-        <ul>
-          <li><a href="tel:+16028225913">(602) 822-5913</a></li>
-          <li><a href="mailto:hello@proxiacare.com">hello@proxiacare.com</a></li>
-          <li>Phoenix, AZ</li>
-        </ul>
-      </div>
+</main>
+
+<!-- ============ FOOTER ============ -->
+<footer>
+  <div class="wrap foot-grid">
+    <div class="logo" style="gap:10px">
+      <svg viewBox="-4.5 -3.0 409.6 355.4" xmlns="http://www.w3.org/2000/svg" style="height:34px;width:auto" aria-hidden="true">
+<path d="M 395.69 138.70 L 207.17 2.31 C 207.15 2.29 207.13 2.28 207.11 2.26 L 207.00 2.18 C 206.93 2.13 206.86 2.09 206.79 2.04 C 206.56 1.88 206.32 1.73 206.09 1.59 C 205.96 1.51 205.83 1.45 205.70 1.38 C 205.50 1.27 205.30 1.16 205.10 1.07 C 204.93 0.99 204.75 0.92 204.58 0.85 C 204.41 0.78 204.25 0.71 204.08 0.65 C 203.87 0.58 203.67 0.52 203.46 0.46 C 203.31 0.42 203.17 0.37 203.02 0.34 C 202.80 0.28 202.59 0.24 202.37 0.20 C 202.22 0.17 202.07 0.14 201.92 0.12 C 201.72 0.09 201.51 0.07 201.30 0.05 C 201.13 0.03 200.96 0.02 200.79 0.01 C 200.61 -0.00 200.43 0.00 200.24 0.00 C 200.05 -0.00 199.85 -0.00 199.66 0.01 C 199.50 0.02 199.34 0.03 199.18 0.05 C 198.97 0.07 198.75 0.09 198.53 0.12 C 198.39 0.14 198.25 0.17 198.11 0.20 C 197.89 0.24 197.66 0.28 197.44 0.34 C 197.30 0.37 197.16 0.41 197.02 0.45 C 196.81 0.52 196.59 0.58 196.38 0.66 C 196.22 0.71 196.06 0.78 195.91 0.84 C 195.72 0.92 195.54 0.99 195.36 1.07 C 195.16 1.16 194.97 1.27 194.77 1.37 C 194.64 1.44 194.51 1.51 194.38 1.59 C 194.14 1.73 193.91 1.88 193.69 2.04 C 193.61 2.09 193.53 2.13 193.46 2.18 L 193.35 2.27 C 193.33 2.28 193.31 2.29 193.29 2.30 L 4.78 138.70 C -0.39 142.44 -1.55 149.66 2.19 154.83 C 4.45 157.95 7.98 159.60 11.56 159.60 C 13.90 159.60 16.27 158.89 18.32 157.41 L 35.11 145.26 L 35.11 337.81 C 35.11 344.19 40.28 349.36 46.66 349.36 L 146.33 349.36 C 152.70 349.36 157.87 344.19 157.87 337.81 C 157.87 331.44 152.70 326.26 146.33 326.26 L 58.21 326.26 L 58.21 128.55 L 200.23 25.79 L 342.25 128.55 L 342.25 326.26 L 254.14 326.26 C 247.76 326.26 242.59 331.44 242.59 337.81 C 242.59 344.19 247.76 349.36 254.14 349.36 L 353.80 349.36 C 360.18 349.36 365.35 344.19 365.35 337.81 L 365.35 145.26 L 382.14 157.41 C 384.19 158.89 386.56 159.60 388.90 159.60 C 392.48 159.60 396.01 157.95 398.27 154.83 C 402.01 149.66 400.85 142.44 395.69 138.70 Z" fill="#7FCFC4"/>
+<path d="M 277.32 206.78 C 257.31 183.90 230.14 171.25 200.77 171.13 C 200.74 171.13 200.70 171.13 200.67 171.13 C 200.62 171.13 200.57 171.13 200.52 171.13 C 200.47 171.13 200.42 171.13 200.38 171.13 C 200.34 171.13 200.31 171.13 200.27 171.13 C 170.91 171.25 143.73 183.90 123.72 206.78 C 120.41 210.57 120.79 216.31 124.58 219.62 C 126.30 221.13 128.44 221.87 130.56 221.87 C 133.09 221.87 135.62 220.82 137.41 218.76 C 147.01 207.79 167.97 189.38 200.52 189.33 C 233.07 189.38 254.03 207.79 263.63 218.76 C 265.43 220.82 267.95 221.87 270.48 221.87 C 272.61 221.87 274.74 221.13 276.46 219.62 C 280.25 216.31 280.63 210.57 277.32 206.78 Z" fill="#7FCFC4"/>
+<path d="M 204.12 199.50 C 203.58 199.40 203.04 199.34 202.48 199.34 C 201.81 199.34 201.17 199.35 200.52 199.37 C 199.87 199.35 199.23 199.34 198.56 199.34 C 198.00 199.34 197.46 199.40 196.93 199.50 C 170.74 200.98 157.13 213.02 143.46 227.38 C 139.99 231.02 140.13 236.78 143.77 240.25 C 145.53 241.93 147.79 242.76 150.05 242.76 C 152.45 242.76 154.85 241.81 156.64 239.93 C 169.14 226.80 179.08 218.06 200.52 217.56 C 221.96 218.06 231.90 226.80 244.41 239.93 C 246.19 241.81 248.59 242.76 251.00 242.76 C 253.25 242.76 255.51 241.93 257.27 240.25 C 260.91 236.78 261.05 231.02 257.58 227.38 C 243.91 213.02 230.31 200.98 204.12 199.50 Z" fill="#7FCFC4"/>
+<path d="M 200.68 228.76 C 200.62 228.76 200.57 228.77 200.52 228.77 C 200.47 228.77 200.42 228.76 200.37 228.76 C 182.97 228.76 173.16 236.05 163.79 247.00 C 160.52 250.81 160.97 256.56 164.78 259.83 C 166.50 261.30 168.60 262.01 170.70 262.01 C 173.26 262.01 175.81 260.93 177.61 258.83 C 184.50 250.79 189.66 246.96 200.37 246.96 C 200.42 246.96 200.47 246.95 200.52 246.95 C 200.57 246.95 200.62 246.96 200.68 246.96 C 211.38 246.96 216.54 250.79 223.43 258.83 C 225.23 260.93 227.78 262.01 230.34 262.01 C 232.44 262.01 234.54 261.29 236.26 259.83 C 240.07 256.56 240.52 250.81 237.25 247.00 C 227.88 236.05 218.07 228.76 200.68 228.76 Z" fill="#7FCFC4"/>
+<path d="M 200.67 258.79 C 192.00 258.79 184.97 265.82 184.97 274.49 C 184.97 283.16 192.00 290.19 200.67 290.19 C 209.34 290.19 216.37 283.16 216.37 274.49 C 216.37 265.82 209.34 258.79 200.67 258.79 Z" fill="#7FCFC4"/>
+<path d="M 292.57 220.99 C 275.44 245.05 221.83 297.92 200.45 318.69 C 179.07 297.92 125.47 245.05 108.34 220.99 C 96.82 204.82 95.49 191.67 95.49 183.18 C 95.49 151.98 117.18 126.59 143.84 126.59 C 161.14 126.59 174.37 137.51 190.10 155.13 C 192.82 158.18 196.68 159.58 200.45 159.29 C 204.23 159.58 208.09 158.18 210.81 155.13 C 226.54 137.51 239.77 126.59 257.07 126.59 C 283.73 126.59 305.42 151.98 305.42 183.18 C 305.42 191.67 304.09 204.82 292.57 220.99 Z M 257.07 101.40 C 233.40 101.40 215.68 113.94 200.45 129.33 C 185.23 113.94 167.51 101.40 143.84 101.40 C 103.28 101.40 70.29 138.09 70.29 183.18 C 70.29 201.90 76.02 219.05 87.81 235.61 C 108.81 265.10 176.40 330.56 189.76 343.42 C 190.16 344.01 190.61 344.59 191.12 345.13 C 193.60 347.72 196.91 349.02 200.23 349.02 C 200.31 349.02 200.38 349.02 200.45 349.01 C 200.53 349.02 200.60 349.02 200.67 349.02 C 203.99 349.02 207.31 347.72 209.78 345.13 C 210.30 344.59 210.74 344.01 211.15 343.42 C 224.51 330.56 292.10 265.10 313.10 235.61 C 324.89 219.05 330.62 201.90 330.62 183.18 C 330.62 138.09 297.62 101.40 257.07 101.40 Z" fill="#F07C6B"/>
+</svg>
+      <span class="logo-word">Proxia&nbsp;Care</span>
     </div>
-    <div class="foot-bot">
-      © 2026 Proxia Care, LLC. All rights reserved. Proxia Care provides professionally monitored emergency response services in partnership with a UL-listed central station. We are not a medical device manufacturer, healthcare provider, or pharmacy. For life-threatening emergencies, always dial 911.
+    <div>
+      Serving the Greater Phoenix East Valley · <a href="tel:+16028225913">(602) 822-5913</a> · <a href="mailto:hello@proxiacare.com">hello@proxiacare.com</a>
     </div>
+    <div>© 2026 Proxia Care LLC · Gold Canyon, AZ</div>
   </div>
 </footer>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
-/* ----- Render the dashboard activity bars ----- */
-(function buildBars(){
-  var host = document.getElementById('bars');
-  if(!host) return;
-  // 24 bars representing hours of the day, varying heights
-  var heights = [10,8,8,7,9,12,28,46,58,52,40,44,50,38,42,48,54,44,36,28,22,18,14,12];
-  var palette = ['#5BBFB5','#5BBFB5','#5BBFB5','#5BBFB5','#5BBFB5','#5BBFB5',
-                 '#3A9E94','#3A9E94','#1E7A72','#1E7A72','#1E7A72','#1E7A72',
-                 '#1E7A72','#1E7A72','#1E7A72','#1E7A72','#1E7A72','#F07C6B',
-                 '#3A9E94','#3A9E94','#5BBFB5','#5BBFB5','#5BBFB5','#5BBFB5'];
-  var max = Math.max.apply(null, heights);
-  heights.forEach(function(h, i){
-    var s = document.createElement('span');
-    s.style.height = (4 + (h/max)*54) + 'px';
-    s.style.background = palette[i];
-    host.appendChild(s);
-  });
-})();
+<!-- Sticky tap-to-call bar (mobile only) -->
+<div class="callbar">
+  <a href="tel:+16028225913" aria-label="Call Proxia Care now">
+    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M4 3h4l1.5 4L7 9c1 2.5 2.5 4 5 5l2-2.5 4 1.5v4c0 .6-.4 1-1 1C9 18 2 11 2 4c0-.6.4-1 1-1z" fill="#fff"/></svg>
+    Call now — free assessment
+  </a>
+</div>
 
-/* ----- Scroll reveal ----- */
-(function reveal(){
-  var els = document.querySelectorAll('.reveal, .reveal-stagger');
-  if(!('IntersectionObserver' in window)){
-    els.forEach(function(el){ el.classList.add('in'); });
-    return;
-  }
-  var io = new IntersectionObserver(function(entries){
-    entries.forEach(function(e){
-      if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); }
-    });
-  }, { rootMargin:'0px 0px -10% 0px', threshold:0.12 });
-  els.forEach(function(el){ io.observe(el); });
-})();
-</script>
+</body>
+</html>
+
 </body>
 </html>
